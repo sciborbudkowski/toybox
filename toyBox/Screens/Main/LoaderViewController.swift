@@ -5,7 +5,7 @@ class LoaderViewController: ViewController {
     let customView = LoaderView()
 
     override func viewDidLoad() {
-        view.backgroundColor = UIColor(named: "Background")!.withAlphaComponent(75)
+        view.backgroundColor = UIColor(named: "Background")!.withAlphaComponent(0.75)
     }
 
     override func loadView() {

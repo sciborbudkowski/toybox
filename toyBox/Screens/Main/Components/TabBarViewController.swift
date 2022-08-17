@@ -14,6 +14,7 @@ class TabBarViewController: TabBarController {
         super.viewWillAppear(animated)
 
         tabBar.tintColor = UIColor(named: "ButtonInverted")
+        tabBar.unselectedItemTintColor = UIColor(named: "TabBarUnselected")
         tabBar.isTranslucent = true
 
         let tabDashboard = DashboardViewController()

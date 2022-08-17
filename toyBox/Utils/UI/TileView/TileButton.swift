@@ -9,27 +9,35 @@ struct TileButtonModel {
 
 class TileButton: View {
 
+    private var shadowLayer: CAShapeLayer?
+
     let backgroundImageView: UIImageView = {
         let view = UIImageView()
         view.kf.setImage(with: URL(string: "https://placeimg.com/640/480/any"))
-        view.layer.cornerRadius = 10
+        view.layer.cornerRadius = 5
         view.clipsToBounds = true
         return view
     }()
 
-    let titleLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.FontKarla(.regular, ofSize: 14)
+    let titleLabel: Label = {
+        let label = Label()
+        label.font = UIFont.FontKarla(.regular, ofSize: 16)
         label.text = ""
-        label.textColor = .white
+        label.textColor = .black
+        label.backgroundColor = .lightGray.withAlphaComponent(0.33)
+        label.paddingLeft = 2.0
+        label.paddingRight = 2.0
         return label
     }()
 
-    let subTitleLabel: UILabel = {
-        let label = UILabel()
+    let subTitleLabel: Label = {
+        let label = Label()
         label.font = UIFont.FontKarla(.regular, ofSize: 12)
         label.text = ""
-        label.textColor = .white
+        label.textColor = .black
+        label.backgroundColor = .lightGray.withAlphaComponent(0.33)
+        label.paddingLeft = 2.0
+        label.paddingRight = 2.0
         return label
     }()
 
@@ -42,10 +50,30 @@ class TileButton: View {
         backgroundImageView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
 
         subTitleLabel.leadingAnchor.constraint(equalTo: backgroundImageView.leadingAnchor, constant: 5).isActive = true
+        subTitleLabel.trailingAnchor.constraint(equalTo: backgroundImageView.trailingAnchor, constant: -5).isActive = true
         subTitleLabel.bottomAnchor.constraint(equalTo: backgroundImageView.bottomAnchor, constant: -5).isActive = true
 
         titleLabel.leadingAnchor.constraint(equalTo: backgroundImageView.leadingAnchor, constant: 5).isActive = true
-        titleLabel.bottomAnchor.constraint(equalTo: subTitleLabel.topAnchor).isActive = true
+        titleLabel.bottomAnchor.constraint(equalTo: subTitleLabel.topAnchor, constant: -5).isActive = true
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+
+        if shadowLayer == nil {
+            shadowLayer = CAShapeLayer()
+            shadowLayer?.path = UIBezierPath(roundedRect: bounds, cornerRadius: 10).cgPath
+            shadowLayer?.fillColor = UIColor.clear.cgColor
+
+            shadowLayer?.shadowColor = UIColor.darkGray.cgColor
+            shadowLayer?.shadowPath = shadowLayer?.path
+            shadowLayer?.shadowOffset = CGSize(width: 5.0, height: 5.0)
+            shadowLayer?.shadowOpacity = 0.7
+            shadowLayer?.shadowRadius = 5.0
+
+            guard let shadowLayer = shadowLayer else { return }
+            layer.insertSublayer(shadowLayer, at: 0)
+        }
     }
 
     func configure(with model: TileButtonModel) {

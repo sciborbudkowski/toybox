@@ -1,5 +1,10 @@
 import Foundation
 
+enum ToysType: String, Codable {
+    case popular = "popular-toys"
+    case recent = "recent-toys"
+}
+
 struct ToyModel: Codable {
     var id: String
     var name: String
@@ -28,6 +33,7 @@ struct ToyModel: Codable {
 
 struct ToysModel: Codable {
     var result: Bool
+    var type: ToysType
     var count: Int
     var data: [ToyModel]
 }
