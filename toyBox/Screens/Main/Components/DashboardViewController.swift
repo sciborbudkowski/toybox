@@ -29,29 +29,7 @@ class DashboardViewController: ViewController {
     }
 
     override func setupCombineComponents() {
-
     }
-
-//    private func getToysPopular() -> AnyPublisher<ToysModel, NetworkRequestError> {
-//        return apiClient.dispatch(ToysPopular())
-//            .delay(for: 1.0, scheduler: apiClientQueue)
-//            .map { $0 }
-//            .eraseToAnyPublisher()
-//    }
-//
-//    private func getToysRecent() -> AnyPublisher<ToysModel, NetworkRequestError> {
-//        return apiClient.dispatch(ToysRecent())
-//            .delay(for: 1.0, scheduler: apiClientQueue)
-//            .map { $0 }
-//            .eraseToAnyPublisher()
-//    }
-//
-//    private func getCategories() -> AnyPublisher<CategoriesModel, NetworkRequestError> {
-//        return apiClient.dispatch(Categories())
-//            .delay(for: 1.0, scheduler: apiClientQueue)
-//            .map { $0 }
-//            .eraseToAnyPublisher()
-//    }
 
     private func getDataFromApi() {
         let loader = LoaderViewController()
@@ -63,9 +41,6 @@ class DashboardViewController: ViewController {
         apiClient.dispatch(InitialData())
             .map { $0 }
             .sink { _ in
-                DispatchQueue.main.async {
-                    loader.dismiss(animated: true)
-                }
             } receiveValue: { [weak self] data in
                 guard let self = self else { return }
                 self.updatePopularTiles(with: data.popularToys)
@@ -74,12 +49,14 @@ class DashboardViewController: ViewController {
 
                 DispatchQueue.main.async {
                     self.customView.tileViews.forEach { $0.isHidden = false }
+                    loader.dismiss(animated: true)
                 }
             }
             .store(in: &cancellables)
     }
 
     private func updatePopularTiles(with model: [ToyModel]) {
+        toysPopular = ToysModel(result: true, type: .popular, count: model.count, data: model)
         let max = model.count < 4 ? model.count : 3
 
         for index in 0...max {
@@ -88,11 +65,18 @@ class DashboardViewController: ViewController {
                                          image: model[index].image)
             DispatchQueue.main.async {
                 self.customView.popularTileView.buttons[index].configure(with: button)
+                self.customView.popularTileView.buttons[index].gesture().sink { _ in
+                    let toyViewController = ToyViewController()
+                    toyViewController.configure(with: model[index])
+
+                    self.navigationController?.pushViewController(toyViewController, animated: true)
+                }.store(in: &self.cancellables)
             }
         }
     }
 
     private func updateRecentTiles(with model: [ToyModel]) {
+        toysRecent = ToysModel(result: true, type: .popular, count: model.count, data: model)
         let max = model.count < 4 ? model.count : 3
 
         for index in 0...max {

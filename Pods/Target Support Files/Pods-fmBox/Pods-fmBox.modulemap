@@ -1,6 +1,0 @@
-framework module Pods_fmBox {
-  umbrella header "Pods-fmBox-umbrella.h"
-
-  export *
-  module * { export * }
-}
