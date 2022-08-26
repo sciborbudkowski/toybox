@@ -5,19 +5,29 @@ class LoaderViewController: ViewController {
     let customView = LoaderView()
 
     override func viewDidLoad() {
-        view.backgroundColor = UIColor(named: "Background")!.withAlphaComponent(0.75)
+        super.viewDidLoad()
+
+        view.backgroundColor = UIColor(named: "Background")!.withAlphaComponent(0.65)
     }
 
     override func loadView() {
         view = customView
     }
 
-    public func start() {
+    func prepare() {
+        modalTransitionStyle = .crossDissolve
+        modalPresentationStyle = .custom
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
         customView.loadingIndicator.startAnimating()
     }
 
-    public func stop() {
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
         customView.loadingIndicator.stopAnimating()
-        dismiss(animated: true)
     }
 }

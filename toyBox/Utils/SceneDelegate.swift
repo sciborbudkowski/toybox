@@ -25,13 +25,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, FUIAuthDelegate {
         authUI?.delegate = self
         authUI?.providers = providers
 
-        // guard let authViewController = authUI?.authViewController() else { fatalError("something wrong") }
-
         window = UIWindow(windowScene: windowScene)
 
-        let viewController = MainViewController()
+        let viewController = SignInViewController()
         let navigationController = UINavigationController(rootViewController: viewController)
-        //let navigationController = UINavigationController(rootViewController: authViewController)
 
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()

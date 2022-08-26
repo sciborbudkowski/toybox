@@ -5,7 +5,7 @@ struct ApiClient {
     var baseURL: String!
     var networkDispatcher: NetworkDispatcher!
 
-    init(baseURL: String, networkDispatcher: NetworkDispatcher = NetworkDispatcher()) {
+    init(baseURL: String = Settings.shared.apiBaseUrl, networkDispatcher: NetworkDispatcher = NetworkDispatcher()) {
         self.baseURL = baseURL
         self.networkDispatcher = networkDispatcher
     }

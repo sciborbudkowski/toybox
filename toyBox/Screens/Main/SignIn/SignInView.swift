@@ -7,7 +7,7 @@ import GoogleSignIn
 import Combine
 import CombineCocoa
 
-class MainView: View {
+class SignInView: View {
 
     let logoView: UIImageView = {
         let view = UIImageView()

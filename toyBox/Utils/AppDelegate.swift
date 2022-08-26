@@ -16,12 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         )
 
         FirebaseApp.configure()
+        setupNavigationBar()
 
         return true
     }
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
-
         return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
     }
 
@@ -36,7 +36,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         )
 
         return GIDSignIn.sharedInstance.handle(url)
+    }
 
-        return true
+    private func setupNavigationBar() {
+        UINavigationBar.appearance().backIndicatorImage = UIImage(systemName: "arrow.left")
+        UINavigationBar.appearance().backIndicatorTransitionMaskImage = UIImage(systemName: "arrow.left")
+        UINavigationBar.appearance().tintColor = UIColor(named: "Accent")
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.font: UIFont.FontKarla(.regular, ofSize: 18)]
     }
 }

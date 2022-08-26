@@ -12,11 +12,11 @@ import FirebaseEmailAuthUI
 import GoogleSignIn
 import AuthenticationServices
 
-class MainViewController: ViewController {
+class SignInViewController: ViewController {
 
     var locationQueue = DispatchQueue(label: "locationQueue")
 
-    private let customView = MainView()
+    private let customView = SignInView()
 
     private var locationInfo: LocationInfo?
     private var twitterAuthProvider = OAuthProvider(providerID: "twitter.com")
@@ -166,7 +166,7 @@ class MainViewController: ViewController {
     }
 }
 
-extension MainViewController {
+extension SignInViewController {
 
     private func startLocationService() {
         let _ = Future<Int, Never> { promise in
@@ -186,7 +186,7 @@ extension MainViewController {
     }
 }
 
-extension MainViewController: ASAuthorizationControllerDelegate, ASAuthorizationControllerPresentationContextProviding {
+extension SignInViewController: ASAuthorizationControllerDelegate, ASAuthorizationControllerPresentationContextProviding {
 
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
         if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {

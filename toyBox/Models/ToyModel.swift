@@ -12,10 +12,17 @@ struct ToyModel: Codable {
     var dateAdded: String
     var userId: String
     var isActive: Bool
+    var isFeatured: Bool
     var viewCount: Int
+    var viewCountAsFeatured: Int
     var activeDays: Int
     var image: String
     var price: Int
+    var categoryId: String
+    var subCategoryId: String
+    var gender: Int
+    var brand: String
+    var ageMin: Int
 
     enum CodingKeys: String, CodingKey {
         case id = "_id"
@@ -24,10 +31,17 @@ struct ToyModel: Codable {
         case dateAdded
         case userId
         case isActive
+        case isFeatured
         case viewCount
+        case viewCountAsFeatured
         case activeDays
         case image
         case price
+        case categoryId
+        case subCategoryId
+        case gender
+        case brand
+        case ageMin
     }
 }
 

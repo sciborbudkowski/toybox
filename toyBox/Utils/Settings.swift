@@ -21,5 +21,7 @@ class Settings {
         return value
     }
 
+    var isBackFromChildController: Bool = false
+
     let apiBaseUrl: String = "https://develop-box.pl:8000/"
 }

@@ -119,24 +119,23 @@ class ToyView: View {
     let mainTableView: CollapseTableView = {
         let view = CollapseTableView()
         view.register(ToyViewCell.self, forCellReuseIdentifier: ToyViewCell.identifier)
+        view.allowsSelection = false
         return view
     }()
 
     override func setupConstraints() {
-        addSubviews([nameLabel, imageView, mainTableView])
+        addSubviews([imageView, mainTableView])
 
-        nameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 50).isActive = true
-        nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
-        nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
-
-        imageView.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 10).isActive = true
+        imageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
         imageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
         imageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
-        imageView.heightAnchor.constraint(equalToConstant: 150).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: 175).isActive = true
 
         mainTableView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 10).isActive = true
         mainTableView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
         mainTableView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
         mainTableView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        mainTableView.layer.borderColor = UIColor.red.cgColor
+        mainTableView.layer.borderWidth = 2
     }
 }

@@ -9,6 +9,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         setupCombineComponents()
+        
+        navigationItem.backButtonTitle = ""
     }
 
     func setupCombineComponents() { }

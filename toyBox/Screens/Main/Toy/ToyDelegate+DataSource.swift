@@ -1,32 +1,41 @@
 import UIKit
 
-extension ToyViewController: UITableViewDataSource, UITableViewDelegate {
+struct ToyPropertySections {
+    var sectionName: String
+    var properties: [ToyPropertyType]
+}
+
+class ToyDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
+
+    lazy var sections = [ToyPropertySections]()
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return sections[section].properties.count
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 4
+        return sections.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ToyViewCell.identifier, for: indexPath) as? ToyViewCell else { return UITableViewCell() }
-        cell.textLabel?.text = "Text for cell"
+        let property = sections[indexPath.section].properties[indexPath.row]
+        cell.model = ToyPropertyType(name: property.name, value: property.value)
 
         return cell
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        guard let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: ToyHeaderView.identifier) else {
+        guard let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: ToyHeaderView.identifier) as? ToyHeaderView else {
             return UITableViewHeaderFooterView()
         }
+        view.titleLabel.text = sections[section].sectionName
 
         return view
     }
 
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 1
+        return 0
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

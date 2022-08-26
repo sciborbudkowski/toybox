@@ -13,7 +13,6 @@ class TileButton: View {
 
     let backgroundImageView: UIImageView = {
         let view = UIImageView()
-        view.kf.setImage(with: URL(string: "https://placeimg.com/640/480/any"))
         view.layer.cornerRadius = 5
         view.clipsToBounds = true
         return view
@@ -24,7 +23,7 @@ class TileButton: View {
         label.font = UIFont.FontKarla(.regular, ofSize: 16)
         label.text = ""
         label.textColor = .black
-        label.backgroundColor = .lightGray.withAlphaComponent(0.33)
+        label.backgroundColor = .lightGray.withAlphaComponent(0.5)
         label.paddingLeft = 2.0
         label.paddingRight = 2.0
         return label
@@ -35,7 +34,7 @@ class TileButton: View {
         label.font = UIFont.FontKarla(.regular, ofSize: 12)
         label.text = ""
         label.textColor = .black
-        label.backgroundColor = .lightGray.withAlphaComponent(0.33)
+        label.backgroundColor = .lightGray.withAlphaComponent(0.5)
         label.paddingLeft = 2.0
         label.paddingRight = 2.0
         return label
@@ -54,6 +53,7 @@ class TileButton: View {
         subTitleLabel.bottomAnchor.constraint(equalTo: backgroundImageView.bottomAnchor, constant: -5).isActive = true
 
         titleLabel.leadingAnchor.constraint(equalTo: backgroundImageView.leadingAnchor, constant: 5).isActive = true
+        titleLabel.trailingAnchor.constraint(equalTo: backgroundImageView.trailingAnchor, constant: -5).isActive = true
         titleLabel.bottomAnchor.constraint(equalTo: subTitleLabel.topAnchor, constant: -5).isActive = true
     }
 
@@ -79,7 +79,11 @@ class TileButton: View {
     func configure(with model: TileButtonModel) {
         titleLabel.text = model.title
         subTitleLabel.text = model.subTitle
-        backgroundImageView.kf.setImage(with: URL(string: model.image))
+        if model.image == "" {
+            backgroundImageView.image = UIImage(named: "NoImage")
+        } else {
+            backgroundImageView.kf.setImage(with: URL(string: model.image))
+        }
 
         if model.subTitle == "" {
             subTitleLabel.isHidden = true

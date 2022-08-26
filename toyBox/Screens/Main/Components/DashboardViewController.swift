@@ -2,13 +2,9 @@ import UIKit
 import Combine
 import CombineCocoa
 
-class DashboardViewController: ViewController {
+class DashboardViewController: MainViewController {
 
     let customView = DashboardView()
-
-    var apiClientQueue = DispatchQueue(label: "apiClientQueue")
-
-    var apiClient = ApiClient(baseURL: Settings.shared.apiBaseUrl)
 
     var toysRecent: ToysModel?
     var toysPopular: ToysModel?
@@ -29,26 +25,31 @@ class DashboardViewController: ViewController {
     }
 
     override func setupCombineComponents() {
+        customView.featuredCategoriesTileView.allButton.tapPublisher.sink { [weak self] _ in
+            guard let self = self else { return }
+
+            let categoriesViewController = CategoriesViewController()
+            self.navigationController?.pushViewController(categoriesViewController, animated: true)
+        }.store(in: &cancellables)
     }
 
     private func getDataFromApi() {
         let loader = LoaderViewController()
-        loader.modalTransitionStyle = .crossDissolve
-        loader.modalPresentationStyle = .custom
-        loader.start()
+        loader.prepare()
         present(loader, animated: true)
 
         apiClient.dispatch(InitialData())
+            .delay(for: 1.0, scheduler: RunLoop.main)
             .map { $0 }
             .sink { _ in
-            } receiveValue: { [weak self] data in
+            } receiveValue: { [weak self] received in
                 guard let self = self else { return }
-                self.updatePopularTiles(with: data.popularToys)
-                self.updateRecentTiles(with: data.recentToys)
-                self.updateFeaturedCategories(with: data.categories)
+                self.updatePopularTiles(with: received.popularToys)
+                self.updateRecentTiles(with: received.recentToys)
+                self.updateFeaturedCategories(with: received.categories)
 
                 DispatchQueue.main.async {
-                    self.customView.tileViews.forEach { $0.isHidden = false }
+                    self.customView.insideViews.forEach { $0.isHidden = false }
                     loader.dismiss(animated: true)
                 }
             }
@@ -85,6 +86,12 @@ class DashboardViewController: ViewController {
                                          image: model[index].image)
             DispatchQueue.main.async {
                 self.customView.recentTileView.buttons[index].configure(with: button)
+                self.customView.recentTileView.buttons[index].gesture().sink { _ in
+                    let toyViewController = ToyViewController()
+                    toyViewController.configure(with: model[index])
+
+                    self.navigationController?.pushViewController(toyViewController, animated: true)
+                }.store(in: &self.cancellables)
             }
         }
     }

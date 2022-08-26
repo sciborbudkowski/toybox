@@ -4,17 +4,22 @@ import Kingfisher
 class ToyViewController: ViewController {
 
     let customView = ToyView()
+    let dataSource = ToyDataSource()
 
     private var data: ToyModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        Settings.shared.isBackFromChildController = true
+
         view.backgroundColor = .systemBackground
+        if let name = data?.name {
+            title = name
+        }
 
-        setupNavigationBar()
-
-        customView.mainTableView.delegate = self
+        customView.mainTableView.delegate = dataSource
+        customView.mainTableView.dataSource = dataSource
     }
 
     override func loadView() {
@@ -35,15 +40,22 @@ class ToyViewController: ViewController {
         data = model
         guard let data = data else { return }
 
+        let properties: [ToyPropertyType] = [
+            ToyPropertyType(name: "Added:", value: data.dateAdded),
+            ToyPropertyType(name: "View count:", value: String(data.viewCount)),
+            ToyPropertyType(name: "Price:", value: String(data.price)),
+            ToyPropertyType(name: "Gender", value: data.gender == 0 ? "none" : data.gender == -1 ? "girl" : "boy"),
+            ToyPropertyType(name: "Brand", value: data.brand),
+            ToyPropertyType(name: "Age min:", value: String(data.ageMin))
+        ]
+
+        let sections: [ToyPropertySections] = [ToyPropertySections(sectionName: "General", properties: properties)]
+
+        dataSource.sections = sections
+        customView.mainTableView.reloadData()
+
         customView.nameLabel.text = data.name
         customView.imageView.kf.setImage(with: URL(string: data.image))
-    }
-
-    private func setupNavigationBar() {
-        navigationController?.navigationBar.barTintColor = UIColor(named: "Accent")
-        navigationController?.navigationBar.isTranslucent = true
-
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(backToPreviousController))
     }
 
     @objc private func backToPreviousController() {
