@@ -5,7 +5,6 @@ class CategoriesDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
     lazy var items: [CategoryModel] = []
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("items.count", items.count)
         return items.count
     }
 
@@ -17,5 +16,9 @@ class CategoriesDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
         cell.background.backgroundColor = UIColor(named: colorName)
         
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 35
     }
 }

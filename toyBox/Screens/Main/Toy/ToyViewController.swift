@@ -1,7 +1,7 @@
 import UIKit
 import Kingfisher
 
-class ToyViewController: ViewController {
+class ToyViewController: MainViewController {
 
     let customView = ToyView()
     let dataSource = ToyDataSource()
@@ -10,8 +10,6 @@ class ToyViewController: ViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        Settings.shared.isBackFromChildController = true
 
         view.backgroundColor = .systemBackground
         if let name = data?.name {
@@ -36,6 +34,26 @@ class ToyViewController: ViewController {
         navigationController?.setNavigationBarHidden(true, animated: false)
     }
 
+    override func setupCombineComponents() {
+        guard let data = data else { fatalError("this shouldn't happen!") }
+        apiClient.dispatch(IsFavorities(userId: Secrets.shared.userId, toyId: data.id))
+            .map { $0 }
+            .sink { _ in
+            } receiveValue: { [weak self] received in
+                guard let self = self else { return }
+                let state = received.data.count == 0 ? false : true
+                let imageName = state ? "heart.fill" : "heart"
+                let button = UIBarButtonItem(image: UIImage(systemName: imageName), style: .plain, target: nil, action: nil)
+                DispatchQueue.main.async {
+                    self.navigationItem.rightBarButtonItem = button
+                    self.navigationItem.rightBarButtonItem?.tapPublisher.sink(receiveValue: { _ in
+                        self.switchFavoriteStatus()
+                    }).store(in: &self.cancellables)
+                }
+            }
+            .store(in: &cancellables)
+    }
+
     func configure(with model: ToyModel) {
         data = model
         guard let data = data else { return }
@@ -49,7 +67,10 @@ class ToyViewController: ViewController {
             ToyPropertyType(name: "Age min:", value: String(data.ageMin))
         ]
 
-        let sections: [ToyPropertySections] = [ToyPropertySections(sectionName: "General", properties: properties)]
+        let sections: [ToyPropertySections] = [
+            ToyPropertySections(sectionName: "General", properties: properties),
+            ToyPropertySections(sectionName: "Test", properties: properties)
+        ]
 
         dataSource.sections = sections
         customView.mainTableView.reloadData()
@@ -58,7 +79,20 @@ class ToyViewController: ViewController {
         customView.imageView.kf.setImage(with: URL(string: data.image))
     }
 
-    @objc private func backToPreviousController() {
-        navigationController?.popViewController(animated: true)
+    private func switchFavoriteStatus() {
+        guard let data = data else { fatalError("this shouldn't happen!") }
+
+        apiClient.dispatch(SwitchFavorite(userId: Secrets.shared.userId, toyId: data.id))
+            .sink { _ in
+            } receiveValue: { [weak self] received in
+                guard let self = self else { return }
+                if received.result {
+                    let imageName = received.operation == "add" ? "heart.fill" : "heart"
+                    DispatchQueue.main.async {
+                        self.navigationItem.rightBarButtonItem?.image = UIImage(systemName: imageName)
+                    }
+                }
+            }
+            .store(in: &cancellables)
     }
 }

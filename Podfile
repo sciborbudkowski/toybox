@@ -9,6 +9,6 @@ target 'toyBox' do
   pod 'FirebaseUI'
   pod 'CombineCocoa'
   pod 'Kingfisher'
-  pod 'CollapseTableView'
+  pod 'Bagel'
 
 end

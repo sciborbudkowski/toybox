@@ -602,13 +602,15 @@ PODS:
   - AppAuth/Core (1.5.0)
   - AppAuth/ExternalUserAgent (1.5.0):
     - AppAuth/Core
+  - Bagel (1.4.0):
+    - CocoaAsyncSocket
   - BoringSSL-GRPC (0.0.24):
     - BoringSSL-GRPC/Implementation (= 0.0.24)
     - BoringSSL-GRPC/Interface (= 0.0.24)
   - BoringSSL-GRPC/Implementation (0.0.24):
     - BoringSSL-GRPC/Interface (= 0.0.24)
   - BoringSSL-GRPC/Interface (0.0.24)
-  - CollapseTableView (1.0.3)
+  - CocoaAsyncSocket (7.6.5)
   - CombineCocoa (0.4.0)
   - FBAEMKit (12.3.2):
     - FBSDKCoreKit_Basics (= 12.3.2)
@@ -830,7 +832,7 @@ PODS:
   - SDWebImage/Core (5.13.2)
 
 DEPENDENCIES:
-  - CollapseTableView
+  - Bagel
   - CombineCocoa
   - FBSDKLoginKit
   - FirebaseAuth
@@ -842,8 +844,9 @@ SPEC REPOS:
   trunk:
     - abseil
     - AppAuth
+    - Bagel
     - BoringSSL-GRPC
-    - CollapseTableView
+    - CocoaAsyncSocket
     - CombineCocoa
     - FBAEMKit
     - FBSDKCoreKit
@@ -888,8 +891,9 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   abseil: ebe5b5529fb05d93a8bdb7951607be08b7fa71bc
   AppAuth: 80317d99ac7ff2801a2f18ff86b48cd315ed465d
+  Bagel: c3fa6bcbd52db9ca976edbafd7638f0553ded101
   BoringSSL-GRPC: 3175b25143e648463a56daeaaa499c6cb86dad33
-  CollapseTableView: 7c8156ed76cb970fde8a0da034d41ae77f47be40
+  CocoaAsyncSocket: 065fd1e645c7abab64f7a6a2007a48038fdc6a99
   CombineCocoa: 68a050228ce7c53c1c5ac2c57cccf92a7f5c5085
   FBAEMKit: 955ca52eba8219c20f90774e8c6ff8bc7b3192a3
   FBSDKCoreKit: 678f64eda3f0ff25c189c2ebbfe87b1d96a85a6d
@@ -931,6 +935,6 @@ SPEC CHECKSUMS:
   PromisesObjC: ab77feca74fa2823e7af4249b8326368e61014cb
   SDWebImage: 72f86271a6f3139cc7e4a89220946489d4b9a866
 
-PODFILE CHECKSUM: 210f63ade2be44f9903eb7f31e08d962db3ac0a2
+PODFILE CHECKSUM: 9d651721b4f3873d72a673f383dca3e616139fa5
 
 COCOAPODS: 1.11.3

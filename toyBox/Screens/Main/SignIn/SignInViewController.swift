@@ -43,8 +43,17 @@ class SignInViewController: ViewController {
 
         authState = Auth.auth().addStateDidChangeListener { [weak self] _, user in
             if user != nil {
-                if Settings.shared.isAppFirstRun {
-                    print("first use, show intro")
+                Settings.shared.isAppFirstRun ? print("first use, show intro") : print("not first use, no intro")
+
+                if let userId = user?.uid {
+                    Secrets.shared.userId = userId
+                } else {
+                    do {
+                        try Auth.auth().signOut()
+                        AccessToken.current = nil
+                    } catch let error {
+                        self?.showErrorAlert(button: "OK", title: "Error", message: "Error signing out: \(error.localizedDescription)")
+                    }
                 }
                 
                 let tabBarViewController = TabBarViewController()

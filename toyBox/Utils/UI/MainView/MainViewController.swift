@@ -12,7 +12,5 @@ class MainViewController: ViewController {
 
         view.backgroundColor = .systemBackground
         navigationController?.setNavigationBarHidden(true, animated: false)
-
-        Settings.shared.isBackFromChildController = true
     }
 }

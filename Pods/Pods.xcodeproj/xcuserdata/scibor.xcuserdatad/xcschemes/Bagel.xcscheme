@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D5B6B371DF2016602F9D2A75FC3B5DCB"
-               BuildableName = "CollapseTableView.framework"
-               BlueprintName = "CollapseTableView"
+               BlueprintIdentifier = "92077976CB3E088351E515981DC39115"
+               BuildableName = "Bagel.framework"
+               BlueprintName = "Bagel"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

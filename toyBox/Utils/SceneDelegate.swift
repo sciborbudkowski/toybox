@@ -6,6 +6,7 @@ import FirebaseOAuthUI
 import FirebaseEmailAuthUI
 import FBSDKCoreKit
 import FBSDKLoginKit
+import Bagel
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate, FUIAuthDelegate {
 
@@ -32,6 +33,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, FUIAuthDelegate {
 
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
+
+//        #if DEBUG
+//        Bagel.start()
+//        #endif
     }
 
     func sceneDidDisconnect(_ scene: UIScene) { }

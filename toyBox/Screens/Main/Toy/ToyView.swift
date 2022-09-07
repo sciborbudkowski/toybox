@@ -1,6 +1,5 @@
 import UIKit
 import Kingfisher
-import CollapseTableView
 
 class ToyView: View {
 
@@ -20,122 +19,65 @@ class ToyView: View {
         return view
     }()
 
-    let brandLabel: Label = {
-        let label = Label()
-        label.textColor = UIColor(named: "Text")
-        label.font = UIFont.FontKarla(.regular, ofSize: 16)
-        label.text = "Brand:"
-        return label
-    }()
-
-    let brandLabelValue: Label = {
-        let label = Label()
-        label.textColor = UIColor(named: "Text")
-        label.font = UIFont.FontKarla(.medium, ofSize: 16)
-        label.text = "LEGO"
-        return label
-    }()
-
-    let genderLabel: Label = {
-        let label = Label()
-        label.textColor = UIColor(named: "Text")
-        label.font = UIFont.FontKarla(.regular, ofSize: 16)
-        label.text = "Gender:"
-        return label
-    }()
-
-    let genderLabelValue: Label = {
-        let label = Label()
-        label.textColor = UIColor(named: "Text")
-        label.font = UIFont.FontKarla(.medium, ofSize: 16)
-        label.text = "boy"
-        return label
-    }()
-
-    let seriesLabel: Label = {
-        let label = Label()
-        label.textColor = UIColor(named: "Text")
-        label.font = UIFont.FontKarla(.regular, ofSize: 16)
-        label.text = "Series:"
-        return label
-    }()
-
-    let seriesLabelValue: Label = {
-        let label = Label()
-        label.textColor = UIColor(named: "Text")
-        label.font = UIFont.FontKarla(.medium, ofSize: 16)
-        label.text = "LEGO SPEED CHAMPIONS"
-        return label
-    }()
-
-    let quantityLabel: Label = {
-        let label = Label()
-        label.textColor = UIColor(named: "Text")
-        label.font = UIFont.FontKarla(.regular, ofSize: 16)
-        label.text = "Elements:"
-        return label
-    }()
-
-    let quantityLabelValue: Label = {
-        let label = Label()
-        label.textColor = UIColor(named: "Text")
-        label.font = UIFont.FontKarla(.medium, ofSize: 16)
-        label.text = "234"
-        return label
-    }()
-
-    let ageLabel: Label = {
-        let label = Label()
-        label.textColor = UIColor(named: "Text")
-        label.font = UIFont.FontKarla(.regular, ofSize: 16)
-        label.text = "Age:"
-        return label
-    }()
-
-    let ageLabelValue: Label = {
-        let label = Label()
-        label.textColor = UIColor(named: "Text")
-        label.font = UIFont.FontKarla(.medium, ofSize: 16)
-        label.text = "8+ years"
-        return label
-    }()
-
-    let colorLabel: Label = {
-        let label = Label()
-        label.textColor = UIColor(named: "Text")
-        label.font = UIFont.FontKarla(.regular, ofSize: 16)
-        label.text = "Color:"
-        return label
-    }()
-
-    let colorLabelValue: Label = {
-        let label = Label()
-        label.textColor = UIColor(named: "Text")
-        label.font = UIFont.FontKarla(.medium, ofSize: 16)
-        label.text = "various"
-        return label
-    }()
-
-    let mainTableView: CollapseTableView = {
-        let view = CollapseTableView()
+    let mainTableView: UITableView = {
+        let view = UITableView()
         view.register(ToyViewCell.self, forCellReuseIdentifier: ToyViewCell.identifier)
         view.allowsSelection = false
+        view.separatorStyle = .none
         return view
     }()
 
+    let addToCartButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Add to Cart", for: .normal)
+        button.setTitleColor(UIColor(named: "Accent"), for: .normal)
+        button.titleLabel?.font = UIFont.FontKarla(.ligth, ofSize: 18)
+        return button
+    }()
+
+    let buyNowButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Buy Now!", for: .normal)
+        button.setTitleColor(UIColor(named: "Text"), for: .normal)
+        button.backgroundColor = UIColor(named: "Accent")
+        button.titleLabel?.font = UIFont.FontKarla(.ligth, ofSize: 18)
+        return button
+    }()
+
+    private let bottomStackView: UIStackView = {
+        let view = UIStackView()
+        view.axis = .horizontal
+        view.distribution = .fillEqually
+        view.backgroundColor = .systemBackground
+        view.spacing = 10
+        return view
+    }()
+
+    let addToFavoritesButton: UIButton = {
+        let button = UIButton()
+        button.tintColor = UIColor(named: "Accent")
+        return button
+    }()
+
     override func setupConstraints() {
-        addSubviews([imageView, mainTableView])
+        addSubviews([imageView, mainTableView, bottomStackView])
 
         imageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
         imageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
         imageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
         imageView.heightAnchor.constraint(equalToConstant: 175).isActive = true
 
+        bottomStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -30).isActive = true
+        bottomStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
+        bottomStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
+        bottomStackView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+
         mainTableView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 10).isActive = true
         mainTableView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
         mainTableView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
-        mainTableView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-        mainTableView.layer.borderColor = UIColor.red.cgColor
-        mainTableView.layer.borderWidth = 2
+        mainTableView.bottomAnchor.constraint(equalTo: bottomStackView.topAnchor).isActive = true
+
+        bottomStackView.addArrangedSubview(addToCartButton)
+        bottomStackView.addArrangedSubview(buyNowButton)
     }
 }

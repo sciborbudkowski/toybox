@@ -14,14 +14,17 @@ class Settings {
         let value: Bool? = userDefaults.value(forKey: "isAppFirstRun") as? Bool
 
         guard let value = value else {
-            userDefaults.set(false, forKey: "isFirstUse")
+            userDefaults.set(true, forKey: "isFirstUse")
             return true
         }
 
         return value
     }
 
-    var isBackFromChildController: Bool = false
+    //var isBackFromChildController: Bool = false
 
     let apiBaseUrl: String = "https://develop-box.pl:8000/"
+
+    let dummyUserId: String = "tYM69m2Lx9agjlWWBtWJQhnpF0q1"
+    let dummyToyId: String = "630365927c37bce8c1b8a083"
 }

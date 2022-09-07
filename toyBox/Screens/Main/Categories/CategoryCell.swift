@@ -24,10 +24,10 @@ class CategoryCell: TableCell {
     override func setupLayoutConstraints() {
         contentView.addSubviews([background, text])
 
-        background.topAnchor.constraint(equalTo: contentView.topAnchor, constant: -4).isActive = true
-        background.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -2).isActive = true
-        background.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: -5).isActive = true
-        background.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -2).isActive = true
+        background.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 4).isActive = true
+        background.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -4).isActive = true
+        background.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 4).isActive = true
+        background.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -4).isActive = true
 
         text.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
         text.leadingAnchor.constraint(equalTo: background.leadingAnchor, constant: 5).isActive = true
