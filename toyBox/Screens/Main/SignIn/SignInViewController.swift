@@ -47,6 +47,7 @@ class SignInViewController: ViewController {
 
                 if let userId = user?.uid {
                     Secrets.shared.userId = userId
+                    print(Secrets.shared.userId)
                 } else {
                     do {
                         try Auth.auth().signOut()

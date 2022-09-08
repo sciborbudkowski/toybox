@@ -38,7 +38,7 @@ class DashboardViewController: MainViewController {
         loader.prepare()
         present(loader, animated: true)
 
-        apiClient.dispatch(InitialData())
+        apiClient.dispatch(InitialData(userId: Secrets.shared.userId))
             .delay(for: 1.0, scheduler: RunLoop.main)
             .map { $0 }
             .sink { _ in
@@ -47,9 +47,15 @@ class DashboardViewController: MainViewController {
                 self.updatePopularTiles(with: received.popularToys)
                 self.updateRecentTiles(with: received.recentToys)
                 self.updateFeaturedCategories(with: received.categories)
+                CartStorage.shared.data = received.cart
 
                 DispatchQueue.main.async {
                     self.customView.insideViews.forEach { $0.isHidden = false }
+                    if let tabItems = self.tabBarController?.tabBar.items, CartStorage.shared.data.count > 0 {
+                        tabItems.first { item in
+                            item.title == "Cart"
+                        }?.badgeValue = String(CartStorage.shared.data.count)
+                    }
                     loader.dismiss(animated: true)
                 }
             }

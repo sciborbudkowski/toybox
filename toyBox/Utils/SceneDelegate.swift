@@ -34,9 +34,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, FUIAuthDelegate {
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
 
-//        #if DEBUG
-//        Bagel.start()
-//        #endif
+#if targetEnvironment(simulator)
+        Bagel.start()
+#endif
     }
 
     func sceneDidDisconnect(_ scene: UIScene) { }

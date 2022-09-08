@@ -6,6 +6,7 @@ struct InitialDataModel: Codable {
     var popularToys: [ToyModel]
     var recentToys: [ToyModel]
     var categories: [CategoryModel]
+    var cart: [CartModel]
 
     enum CodingKeys: String, CodingKey {
         case result
@@ -13,6 +14,7 @@ struct InitialDataModel: Codable {
         case popularToys = "popularToysData"
         case recentToys = "recentToysData"
         case categories
+        case cart
     }
 }
 
@@ -20,6 +22,13 @@ struct InitialData: Request {
     typealias ReturnType = InitialDataModel
     var queryParams: [String : String]? = [:]
     var path = "initial-data"
+    var userId: String
 
-    init() { }
+    init(userId: String) {
+        self.userId = userId
+
+        queryParams = [
+            "userId": userId
+        ]
+    }
 }

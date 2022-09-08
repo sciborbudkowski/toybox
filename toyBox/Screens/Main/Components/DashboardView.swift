@@ -1,6 +1,6 @@
 import UIKit
 
-class DashboardView: MainView {
+class DashboardView: MainStackedView {
 
     let popularTileView: TileView = {
         let view = TileView()

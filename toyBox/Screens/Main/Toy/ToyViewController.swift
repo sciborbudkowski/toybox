@@ -36,6 +36,7 @@ class ToyViewController: MainViewController {
 
     override func setupCombineComponents() {
         guard let data = data else { fatalError("this shouldn't happen!") }
+        print(data.id)
         apiClient.dispatch(IsFavorities(userId: Secrets.shared.userId, toyId: data.id))
             .map { $0 }
             .sink { _ in

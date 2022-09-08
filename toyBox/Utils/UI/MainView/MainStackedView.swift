@@ -1,6 +1,6 @@
 import UIKit
 
-class MainView: View {
+class MainStackedView: View {
 
     private let scrollView: UIScrollView = {
         let view = UIScrollView()
@@ -20,7 +20,13 @@ class MainView: View {
         return view
     }()
 
-    var insideViews: [View] = []
+    var insideViews: [View] = [] {
+        didSet {
+            insideViews.forEach {
+                mainView.addArrangedSubview($0)
+            }
+        }
+    }
 
     override func setupConstraints() {
         addSubviews([scrollView, searchBarView])

@@ -18,7 +18,7 @@
 		30B3C06F28B618A6006C605A /* CategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B3C06E28B618A6006C605A /* CategoriesView.swift */; };
 		30B3C07128B619B2006C605A /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B3C07028B619B2006C605A /* CategoryCell.swift */; };
 		30B3C07428B61C0C006C605A /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B3C07328B61C0C006C605A /* SearchBarView.swift */; };
-		30B3C07B28B75C12006C605A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B3C07A28B75C12006C605A /* MainView.swift */; };
+		30B3C07B28B75C12006C605A /* MainStackedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B3C07A28B75C12006C605A /* MainStackedView.swift */; };
 		30B3C07D28B75DAA006C605A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B3C07C28B75DAA006C605A /* MainViewController.swift */; };
 		30B3C07F28B783D9006C605A /* CategoriesDataSource+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B3C07E28B783D9006C605A /* CategoriesDataSource+Delegate.swift */; };
 		30B54280283E3243007D8A81 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B5427F283E3243007D8A81 /* AppDelegate.swift */; };
@@ -60,6 +60,11 @@
 		30B542DD283E3E97007D8A81 /* Quicksand-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30B5429C283E33F0007D8A81 /* Quicksand-Bold.ttf */; };
 		30B542DE283E3E97007D8A81 /* Quicksand-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30B5429E283E33F0007D8A81 /* Quicksand-SemiBold.ttf */; };
 		30C3FD3528C7690D0007B45A /* FavoritiesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C3FD3428C7690D0007B45A /* FavoritiesModel.swift */; };
+		30D95F1228C89EA9007F9E02 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D95F1128C89EA9007F9E02 /* CartViewController.swift */; };
+		30D95F1428C89ECF007F9E02 /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D95F1328C89ECF007F9E02 /* CartView.swift */; };
+		30D95F1628C8AD85007F9E02 /* CartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D95F1528C8AD85007F9E02 /* CartModel.swift */; };
+		30D95F1928C8B135007F9E02 /* CartStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D95F1828C8B135007F9E02 /* CartStorage.swift */; };
+		30D95F1B28C8B8F8007F9E02 /* MainFlatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D95F1A28C8B8F8007F9E02 /* MainFlatView.swift */; };
 		30DE310A28ABC31100509C14 /* LoaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DE310928ABC31100509C14 /* LoaderViewController.swift */; };
 		30DE310C28ABC34B00509C14 /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DE310B28ABC34B00509C14 /* LoaderView.swift */; };
 		30DE310E28ACE80700509C14 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DE310D28ACE80700509C14 /* Label.swift */; };
@@ -117,7 +122,7 @@
 		30B3C06E28B618A6006C605A /* CategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesView.swift; sourceTree = "<group>"; };
 		30B3C07028B619B2006C605A /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		30B3C07328B61C0C006C605A /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
-		30B3C07A28B75C12006C605A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		30B3C07A28B75C12006C605A /* MainStackedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainStackedView.swift; sourceTree = "<group>"; };
 		30B3C07C28B75DAA006C605A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		30B3C07E28B783D9006C605A /* CategoriesDataSource+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategoriesDataSource+Delegate.swift"; sourceTree = "<group>"; };
 		30B5427C283E3243007D8A81 /* toyBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = toyBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -161,6 +166,11 @@
 		30B542C7283E3BFD007D8A81 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		30B542CA283E3CD8007D8A81 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		30C3FD3428C7690D0007B45A /* FavoritiesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritiesModel.swift; sourceTree = "<group>"; };
+		30D95F1128C89EA9007F9E02 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
+		30D95F1328C89ECF007F9E02 /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
+		30D95F1528C8AD85007F9E02 /* CartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartModel.swift; sourceTree = "<group>"; };
+		30D95F1828C8B135007F9E02 /* CartStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartStorage.swift; sourceTree = "<group>"; };
+		30D95F1A28C8B8F8007F9E02 /* MainFlatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFlatView.swift; sourceTree = "<group>"; };
 		30DE310928ABC31100509C14 /* LoaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderViewController.swift; sourceTree = "<group>"; };
 		30DE310B28ABC34B00509C14 /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
 		30DE310D28ACE80700509C14 /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
@@ -249,8 +259,9 @@
 		30B3C07928B75BEC006C605A /* MainView */ = {
 			isa = PBXGroup;
 			children = (
-				30B3C07A28B75C12006C605A /* MainView.swift */,
+				30B3C07A28B75C12006C605A /* MainStackedView.swift */,
 				30B3C07C28B75DAA006C605A /* MainViewController.swift */,
+				30D95F1A28C8B8F8007F9E02 /* MainFlatView.swift */,
 			);
 			path = MainView;
 			sourceTree = "<group>";
@@ -279,6 +290,7 @@
 				30FC4F1228A250DA006A70B2 /* Models */,
 				30B542BC283E3A60007D8A81 /* Screens */,
 				30B54299283E33D0007D8A81 /* Resources */,
+				30D95F1728C8B0D7007F9E02 /* Storage */,
 				30B54293283E333E007D8A81 /* Utils */,
 				30B5428D283E3247007D8A81 /* Info.plist */,
 				304A762828A3C6CD0032618B /* GoogleService-Info.plist */,
@@ -419,6 +431,14 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
+		30D95F1728C8B0D7007F9E02 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				30D95F1828C8B135007F9E02 /* CartStorage.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
 		30DE311328AD254F00509C14 /* Toy */ = {
 			isa = PBXGroup;
 			children = (
@@ -456,6 +476,8 @@
 				30E7E9002892B7F300057155 /* DashboardView.swift */,
 				30E7E9022892B82A00057155 /* FavoritesViewController.swift */,
 				30E7E9042892B84400057155 /* FavoritesView.swift */,
+				30D95F1128C89EA9007F9E02 /* CartViewController.swift */,
+				30D95F1328C89ECF007F9E02 /* CartView.swift */,
 				30E7E9062892B9F800057155 /* SettingsViewController.swift */,
 				30E7E9082892BA5000057155 /* SettingsView.swift */,
 				30E7E90A2892BADD00057155 /* TabBarViewController.swift */,
@@ -489,6 +511,7 @@
 				30DE310F28ACFDBB00509C14 /* CategoryModel.swift */,
 				30DE311128AD0C7500509C14 /* InitialDataModel.swift */,
 				30C3FD3428C7690D0007B45A /* FavoritiesModel.swift */,
+				30D95F1528C8AD85007F9E02 /* CartModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -674,7 +697,9 @@
 				30B542BF283E3AC2007D8A81 /* Request.swift in Sources */,
 				30DE312528AE363F00509C14 /* ToyHeaderView.swift in Sources */,
 				30F35C642893F6B900D8B88F /* GesturePublisher.swift in Sources */,
+				30D95F1628C8AD85007F9E02 /* CartModel.swift in Sources */,
 				30B3C06D28B6187B006C605A /* CategoriesViewController.swift in Sources */,
+				30D95F1928C8B135007F9E02 /* CartStorage.swift in Sources */,
 				30DE311728AD25C000509C14 /* ToyView.swift in Sources */,
 				30B542B2283E35EB007D8A81 /* Data.swift in Sources */,
 				30B54298283E3370007D8A81 /* UIView.swift in Sources */,
@@ -703,23 +728,26 @@
 				30B542CB283E3CD8007D8A81 /* SignInView.swift in Sources */,
 				30E7E9092892BA5000057155 /* SettingsView.swift in Sources */,
 				3018D2CA28914E8B0008087F /* String.swift in Sources */,
+				30D95F1428C89ECF007F9E02 /* CartView.swift in Sources */,
 				30DE310E28ACE80700509C14 /* Label.swift in Sources */,
 				30F35C672893F88700D8B88F /* GestureSubscription.swift in Sources */,
 				30DE312728AE38B900509C14 /* ToyDelegate+DataSource.swift in Sources */,
 				3018D2CF28915C870008087F /* SignUpViewController.swift in Sources */,
 				30B54296283E3359007D8A81 /* UIColor.swift in Sources */,
 				30B54280283E3243007D8A81 /* AppDelegate.swift in Sources */,
-				30B3C07B28B75C12006C605A /* MainView.swift in Sources */,
+				30B3C07B28B75C12006C605A /* MainStackedView.swift in Sources */,
 				30E7E9072892B9F800057155 /* SettingsViewController.swift in Sources */,
 				30DE311228AD0C7500509C14 /* InitialDataModel.swift in Sources */,
 				30DE311D28AE281700509C14 /* GroupedTableView.swift in Sources */,
 				30F35C692893FA9200D8B88F /* UIView+Gesture.swift in Sources */,
 				30B542BB283E3660007D8A81 /* CollectionCell.swift in Sources */,
+				30D95F1B28C8B8F8007F9E02 /* MainFlatView.swift in Sources */,
 				30B54282283E3243007D8A81 /* SceneDelegate.swift in Sources */,
 				30B3C07F28B783D9006C605A /* CategoriesDataSource+Delegate.swift in Sources */,
 				30E7E90B2892BADD00057155 /* TabBarViewController.swift in Sources */,
 				30C3FD3528C7690D0007B45A /* FavoritiesModel.swift in Sources */,
 				30B3C06F28B618A6006C605A /* CategoriesView.swift in Sources */,
+				30D95F1228C89EA9007F9E02 /* CartViewController.swift in Sources */,
 				3070A840289A7CF100E807DD /* Secrets.swift in Sources */,
 				30B3C07428B61C0C006C605A /* SearchBarView.swift in Sources */,
 				30DE311F28AE288000509C14 /* GroupedTableViewCell.swift in Sources */,

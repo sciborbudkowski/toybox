@@ -29,13 +29,19 @@ class TabBarViewController: TabBarController {
                                                selectedImage: UIImage(systemName: "heart.fill"))
         tabFavorites.tabBarItem = tabFavoritesBarItem
 
+        let tabCart = CartViewController()
+        let tabCartBarItem = UITabBarItem(title: "Cart",
+                                          image: UIImage(systemName: "cart"),
+                                          selectedImage: UIImage(systemName: "cart.fill"))
+        tabCart.tabBarItem = tabCartBarItem
+
         let tabSettings = SettingsViewController()
         let tabSettingsBarItem = UITabBarItem(title: "Settings",
                                               image: UIImage(systemName: "gearshape"),
                                               selectedImage: UIImage(systemName: "gearshape.fill"))
         tabSettings.tabBarItem = tabSettingsBarItem
 
-        viewControllers = [tabDashboard, tabFavorites, tabSettings]
+        viewControllers = [tabDashboard, tabFavorites, tabCart, tabSettings]
     }
 }
 
