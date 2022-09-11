@@ -6,7 +6,7 @@ struct InitialDataModel: Codable {
     var popularToys: [ToyModel]
     var recentToys: [ToyModel]
     var categories: [CategoryModel]
-    var cart: [CartModel]
+    var cart: [UserToToyModel]
 
     enum CodingKeys: String, CodingKey {
         case result

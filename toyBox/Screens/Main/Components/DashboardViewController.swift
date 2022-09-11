@@ -40,26 +40,35 @@ class DashboardViewController: MainViewController {
 
         apiClient.dispatch(InitialData(userId: Secrets.shared.userId))
             .delay(for: 1.0, scheduler: RunLoop.main)
-            .map { $0 }
-            .sink { _ in
-            } receiveValue: { [weak self] received in
-                guard let self = self else { return }
-                self.updatePopularTiles(with: received.popularToys)
-                self.updateRecentTiles(with: received.recentToys)
-                self.updateFeaturedCategories(with: received.categories)
-                CartStorage.shared.data = received.cart
-
-                DispatchQueue.main.async {
-                    self.customView.insideViews.forEach { $0.isHidden = false }
-                    if let tabItems = self.tabBarController?.tabBar.items, CartStorage.shared.data.count > 0 {
-                        tabItems.first { item in
-                            item.title == "Cart"
-                        }?.badgeValue = String(CartStorage.shared.data.count)
-                    }
-                    loader.dismiss(animated: true)
-                }
+            .sink(receiveCompletion: { (error) in
+                print(error)
+            }) { received in
+                print(received)
             }
             .store(in: &cancellables)
+//            .map { $0 }
+//            .sink { c in
+//                print("$$$$$$$$$$$$$$$$$$$$$", c)
+//            } receiveValue: { [weak self] received in
+//                guard let self = self else { return }
+//
+//                self.updatePopularTiles(with: received.popularToys)
+//                self.updateRecentTiles(with: received.recentToys)
+//                self.updateFeaturedCategories(with: received.categories)
+//
+//                CartStorage.shared.data = CartModel(result: true, type: "cart", count: received.cart.count, data: received.cart)
+//
+//                DispatchQueue.main.async {
+//                    self.customView.insideViews.forEach { $0.isHidden = false }
+//
+//                    let cartBarItem = self.tabBarController?.tabBar.items?.first { $0.title == "Cart" }
+//                    let cartItemsCount = CartStorage.shared.data.count
+//                    (cartItemsCount == 0) ? (cartBarItem?.badgeValue = nil) : (cartBarItem?.badgeValue = String(cartItemsCount))
+//
+//                    loader.dismiss(animated: true)
+//                }
+//            }
+//            .store(in: &cancellables)
     }
 
     private func updatePopularTiles(with model: [ToyModel]) {

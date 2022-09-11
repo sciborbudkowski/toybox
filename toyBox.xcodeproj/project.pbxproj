@@ -59,7 +59,7 @@
 		30B542DC283E3E97007D8A81 /* Quicksand-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30B5429B283E33F0007D8A81 /* Quicksand-Regular.ttf */; };
 		30B542DD283E3E97007D8A81 /* Quicksand-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30B5429C283E33F0007D8A81 /* Quicksand-Bold.ttf */; };
 		30B542DE283E3E97007D8A81 /* Quicksand-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30B5429E283E33F0007D8A81 /* Quicksand-SemiBold.ttf */; };
-		30C3FD3528C7690D0007B45A /* FavoritiesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C3FD3428C7690D0007B45A /* FavoritiesModel.swift */; };
+		30C3FD3528C7690D0007B45A /* FavoriteModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C3FD3428C7690D0007B45A /* FavoriteModels.swift */; };
 		30D95F1228C89EA9007F9E02 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D95F1128C89EA9007F9E02 /* CartViewController.swift */; };
 		30D95F1428C89ECF007F9E02 /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D95F1328C89ECF007F9E02 /* CartView.swift */; };
 		30D95F1628C8AD85007F9E02 /* CartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D95F1528C8AD85007F9E02 /* CartModel.swift */; };
@@ -165,7 +165,7 @@
 		30B542C4283E3B2D007D8A81 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		30B542C7283E3BFD007D8A81 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		30B542CA283E3CD8007D8A81 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
-		30C3FD3428C7690D0007B45A /* FavoritiesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritiesModel.swift; sourceTree = "<group>"; };
+		30C3FD3428C7690D0007B45A /* FavoriteModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteModels.swift; sourceTree = "<group>"; };
 		30D95F1128C89EA9007F9E02 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		30D95F1328C89ECF007F9E02 /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
 		30D95F1528C8AD85007F9E02 /* CartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartModel.swift; sourceTree = "<group>"; };
@@ -420,6 +420,7 @@
 		30B542C9283E3CC8007D8A81 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				30D7247028CB57A00077393F /* Cart */,
 				30B3C06B28B6185C006C605A /* Categories */,
 				30DE311328AD254F00509C14 /* Toy */,
 				30E7E8FD2892B79B00057155 /* Components */,
@@ -429,6 +430,15 @@
 				30DE310B28ABC34B00509C14 /* LoaderView.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		30D7247028CB57A00077393F /* Cart */ = {
+			isa = PBXGroup;
+			children = (
+				30D95F1328C89ECF007F9E02 /* CartView.swift */,
+				30D95F1128C89EA9007F9E02 /* CartViewController.swift */,
+			);
+			path = Cart;
 			sourceTree = "<group>";
 		};
 		30D95F1728C8B0D7007F9E02 /* Storage */ = {
@@ -476,8 +486,6 @@
 				30E7E9002892B7F300057155 /* DashboardView.swift */,
 				30E7E9022892B82A00057155 /* FavoritesViewController.swift */,
 				30E7E9042892B84400057155 /* FavoritesView.swift */,
-				30D95F1128C89EA9007F9E02 /* CartViewController.swift */,
-				30D95F1328C89ECF007F9E02 /* CartView.swift */,
 				30E7E9062892B9F800057155 /* SettingsViewController.swift */,
 				30E7E9082892BA5000057155 /* SettingsView.swift */,
 				30E7E90A2892BADD00057155 /* TabBarViewController.swift */,
@@ -510,7 +518,7 @@
 				30165D2228ABA951000CDBFE /* ToyModel.swift */,
 				30DE310F28ACFDBB00509C14 /* CategoryModel.swift */,
 				30DE311128AD0C7500509C14 /* InitialDataModel.swift */,
-				30C3FD3428C7690D0007B45A /* FavoritiesModel.swift */,
+				30C3FD3428C7690D0007B45A /* FavoriteModels.swift */,
 				30D95F1528C8AD85007F9E02 /* CartModel.swift */,
 			);
 			path = Models;
@@ -745,7 +753,7 @@
 				30B54282283E3243007D8A81 /* SceneDelegate.swift in Sources */,
 				30B3C07F28B783D9006C605A /* CategoriesDataSource+Delegate.swift in Sources */,
 				30E7E90B2892BADD00057155 /* TabBarViewController.swift in Sources */,
-				30C3FD3528C7690D0007B45A /* FavoritiesModel.swift in Sources */,
+				30C3FD3528C7690D0007B45A /* FavoriteModels.swift in Sources */,
 				30B3C06F28B618A6006C605A /* CategoriesView.swift in Sources */,
 				30D95F1228C89EA9007F9E02 /* CartViewController.swift in Sources */,
 				3070A840289A7CF100E807DD /* Secrets.swift in Sources */,

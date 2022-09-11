@@ -4,6 +4,8 @@ class CartViewController: MainViewController {
 
     let customView = CartView()
 
+    var cartItems: CartModel = CartStorage.shared.data
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -11,6 +13,8 @@ class CartViewController: MainViewController {
         title = "Cart"
 
         navigationController?.setNavigationBarHidden(true, animated: false)
+
+        print("CartVC cartItems.count = ", cartItems.count)
     }
 
     override func loadView() {

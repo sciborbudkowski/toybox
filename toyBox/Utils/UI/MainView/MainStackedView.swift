@@ -20,7 +20,7 @@ class MainStackedView: View {
         return view
     }()
 
-    var insideViews: [View] = [] {
+    var insideViews: [UIView] = [] {
         didSet {
             insideViews.forEach {
                 mainView.addArrangedSubview($0)

@@ -1,18 +1,23 @@
 import Foundation
 
-struct FavoritiesModel: Codable {
+struct UserToToyModel: Codable {
     var userId: String
     var toyId: String
+
+    init(userId: String, toyId: String) {
+        self.userId = userId
+        self.toyId = toyId
+    }
 }
 
-struct IsFavoritiesModel: Codable {
+struct FavoriteModel: Codable {
     var result: Bool
     var type: String
-    var data: [FavoritiesModel]
+    var data: [UserToToyModel]
 }
 
 struct IsFavorities: Request {
-    typealias ReturnType = IsFavoritiesModel
+    typealias ReturnType = FavoriteModel
     var queryParams: [String : String]? = [:]
     var path = "is-favorite"
     var userId: String

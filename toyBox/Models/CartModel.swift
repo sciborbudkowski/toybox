@@ -1,15 +1,10 @@
 import Foundation
 
 struct CartModel: Codable {
-    var id: String
-    var userId: String
-    var toyId: String
-
-    enum CodingKeys: String, CodingKey {
-        case id = "_id"
-        case userId
-        case toyId
-    }
+    var result: Bool
+    var type: String
+    var count: Int
+    var data: [UserToToyModel]
 }
 
 struct Cart: Request {

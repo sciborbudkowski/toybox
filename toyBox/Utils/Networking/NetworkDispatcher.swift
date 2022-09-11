@@ -35,9 +35,7 @@ struct NetworkDispatcher {
                 return data
             })
             .decode(type: ReturnType.self, decoder: SnakeCaseJSONDecoder())
-            .mapError { error in
-                handleError(error)
-            }
+            .mapError { handleError($0) }
             .eraseToAnyPublisher()
     }
 }
@@ -45,7 +43,7 @@ struct NetworkDispatcher {
 extension NetworkDispatcher {
 
     private func httpError(_ statusCode: Int) -> NetworkRequestError {
-        print("HTTP ERROR: \(statusCode)")
+        //print("HTTP ERROR: \(statusCode)")
         switch statusCode {
         case 400: return .badRequest
         case 401: return .unauthorized
@@ -59,7 +57,7 @@ extension NetworkDispatcher {
     }
 
     private func handleError(_ error: Error) -> NetworkRequestError {
-        print("ERROR: \(error)")
+        //print("ERROR: \(error)")
         switch error {
         case is Swift.DecodingError: return .decodingError
         case let urlError as URLError: return .urlSessionFailed(urlError)

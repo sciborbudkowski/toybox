@@ -4,5 +4,5 @@ class CartStorage {
 
     static let shared = CartStorage()
 
-    var data: [CartModel] = []
+    var data: CartModel = CartModel(result: true, type: "", count: 0, data: [])
 }
