@@ -4,7 +4,7 @@ class CartViewController: MainViewController {
 
     let customView = CartView()
 
-    var cartItems: CartModel = CartStorage.shared.data
+    var cartItems: CartModel = Storage.shared.cart
 
     override func viewDidLoad() {
         super.viewDidLoad()

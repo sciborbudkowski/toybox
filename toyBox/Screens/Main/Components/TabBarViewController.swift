@@ -17,6 +17,9 @@ class TabBarViewController: TabBarController {
         tabBar.unselectedItemTintColor = UIColor(named: "TabBarUnselected")
         tabBar.isTranslucent = true
 
+        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont.FontKarla(.regular, ofSize: 14)], for: .normal)
+        UITabBarItem.appearance().setBadgeTextAttributes([NSAttributedString.Key.font: UIFont.FontKarla(.regular, ofSize: 12)], for: .normal)
+
         let tabDashboard = DashboardViewController()
         let tabDashboardBarItem = UITabBarItem(title: "Dashboard",
                                                image: UIImage(systemName: "music.note.house"),
@@ -24,7 +27,7 @@ class TabBarViewController: TabBarController {
         tabDashboard.tabBarItem = tabDashboardBarItem
 
         let tabFavorites = FavoritesViewController()
-        let tabFavoritesBarItem = UITabBarItem(title: "Favorites",
+        let tabFavoritesBarItem = UITabBarItem(title: "Favorities",
                                                image: UIImage(systemName: "heart"),
                                                selectedImage: UIImage(systemName: "heart.fill"))
         tabFavorites.tabBarItem = tabFavoritesBarItem

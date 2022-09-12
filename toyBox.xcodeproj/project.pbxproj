@@ -63,7 +63,7 @@
 		30D95F1228C89EA9007F9E02 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D95F1128C89EA9007F9E02 /* CartViewController.swift */; };
 		30D95F1428C89ECF007F9E02 /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D95F1328C89ECF007F9E02 /* CartView.swift */; };
 		30D95F1628C8AD85007F9E02 /* CartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D95F1528C8AD85007F9E02 /* CartModel.swift */; };
-		30D95F1928C8B135007F9E02 /* CartStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D95F1828C8B135007F9E02 /* CartStorage.swift */; };
+		30D95F1928C8B135007F9E02 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D95F1828C8B135007F9E02 /* Storage.swift */; };
 		30D95F1B28C8B8F8007F9E02 /* MainFlatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D95F1A28C8B8F8007F9E02 /* MainFlatView.swift */; };
 		30DE310A28ABC31100509C14 /* LoaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DE310928ABC31100509C14 /* LoaderViewController.swift */; };
 		30DE310C28ABC34B00509C14 /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DE310B28ABC34B00509C14 /* LoaderView.swift */; };
@@ -169,7 +169,7 @@
 		30D95F1128C89EA9007F9E02 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		30D95F1328C89ECF007F9E02 /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
 		30D95F1528C8AD85007F9E02 /* CartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartModel.swift; sourceTree = "<group>"; };
-		30D95F1828C8B135007F9E02 /* CartStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartStorage.swift; sourceTree = "<group>"; };
+		30D95F1828C8B135007F9E02 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		30D95F1A28C8B8F8007F9E02 /* MainFlatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFlatView.swift; sourceTree = "<group>"; };
 		30DE310928ABC31100509C14 /* LoaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderViewController.swift; sourceTree = "<group>"; };
 		30DE310B28ABC34B00509C14 /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
@@ -444,7 +444,7 @@
 		30D95F1728C8B0D7007F9E02 /* Storage */ = {
 			isa = PBXGroup;
 			children = (
-				30D95F1828C8B135007F9E02 /* CartStorage.swift */,
+				30D95F1828C8B135007F9E02 /* Storage.swift */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
@@ -707,7 +707,7 @@
 				30F35C642893F6B900D8B88F /* GesturePublisher.swift in Sources */,
 				30D95F1628C8AD85007F9E02 /* CartModel.swift in Sources */,
 				30B3C06D28B6187B006C605A /* CategoriesViewController.swift in Sources */,
-				30D95F1928C8B135007F9E02 /* CartStorage.swift in Sources */,
+				30D95F1928C8B135007F9E02 /* Storage.swift in Sources */,
 				30DE311728AD25C000509C14 /* ToyView.swift in Sources */,
 				30B542B2283E35EB007D8A81 /* Data.swift in Sources */,
 				30B54298283E3370007D8A81 /* UIView.swift in Sources */,

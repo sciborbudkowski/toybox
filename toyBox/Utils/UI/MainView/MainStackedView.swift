@@ -20,6 +20,15 @@ class MainStackedView: View {
         return view
     }()
 
+    let refreshControl: UIRefreshControl = {
+        let control = UIRefreshControl()
+        control.tintColor = UIColor(named: "Accent")
+        control.attributedTitle = NSAttributedString(string: "Pull to refresh",
+                                                     attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "Accent")!,
+                                                                  NSAttributedString.Key.font: UIFont.FontKarla(.regular, ofSize: 16)])
+        return control
+    }()
+
     var insideViews: [UIView] = [] {
         didSet {
             insideViews.forEach {
@@ -30,7 +39,7 @@ class MainStackedView: View {
 
     override func setupConstraints() {
         addSubviews([scrollView, searchBarView])
-        scrollView.addSubviews([contentView])
+        scrollView.addSubviews([contentView, refreshControl])
         contentView.addSubviews([mainView])
 
         searchBarView.topAnchor.constraint(equalTo: topAnchor, constant: 50).isActive = true
@@ -39,7 +48,7 @@ class MainStackedView: View {
         searchBarView.heightAnchor.constraint(equalToConstant: 40).isActive = true
 
         scrollView.topAnchor.constraint(equalTo: searchBarView.bottomAnchor, constant: 10).isActive = true
-        scrollView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -100).isActive = true
+        scrollView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -90).isActive = true
         scrollView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
         scrollView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
 

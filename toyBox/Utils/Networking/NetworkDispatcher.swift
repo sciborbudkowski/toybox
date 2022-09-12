@@ -36,8 +36,23 @@ struct NetworkDispatcher {
             })
             .decode(type: ReturnType.self, decoder: SnakeCaseJSONDecoder())
             .mapError { handleError($0) }
+            .retry(1)
             .eraseToAnyPublisher()
     }
+//        return urlSession
+//            .dataTaskPublisher(for: request)
+//            .map { $0.data }
+//            .decode(type: ReturnType.self, decoder: SnakeCaseJSONDecoder())
+//            .mapError { error -> NetworkRequestError in
+//                switch error {
+//                case is Swift.DecodingError: return NetworkRequestError.decodingError
+//                case is URLError: return NetworkRequestError.urlSessionFailed(error as! URLError)
+//                default: return NetworkRequestError.unknownError
+//                }
+//            }
+//            .retry(1)
+//            .eraseToAnyPublisher()
+//    }
 }
 
 extension NetworkDispatcher {
