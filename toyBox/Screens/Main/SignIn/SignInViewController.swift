@@ -43,11 +43,12 @@ class SignInViewController: ViewController {
 
         authState = Auth.auth().addStateDidChangeListener { [weak self] _, user in
             if user != nil {
-                Settings.shared.isAppFirstRun ? print("first use, show intro") : print("not first use, no intro")
+                if Settings.shared.isAppFirstRun {
+                    print("present intro viewcontroller")
+                }
 
                 if let userId = user?.uid {
                     Secrets.shared.userId = userId
-                    print(Secrets.shared.userId)
                 } else {
                     do {
                         try Auth.auth().signOut()

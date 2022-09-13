@@ -14,6 +14,24 @@
 			<key>orderHint</key>
 			<integer>55</integer>
 		</dict>
+		<key>toyBoxTests.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>56</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>307354AB28D06F25007A3E3F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>30B5427B283E3243007D8A81</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 	</dict>
 </dict>
 </plist>

@@ -2,6 +2,8 @@ import UIKit
 
 class FavoritesViewController: ViewController {
 
+    let customView = FavoritesView()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -9,5 +11,9 @@ class FavoritesViewController: ViewController {
         title = "Favorites"
 
         navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+
+    override func loadView() {
+        view = customView
     }
 }

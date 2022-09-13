@@ -9,7 +9,7 @@ class MainFlatView: View {
         return view
     }()
 
-    private let contentView = UIView()
+    let contentView = UIView()
 
     let searchBarView = SearchBarView()
 
@@ -35,10 +35,12 @@ class MainFlatView: View {
         contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
         contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor).isActive = true
         contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
+        contentView.backgroundColor = .yellow
 
         insideView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
         insideView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
         insideView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
         insideView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
+        insideView.backgroundColor = .blue
     }
 }

@@ -12,8 +12,14 @@
 		3018D2CC28915A1E0008087F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3018D2CB28915A1E0008087F /* ViewController.swift */; };
 		3018D2CF28915C870008087F /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3018D2CE28915C870008087F /* SignUpViewController.swift */; };
 		3018D2D128915CAB0008087F /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3018D2D028915CAA0008087F /* SignUpView.swift */; };
+		30459F5C28D0854000FE05A0 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30459F5B28D0854000FE05A0 /* IntroViewController.swift */; };
+		30459F6628D08FEB00FE05A0 /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30459F6528D08FEB00FE05A0 /* IntroView.swift */; };
+		30459F6A28D0964500FE05A0 /* IntroModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30459F6928D0964500FE05A0 /* IntroModel.swift */; };
+		30459F6F28D0B57700FE05A0 /* PageIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30459F6E28D0B57700FE05A0 /* PageIndicatorView.swift */; };
+		30459F7128D0B8CF00FE05A0 /* PageIndicatorItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30459F7028D0B8CF00FE05A0 /* PageIndicatorItem.swift */; };
 		304A762928A3C6CD0032618B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 304A762828A3C6CD0032618B /* GoogleService-Info.plist */; };
 		3070A840289A7CF100E807DD /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3070A83F289A7CF100E807DD /* Secrets.swift */; };
+		307354AF28D06F25007A3E3F /* toyBoxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307354AE28D06F25007A3E3F /* toyBoxTests.swift */; };
 		30B3C06D28B6187B006C605A /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B3C06C28B6187A006C605A /* CategoriesViewController.swift */; };
 		30B3C06F28B618A6006C605A /* CategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B3C06E28B618A6006C605A /* CategoriesView.swift */; };
 		30B3C07128B619B2006C605A /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B3C07028B619B2006C605A /* CategoryCell.swift */; };
@@ -97,6 +103,16 @@
 		4A3471806718ED9B81272A6D /* Pods_toyBox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 719FC79AF5007D058CF2CA31 /* Pods_toyBox.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		307354B028D06F25007A3E3F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 30B54274283E3243007D8A81 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 30B5427B283E3243007D8A81;
+			remoteInfo = toyBox;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		3070AA14289AA9BE00E807DD /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -116,8 +132,15 @@
 		3018D2CB28915A1E0008087F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3018D2CE28915C870008087F /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		3018D2D028915CAA0008087F /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		30459F5B28D0854000FE05A0 /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
+		30459F6528D08FEB00FE05A0 /* IntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroView.swift; sourceTree = "<group>"; };
+		30459F6928D0964500FE05A0 /* IntroModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroModel.swift; sourceTree = "<group>"; };
+		30459F6E28D0B57700FE05A0 /* PageIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageIndicatorView.swift; sourceTree = "<group>"; };
+		30459F7028D0B8CF00FE05A0 /* PageIndicatorItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageIndicatorItem.swift; sourceTree = "<group>"; };
 		304A762828A3C6CD0032618B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3070A83F289A7CF100E807DD /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
+		307354AC28D06F25007A3E3F /* toyBoxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = toyBoxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		307354AE28D06F25007A3E3F /* toyBoxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toyBoxTests.swift; sourceTree = "<group>"; };
 		30B3C06C28B6187A006C605A /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
 		30B3C06E28B618A6006C605A /* CategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesView.swift; sourceTree = "<group>"; };
 		30B3C07028B619B2006C605A /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
@@ -208,6 +231,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		307354A928D06F25007A3E3F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		30B54279283E3243007D8A81 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -226,6 +256,32 @@
 				3018D2D028915CAA0008087F /* SignUpView.swift */,
 			);
 			path = SignUp;
+			sourceTree = "<group>";
+		};
+		30459F5A28D0852100FE05A0 /* Intro */ = {
+			isa = PBXGroup;
+			children = (
+				30459F5B28D0854000FE05A0 /* IntroViewController.swift */,
+				30459F6528D08FEB00FE05A0 /* IntroView.swift */,
+			);
+			path = Intro;
+			sourceTree = "<group>";
+		};
+		30459F6D28D0B56200FE05A0 /* PageIndicator */ = {
+			isa = PBXGroup;
+			children = (
+				30459F6E28D0B57700FE05A0 /* PageIndicatorView.swift */,
+				30459F7028D0B8CF00FE05A0 /* PageIndicatorItem.swift */,
+			);
+			path = PageIndicator;
+			sourceTree = "<group>";
+		};
+		307354AD28D06F25007A3E3F /* toyBoxTests */ = {
+			isa = PBXGroup;
+			children = (
+				307354AE28D06F25007A3E3F /* toyBoxTests.swift */,
+			);
+			path = toyBoxTests;
 			sourceTree = "<group>";
 		};
 		30B3C06B28B6185C006C605A /* Categories */ = {
@@ -270,6 +326,7 @@
 			isa = PBXGroup;
 			children = (
 				30B5427E283E3243007D8A81 /* toyBox */,
+				307354AD28D06F25007A3E3F /* toyBoxTests */,
 				30B5427D283E3243007D8A81 /* Products */,
 				96F95B2EBA7675189148A9CD /* Pods */,
 				EC7F885A4CB1FDCB1BA156E5 /* Frameworks */,
@@ -280,6 +337,7 @@
 			isa = PBXGroup;
 			children = (
 				30B5427C283E3243007D8A81 /* toyBox.app */,
+				307354AC28D06F25007A3E3F /* toyBoxTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -373,6 +431,7 @@
 		30B542B5283E3627007D8A81 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				30459F6D28D0B56200FE05A0 /* PageIndicator */,
 				30B3C07928B75BEC006C605A /* MainView */,
 				30B3C07228B61BF2006C605A /* SearchBar */,
 				30DE311B28AE27F100509C14 /* GroupedTableView */,
@@ -420,6 +479,7 @@
 		30B542C9283E3CC8007D8A81 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				30459F5A28D0852100FE05A0 /* Intro */,
 				30D7247028CB57A00077393F /* Cart */,
 				30B3C06B28B6185C006C605A /* Categories */,
 				30DE311328AD254F00509C14 /* Toy */,
@@ -520,6 +580,7 @@
 				30DE311128AD0C7500509C14 /* InitialDataModel.swift */,
 				30C3FD3428C7690D0007B45A /* FavoriteModels.swift */,
 				30D95F1528C8AD85007F9E02 /* CartModel.swift */,
+				30459F6928D0964500FE05A0 /* IntroModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -546,6 +607,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		307354AB28D06F25007A3E3F /* toyBoxTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 307354B428D06F25007A3E3F /* Build configuration list for PBXNativeTarget "toyBoxTests" */;
+			buildPhases = (
+				307354A828D06F25007A3E3F /* Sources */,
+				307354A928D06F25007A3E3F /* Frameworks */,
+				307354AA28D06F25007A3E3F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				307354B128D06F25007A3E3F /* PBXTargetDependency */,
+			);
+			name = toyBoxTests;
+			productName = toyBoxTests;
+			productReference = 307354AC28D06F25007A3E3F /* toyBoxTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		30B5427B283E3243007D8A81 /* toyBox */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 30B54290283E3247007D8A81 /* Build configuration list for PBXNativeTarget "toyBox" */;
@@ -574,9 +653,13 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1340;
+				LastSwiftUpdateCheck = 1400;
 				LastUpgradeCheck = 1340;
 				TargetAttributes = {
+					307354AB28D06F25007A3E3F = {
+						CreatedOnToolsVersion = 14.0;
+						TestTargetID = 30B5427B283E3243007D8A81;
+					};
 					30B5427B283E3243007D8A81 = {
 						CreatedOnToolsVersion = 13.4;
 					};
@@ -596,11 +679,19 @@
 			projectRoot = "";
 			targets = (
 				30B5427B283E3243007D8A81 /* toyBox */,
+				307354AB28D06F25007A3E3F /* toyBoxTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		307354AA28D06F25007A3E3F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		30B5427A283E3243007D8A81 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -635,6 +726,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		17EEF184E457D806A4F80C98 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -674,6 +766,7 @@
 		};
 		881D3420F8D1AB41CC2FFC8C /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -692,11 +785,20 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		307354A828D06F25007A3E3F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				307354AF28D06F25007A3E3F /* toyBoxTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		30B54278283E3243007D8A81 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				30F35C6E2894168000D8B88F /* TileButton.swift in Sources */,
+				30459F6A28D0964500FE05A0 /* IntroModel.swift in Sources */,
 				30E7E9032892B82A00057155 /* FavoritesViewController.swift in Sources */,
 				30B542B9283E364C007D8A81 /* TableCell.swift in Sources */,
 				30DE310C28ABC34B00509C14 /* LoaderView.swift in Sources */,
@@ -718,12 +820,14 @@
 				30E7E9052892B84400057155 /* FavoritesView.swift in Sources */,
 				30F35C5C2893C43700D8B88F /* SocialMediaButton.swift in Sources */,
 				30E7E9012892B7F300057155 /* DashboardView.swift in Sources */,
+				30459F7128D0B8CF00FE05A0 /* PageIndicatorItem.swift in Sources */,
 				30DE312328AE357800509C14 /* ToyViewCell.swift in Sources */,
 				30B542A1283E3400007D8A81 /* UIFont.swift in Sources */,
 				30F35C5E2893D87900D8B88F /* TextField.swift in Sources */,
 				30DE311528AD257600509C14 /* ToyViewController.swift in Sources */,
 				30F35C6B28940DFA00D8B88F /* TileView.swift in Sources */,
 				30DE312128AE305B00509C14 /* GroupedSectionHeader.swift in Sources */,
+				30459F6628D08FEB00FE05A0 /* IntroView.swift in Sources */,
 				30B542C3283E3B0D007D8A81 /* ApiClient.swift in Sources */,
 				30B542B7283E3638007D8A81 /* View.swift in Sources */,
 				3018D2D128915CAB0008087F /* SignUpView.swift in Sources */,
@@ -752,6 +856,7 @@
 				30D95F1B28C8B8F8007F9E02 /* MainFlatView.swift in Sources */,
 				30B54282283E3243007D8A81 /* SceneDelegate.swift in Sources */,
 				30B3C07F28B783D9006C605A /* CategoriesDataSource+Delegate.swift in Sources */,
+				30459F6F28D0B57700FE05A0 /* PageIndicatorView.swift in Sources */,
 				30E7E90B2892BADD00057155 /* TabBarViewController.swift in Sources */,
 				30C3FD3528C7690D0007B45A /* FavoriteModels.swift in Sources */,
 				30B3C06F28B618A6006C605A /* CategoriesView.swift in Sources */,
@@ -759,12 +864,21 @@
 				3070A840289A7CF100E807DD /* Secrets.swift in Sources */,
 				30B3C07428B61C0C006C605A /* SearchBarView.swift in Sources */,
 				30DE311F28AE288000509C14 /* GroupedTableViewCell.swift in Sources */,
+				30459F5C28D0854000FE05A0 /* IntroViewController.swift in Sources */,
 				30B542C1283E3AE6007D8A81 /* NetworkDispatcher.swift in Sources */,
 				30B3C07128B619B2006C605A /* CategoryCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		307354B128D06F25007A3E3F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 30B5427B283E3243007D8A81 /* toyBox */;
+			targetProxy = 307354B028D06F25007A3E3F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		30B5428A283E3247007D8A81 /* LaunchScreen.storyboard */ = {
@@ -778,6 +892,52 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		307354B228D06F25007A3E3F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = GCQ4TX8M8Z;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.scibor.be.toyBoxTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/toyBox.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/toyBox";
+			};
+			name = Debug;
+		};
+		307354B328D06F25007A3E3F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = GCQ4TX8M8Z;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.scibor.be.toyBoxTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/toyBox.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/toyBox";
+			};
+			name = Release;
+		};
 		30B5428E283E3247007D8A81 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -973,6 +1133,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		307354B428D06F25007A3E3F /* Build configuration list for PBXNativeTarget "toyBoxTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				307354B228D06F25007A3E3F /* Debug */,
+				307354B328D06F25007A3E3F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		30B54277283E3243007D8A81 /* Build configuration list for PBXProject "toyBox" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -4,24 +4,19 @@ class Settings {
 
     static let shared = Settings()
 
-    let userDefaults: UserDefaults
-
-    private init() {
-        userDefaults = UserDefaults.standard
-    }
+    let userDefaults = UserDefaults.standard
 
     var isAppFirstRun: Bool {
-        let value: Bool? = userDefaults.value(forKey: "isAppFirstRun") as? Bool
+        var value = userDefaults.value(forKey: "isAppFirstRun") as? Bool
 
-        guard let value = value else {
-            userDefaults.set(true, forKey: "isFirstUse")
-            return true
+        if let value = value, !value {
+            return false
         }
 
-        return value
+        userDefaults.set(false, forKey: "isAppFirstRun")
+        
+        return true
     }
-
-    //var isBackFromChildController: Bool = false
 
     let apiBaseUrl: String = "https://develop-box.pl:8000/"
 

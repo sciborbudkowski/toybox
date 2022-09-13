@@ -16,6 +16,10 @@ class DashboardViewController: MainViewController {
         title = "Dashboard"
 
         navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
 
         getDataFromApi()
     }
@@ -45,7 +49,7 @@ class DashboardViewController: MainViewController {
 
         if !withoutLoader {
             loader.prepare()
-            present(loader, animated: true)
+            tabBarController?.present(loader, animated: true)
         }
 
         apiClient.dispatch(InitialData(userId: Secrets.shared.userId))
