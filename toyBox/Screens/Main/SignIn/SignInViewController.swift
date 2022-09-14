@@ -45,10 +45,10 @@ class SignInViewController: ViewController {
             guard let self = self else { return }
 
             if user != nil {
-//                if Settings.shared.isAppFirstRun {
+                if Settings.shared.isAppFirstRun {
                     let introViewController = IntroViewController()
                     self.present(introViewController, animated: true)
-//                }
+                }
 
                 if let userId = user?.uid {
                     Secrets.shared.userId = userId

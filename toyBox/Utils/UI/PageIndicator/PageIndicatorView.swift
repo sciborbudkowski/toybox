@@ -37,12 +37,10 @@ class PageIndicatorView: View {
             let type: PageIndicatorType = i == currentIndex ? .wide : .dot
             let item = PageIndicatorItem(type: type, color: color)
             indicators.append(item)
-            print("adding")
         }
     }
 
     override func setupConstraints() {
-        //guard let indicators = indicators else { print("something is wrong here"); return }
         print(indicators)
 
         addSubviews([stackView])
