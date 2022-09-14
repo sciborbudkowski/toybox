@@ -1,0 +1,3 @@
+#!/bin/bash
+
+xcrun simctl uninstall booted com.scibor.be.toyBox

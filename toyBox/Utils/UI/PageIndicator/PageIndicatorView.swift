@@ -5,14 +5,14 @@ class PageIndicatorView: View {
     var currentIndex: Int = 0
     var itemsCount: Int?
     var color: UIColor?
-    var indicators: [PageIndicatorItem]?
+    var indicators: [PageIndicatorItem] = []
 
     private let stackView: UIStackView = {
         let view = UIStackView()
         view.axis = .horizontal
-        view.alignment = .fill
+        view.alignment = .trailing
         view.distribution = .equalSpacing
-        view.spacing = 2.0
+        view.spacing = 5.0
         return view
     }()
 
@@ -33,26 +33,28 @@ class PageIndicatorView: View {
               let color = color
         else { return }
 
-        for i in 0...itemsCount {
-            var type: PageIndicatorType = i == currentIndex ? .wide : .dot
-
+        for i in 0...itemsCount - 1 {
+            let type: PageIndicatorType = i == currentIndex ? .wide : .dot
             let item = PageIndicatorItem(type: type, color: color)
-            indicators?.append(item)
+            indicators.append(item)
+            print("adding")
         }
     }
 
     override func setupConstraints() {
-        guard let indicators = indicators else { return }
+        //guard let indicators = indicators else { print("something is wrong here"); return }
+        print(indicators)
 
         addSubviews([stackView])
+
+        stackView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        stackView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        stackView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
 
         indicators.forEach {
             stackView.addArrangedSubview($0)
         }
-    }
-
-    func increment() {
-        currentIndex += 1
     }
 }
 

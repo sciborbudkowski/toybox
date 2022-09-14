@@ -7,7 +7,7 @@ enum PageIndicatorType {
 
 class PageIndicatorItem: View {
 
-    private var type: PageIndicatorType
+    var type: PageIndicatorType
     private var color: UIColor
 
     private let indicatorView: UIView = {
@@ -18,9 +18,14 @@ class PageIndicatorItem: View {
 
     init(type: PageIndicatorType, color: UIColor = UIColor(named: "Accent")!) {
         self.type = type
-        self.color = color
 
-        indicatorView.backgroundColor = color
+        if type == .wide {
+            self.color = color
+        } else {
+            self.color = .systemGray5
+        }
+
+        indicatorView.backgroundColor = self.color
         super.init()
     }
 

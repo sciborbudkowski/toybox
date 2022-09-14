@@ -42,10 +42,13 @@ class SignInViewController: ViewController {
         super.viewWillAppear(animated)
 
         authState = Auth.auth().addStateDidChangeListener { [weak self] _, user in
+            guard let self = self else { return }
+
             if user != nil {
-                if Settings.shared.isAppFirstRun {
-                    print("present intro viewcontroller")
-                }
+//                if Settings.shared.isAppFirstRun {
+                    let introViewController = IntroViewController()
+                    self.present(introViewController, animated: true)
+//                }
 
                 if let userId = user?.uid {
                     Secrets.shared.userId = userId
@@ -54,12 +57,12 @@ class SignInViewController: ViewController {
                         try Auth.auth().signOut()
                         AccessToken.current = nil
                     } catch let error {
-                        self?.showErrorAlert(button: "OK", title: "Error", message: "Error signing out: \(error.localizedDescription)")
+                        self.showErrorAlert(button: "OK", title: "Error", message: "Error signing out: \(error.localizedDescription)")
                     }
                 }
                 
                 let tabBarViewController = TabBarViewController()
-                self?.navigationController?.pushViewController(tabBarViewController, animated: true)
+                self.navigationController?.pushViewController(tabBarViewController, animated: true)
             }
         }
     }
