@@ -12,6 +12,7 @@
 		3018D2CC28915A1E0008087F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3018D2CB28915A1E0008087F /* ViewController.swift */; };
 		3018D2CF28915C870008087F /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3018D2CE28915C870008087F /* SignUpViewController.swift */; };
 		3018D2D128915CAB0008087F /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3018D2D028915CAA0008087F /* SignUpView.swift */; };
+		3021EFCE28D321F500A1E97A /* SwipeableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021EFCD28D321F500A1E97A /* SwipeableImageView.swift */; };
 		30459F5C28D0854000FE05A0 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30459F5B28D0854000FE05A0 /* IntroViewController.swift */; };
 		30459F6628D08FEB00FE05A0 /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30459F6528D08FEB00FE05A0 /* IntroView.swift */; };
 		30459F6A28D0964500FE05A0 /* IntroModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30459F6928D0964500FE05A0 /* IntroModel.swift */; };
@@ -78,7 +79,7 @@
 		30DE311228AD0C7500509C14 /* InitialDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DE311128AD0C7500509C14 /* InitialDataModel.swift */; };
 		30DE311528AD257600509C14 /* ToyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DE311428AD257600509C14 /* ToyViewController.swift */; };
 		30DE311728AD25C000509C14 /* ToyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DE311628AD25C000509C14 /* ToyView.swift */; };
-		30DE311928AD262600509C14 /* SwipeableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DE311828AD262600509C14 /* SwipeableImageView.swift */; };
+		30DE311928AD262600509C14 /* SwipeableImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DE311828AD262600509C14 /* SwipeableImageViewController.swift */; };
 		30DE311D28AE281700509C14 /* GroupedTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DE311C28AE281700509C14 /* GroupedTableView.swift */; };
 		30DE311F28AE288000509C14 /* GroupedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DE311E28AE288000509C14 /* GroupedTableViewCell.swift */; };
 		30DE312128AE305B00509C14 /* GroupedSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DE312028AE305B00509C14 /* GroupedSectionHeader.swift */; };
@@ -132,6 +133,7 @@
 		3018D2CB28915A1E0008087F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3018D2CE28915C870008087F /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		3018D2D028915CAA0008087F /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		3021EFCD28D321F500A1E97A /* SwipeableImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeableImageView.swift; sourceTree = "<group>"; };
 		30459F5B28D0854000FE05A0 /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		30459F6528D08FEB00FE05A0 /* IntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroView.swift; sourceTree = "<group>"; };
 		30459F6928D0964500FE05A0 /* IntroModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroModel.swift; sourceTree = "<group>"; };
@@ -201,7 +203,7 @@
 		30DE311128AD0C7500509C14 /* InitialDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialDataModel.swift; sourceTree = "<group>"; };
 		30DE311428AD257600509C14 /* ToyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToyViewController.swift; sourceTree = "<group>"; };
 		30DE311628AD25C000509C14 /* ToyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToyView.swift; sourceTree = "<group>"; };
-		30DE311828AD262600509C14 /* SwipeableImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeableImageView.swift; sourceTree = "<group>"; };
+		30DE311828AD262600509C14 /* SwipeableImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeableImageViewController.swift; sourceTree = "<group>"; };
 		30DE311C28AE281700509C14 /* GroupedTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupedTableView.swift; sourceTree = "<group>"; };
 		30DE311E28AE288000509C14 /* GroupedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupedTableViewCell.swift; sourceTree = "<group>"; };
 		30DE312028AE305B00509C14 /* GroupedSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupedSectionHeader.swift; sourceTree = "<group>"; };
@@ -524,7 +526,8 @@
 		30DE311A28AD268400509C14 /* SwipeableImageView */ = {
 			isa = PBXGroup;
 			children = (
-				30DE311828AD262600509C14 /* SwipeableImageView.swift */,
+				30DE311828AD262600509C14 /* SwipeableImageViewController.swift */,
+				3021EFCD28D321F500A1E97A /* SwipeableImageView.swift */,
 			);
 			path = SwipeableImageView;
 			sourceTree = "<group>";
@@ -803,7 +806,7 @@
 				30B542B9283E364C007D8A81 /* TableCell.swift in Sources */,
 				30DE310C28ABC34B00509C14 /* LoaderView.swift in Sources */,
 				3018D2CC28915A1E0008087F /* ViewController.swift in Sources */,
-				30DE311928AD262600509C14 /* SwipeableImageView.swift in Sources */,
+				30DE311928AD262600509C14 /* SwipeableImageViewController.swift in Sources */,
 				30B542BF283E3AC2007D8A81 /* Request.swift in Sources */,
 				30DE312528AE363F00509C14 /* ToyHeaderView.swift in Sources */,
 				30F35C642893F6B900D8B88F /* GesturePublisher.swift in Sources */,
@@ -817,6 +820,7 @@
 				30B54284283E3243007D8A81 /* SignInViewController.swift in Sources */,
 				30B542B4283E360E007D8A81 /* SnakeCaseJSONDecoder.swift in Sources */,
 				30165D2328ABA951000CDBFE /* ToyModel.swift in Sources */,
+				3021EFCE28D321F500A1E97A /* SwipeableImageView.swift in Sources */,
 				30E7E9052892B84400057155 /* FavoritesView.swift in Sources */,
 				30F35C5C2893C43700D8B88F /* SocialMediaButton.swift in Sources */,
 				30E7E9012892B7F300057155 /* DashboardView.swift in Sources */,

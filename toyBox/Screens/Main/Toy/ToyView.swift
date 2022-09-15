@@ -24,23 +24,36 @@ class ToyView: View {
         view.register(ToyViewCell.self, forCellReuseIdentifier: ToyViewCell.identifier)
         view.allowsSelection = false
         view.separatorStyle = .none
+        view.showsHorizontalScrollIndicator = false
+        view.showsVerticalScrollIndicator = false
         return view
     }()
 
     let addToCartButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Add to Cart", for: .normal)
-        button.setTitleColor(UIColor(named: "Accent"), for: .normal)
-        button.titleLabel?.font = UIFont.FontKarla(.ligth, ofSize: 18)
+        var attributedTitle = AttributedString("Add to Cart")
+        attributedTitle.font = UIFont.FontKarla(.regular, ofSize: 18)
+
+        var config = UIButton.Configuration.plain()
+        config.attributedTitle = attributedTitle
+        config.baseForegroundColor = UIColor(named: "Accent")
+        config.image = UIImage(systemName: "cart")
+        config.imagePlacement = .trailing
+        config.imagePadding = 5.0
+
+        let button = UIButton(configuration: config)
         return button
     }()
 
     let buyNowButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Buy Now!", for: .normal)
-        button.setTitleColor(UIColor(named: "Text"), for: .normal)
-        button.backgroundColor = UIColor(named: "Accent")
-        button.titleLabel?.font = UIFont.FontKarla(.ligth, ofSize: 18)
+        var attributedTitle = AttributedString("Buy Now!")
+        attributedTitle.font = UIFont.FontKarla(.regular, ofSize: 18)
+
+        var config = UIButton.Configuration.filled()
+        config.attributedTitle = attributedTitle
+        config.baseBackgroundColor = UIColor(named: "Accent")
+        config.cornerStyle = .capsule
+
+        let button = UIButton(configuration: config)
         return button
     }()
 
