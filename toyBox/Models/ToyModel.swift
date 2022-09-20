@@ -16,7 +16,7 @@ struct ToyModel: Codable {
     var viewCount: Int
     var viewCountAsFeatured: Int
     var activeDays: Int
-    var image: String
+    var images: [String]
     var price: Int
     var categoryId: String
     var subCategoryId: String
@@ -35,7 +35,7 @@ struct ToyModel: Codable {
         case viewCount
         case viewCountAsFeatured
         case activeDays
-        case image
+        case images
         case price
         case categoryId
         case subCategoryId
@@ -66,4 +66,19 @@ struct ToysRecent: Request {
     var path = "toys-recent"
 
     init() { }
+}
+
+struct Toy: Request {
+    typealias ReturnType = ToysModel
+    var queryParams: [String : String]? = [:]
+    var path = "get-toy"
+    var toyId: String
+
+    init(toyId: String) {
+        self.toyId = toyId
+
+        queryParams = [
+            "toyId": toyId
+        ]
+    }
 }

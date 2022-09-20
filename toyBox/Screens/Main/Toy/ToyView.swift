@@ -13,11 +13,7 @@ class ToyView: View {
         return label
     }()
 
-    let imageView: UIImageView = {
-        let view = UIImageView()
-        view.kf.setImage(with: URL(string: "https://ecsmedia.pl/c/lego-speed-champions-fast-furious-1970-dodge-charger-r-t-76912-w-iext116366406.jpg"))
-        return view
-    }()
+    let carouselView = CarouselView()
 
     let mainTableView: UITableView = {
         let view = UITableView()
@@ -73,19 +69,19 @@ class ToyView: View {
     }()
 
     override func setupConstraints() {
-        addSubviews([imageView, mainTableView, bottomStackView])
+        addSubviews([carouselView, mainTableView, bottomStackView])
 
-        imageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
-        imageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
-        imageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
-        imageView.heightAnchor.constraint(equalToConstant: 175).isActive = true
+        carouselView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
+        carouselView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
+        carouselView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
+        carouselView.heightAnchor.constraint(equalToConstant: 200).isActive = true
 
         bottomStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -30).isActive = true
         bottomStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
         bottomStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
         bottomStackView.heightAnchor.constraint(equalToConstant: 50).isActive = true
 
-        mainTableView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 10).isActive = true
+        mainTableView.topAnchor.constraint(equalTo: carouselView.bottomAnchor, constant: 10).isActive = true
         mainTableView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
         mainTableView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
         mainTableView.bottomAnchor.constraint(equalTo: bottomStackView.topAnchor).isActive = true

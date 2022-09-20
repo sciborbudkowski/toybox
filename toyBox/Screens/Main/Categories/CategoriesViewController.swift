@@ -2,7 +2,7 @@ import UIKit
 import Combine
 import CombineCocoa
 
-class CategoriesViewController: MainViewController {
+class CategoriesViewController: ViewController {
 
     let customView = CategoriesView()
     let dataSource = CategoriesDataSource()

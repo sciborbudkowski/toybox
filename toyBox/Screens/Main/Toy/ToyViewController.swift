@@ -1,12 +1,18 @@
 import UIKit
 import Kingfisher
+import Combine
+import CombineCocoa
 
-class ToyViewController: MainViewController {
+class ToyViewController: ViewController {
 
     let customView = ToyView()
     let dataSource = ToyDataSource()
 
     private var data: ToyModel?
+
+    private var images: [String] = []
+
+    private var currentIndex: Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +24,8 @@ class ToyViewController: MainViewController {
 
         customView.mainTableView.delegate = dataSource
         customView.mainTableView.dataSource = dataSource
+
+        customView.carouselView.configure(with: images)
     }
 
     override func loadView() {
@@ -36,23 +44,54 @@ class ToyViewController: MainViewController {
 
     override func setupCombineComponents() {
         guard let data = data else { fatalError("this shouldn't happen!") }
-        print(data.id)
-        apiClient.dispatch(IsFavorities(userId: Secrets.shared.userId, toyId: data.id))
-            .map { $0 }
-            .sink { _ in
+
+        apiClient.dispatch(Toy(toyId: data.id))
+            .delay(for: 1.0, scheduler: RunLoop.main)
+            .map { $0.data }
+            .sink { a in
+                print(a)
             } receiveValue: { [weak self] received in
                 guard let self = self else { return }
-                let state = received.data.count == 0 ? false : true
-                let imageName = state ? "heart.fill" : "heart"
-                let button = UIBarButtonItem(image: UIImage(systemName: imageName), style: .plain, target: nil, action: nil)
-                DispatchQueue.main.async {
-                    self.navigationItem.rightBarButtonItem = button
-                    self.navigationItem.rightBarButtonItem?.tapPublisher.sink(receiveValue: { _ in
-                        self.switchFavoriteStatus()
-                    }).store(in: &self.cancellables)
+                guard let toyData = received.first else {
+                    self.showErrorAlert(button: "OK", title: "Error", message: "No data received.")
+                    return
+                }
+                print(toyData)
+
+                if toyData.images.count == 0 {
+                    DispatchQueue.main.async {
+                        self.customView.carouselView.disableArrows()
+                        self.customView.carouselView.configure(with: UIImage(named: "NoImage")!)
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        self.customView.carouselView.configure(with: toyData.images)
+                    }
                 }
             }
             .store(in: &cancellables)
+
+        customView.carouselView.previousButton.tapPublisher.sink { [weak self] _ in
+            guard let self = self else { return }
+
+            self.currentIndex -= 1
+            if self.currentIndex < 0 {
+                self.currentIndex = self.images.count - 1
+            }
+
+            self.customView.carouselView.scrollView.scrollTo(index: self.currentIndex)
+        }.store(in: &cancellables)
+
+        customView.carouselView.nextButton.tapPublisher.sink { [weak self] _ in
+            guard let self = self else { return }
+
+            self.currentIndex += 1
+            if self.currentIndex == self.images.count {
+                self.currentIndex = 0
+            }
+
+            self.customView.carouselView.scrollView.scrollTo(index: self.currentIndex)
+        }.store(in: &cancellables)
     }
 
     func configure(with model: ToyModel) {
@@ -77,7 +116,24 @@ class ToyViewController: MainViewController {
         customView.mainTableView.reloadData()
 
         customView.nameLabel.text = data.name
-        customView.imageView.kf.setImage(with: URL(string: data.image))
+
+        let isFavorite = Storage.shared.favorities.data.contains(where: { item in
+            if item.userId == Secrets.shared.userId, item.toyId == model.id {
+                return true
+            }
+            return false
+        })
+
+        let imageName = isFavorite ? "heart.fill" : "heart"
+        let button = UIBarButtonItem(image: UIImage(systemName: imageName), style: .plain, target: nil, action: nil)
+        navigationItem.rightBarButtonItem = button
+
+        navigationItem.rightBarButtonItem?.tapPublisher.sink(receiveValue: { [weak self] _ in
+            guard let self = self else { return }
+
+            self.switchFavoriteStatus()
+        })
+        .store(in: &cancellables)
     }
 
     private func switchFavoriteStatus() {

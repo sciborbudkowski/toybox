@@ -2,7 +2,7 @@ import UIKit
 import Combine
 import CombineCocoa
 
-class DashboardViewController: MainViewController {
+class DashboardViewController: ViewController {
 
     let customView = DashboardView()
 
@@ -103,9 +103,14 @@ class DashboardViewController: MainViewController {
         let max = model.count < 4 ? model.count : 3
 
         for index in 0...max {
-            let button = TileButtonModel(title: model[index].name,
-                                         subTitle: model[index].description,
-                                         image: model[index].image)
+            var image: String? = nil
+
+            if model[index].images.count > 0 {
+                image = model[index].images[0]
+            }
+
+            let button = TileButtonModel(title: model[index].name, subTitle: model[index].description, image: image)
+
             DispatchQueue.main.async {
                 self.customView.popularTileView.buttons[index].configure(with: button)
                 self.customView.popularTileView.buttons[index].gesture().sink { _ in
@@ -123,9 +128,14 @@ class DashboardViewController: MainViewController {
         let max = model.count < 4 ? model.count : 3
 
         for index in 0...max {
-            let button = TileButtonModel(title: model[index].name,
-                                         subTitle: model[index].description,
-                                         image: model[index].image)
+            var image: String? = nil
+
+            if model[index].images.count > 0 {
+                image = model[index].images[0]
+            }
+
+            let button = TileButtonModel(title: model[index].name, subTitle: model[index].description, image: image)
+
             DispatchQueue.main.async {
                 self.customView.recentTileView.buttons[index].configure(with: button)
                 self.customView.recentTileView.buttons[index].gesture().sink { _ in
@@ -144,7 +154,7 @@ class DashboardViewController: MainViewController {
         for index in 0...max {
             let button = TileButtonModel(title: model[index].name,
                                          subTitle: "",
-                                         image: "https://picsum.photos/300/300")
+                                         image: "https://picsum.photos/301/300")
             DispatchQueue.main.async {
                 self.customView.featuredCategoriesTileView.buttons[index].configure(with: button)
             }

@@ -17,11 +17,11 @@ extension UIView {
         self.layer.insertSublayer(gradientLayer, at: 0)
     }
 
-    func constraintToAllEdges(constant: CGFloat = 0) {
+    func constraintToAllEdges(of view: UIView, constant: CGFloat = 0) {
         self.translatesAutoresizingMaskIntoConstraints = false
-        self.topAnchor.constraint(equalTo: topAnchor, constant: constant).isActive = true
-        self.bottomAnchor.constraint(equalTo: bottomAnchor, constant: constant).isActive = true
-        self.leadingAnchor.constraint(equalTo: leadingAnchor, constant: constant).isActive = true
-        self.trailingAnchor.constraint(equalTo: trailingAnchor, constant: constant).isActive = true
+        self.topAnchor.constraint(equalTo: view.topAnchor, constant: constant).isActive = true
+        self.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: constant).isActive = true
+        self.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: constant).isActive = true
+        self.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: constant).isActive = true
     }
 }

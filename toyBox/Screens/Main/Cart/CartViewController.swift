@@ -1,6 +1,6 @@
 import UIKit
 
-class CartViewController: MainViewController {
+class CartViewController: ViewController {
 
     let customView = CartView()
 

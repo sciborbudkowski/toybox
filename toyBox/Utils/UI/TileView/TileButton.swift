@@ -3,8 +3,8 @@ import Kingfisher
 
 struct TileButtonModel {
     var title: String
-    var subTitle: String
-    var image: String
+    var subTitle: String?
+    var image: String?
 }
 
 class TileButton: View {
@@ -78,14 +78,16 @@ class TileButton: View {
 
     func configure(with model: TileButtonModel) {
         titleLabel.text = model.title
-        subTitleLabel.text = model.subTitle
-        if model.image == "" {
-            backgroundImageView.image = UIImage(named: "NoImage")
+
+        if let image = model.image {
+            backgroundImageView.kf.setImage(with: URL(string: image))
         } else {
-            backgroundImageView.kf.setImage(with: URL(string: model.image))
+            backgroundImageView.image = UIImage(named: "NoImage")
         }
 
-        if model.subTitle == "" {
+        if let subTitle = model.subTitle {
+            subTitleLabel.text = subTitle
+        } else {
             subTitleLabel.isHidden = true
         }
     }

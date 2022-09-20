@@ -30,7 +30,7 @@ struct NetworkDispatcher {
                    !(200...299).contains(response.statusCode) {
                     throw httpError(response.statusCode)
                 }
-                // print("ReturnType: \(ReturnType.self), \(data.prettyJSON)")
+                print("ReturnType: \(ReturnType.self), \(data.prettyJSON)")
 
                 return data
             })
