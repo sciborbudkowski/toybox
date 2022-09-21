@@ -2,10 +2,18 @@ import UIKit
 
 class PageIndicatorView: View {
 
-    var currentIndex: Int = 0
+    var currentIndex: Int = 0 {
+        didSet {
+            stackView.arrangedSubviews.forEach {
+                $0.removeFromSuperview()
+            }
+
+            setupProperties()
+        }
+    }
+
     var itemsCount: Int?
     var color: UIColor?
-    var indicators: [PageIndicatorItem] = []
 
     private let stackView: UIStackView = {
         let view = UIStackView()
@@ -36,23 +44,17 @@ class PageIndicatorView: View {
         for i in 0...itemsCount - 1 {
             let type: PageIndicatorType = i == currentIndex ? .wide : .dot
             let item = PageIndicatorItem(type: type, color: color)
-            indicators.append(item)
+            stackView.addArrangedSubview(item)
         }
     }
 
     override func setupConstraints() {
-        print(indicators)
-
         addSubviews([stackView])
 
         stackView.topAnchor.constraint(equalTo: topAnchor).isActive = true
         stackView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         stackView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         stackView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-
-        indicators.forEach {
-            stackView.addArrangedSubview($0)
-        }
     }
 }
 

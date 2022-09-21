@@ -46,17 +46,16 @@ class ToyViewController: ViewController {
         guard let data = data else { fatalError("this shouldn't happen!") }
 
         apiClient.dispatch(Toy(toyId: data.id))
-            .delay(for: 1.0, scheduler: RunLoop.main)
             .map { $0.data }
-            .sink { a in
-                print(a)
-            } receiveValue: { [weak self] received in
+            .sink(receiveCompletion: { _ in
+            }, receiveValue: { [weak self] received in
                 guard let self = self else { return }
                 guard let toyData = received.first else {
                     self.showErrorAlert(button: "OK", title: "Error", message: "No data received.")
                     return
                 }
-                print(toyData)
+
+                self.images = toyData.images
 
                 if toyData.images.count == 0 {
                     DispatchQueue.main.async {
@@ -68,7 +67,7 @@ class ToyViewController: ViewController {
                         self.customView.carouselView.configure(with: toyData.images)
                     }
                 }
-            }
+            })
             .store(in: &cancellables)
 
         customView.carouselView.previousButton.tapPublisher.sink { [weak self] _ in
@@ -79,7 +78,7 @@ class ToyViewController: ViewController {
                 self.currentIndex = self.images.count - 1
             }
 
-            self.customView.carouselView.scrollView.scrollTo(index: self.currentIndex)
+            self.customView.carouselView.scrollContent(index: self.currentIndex)
         }.store(in: &cancellables)
 
         customView.carouselView.nextButton.tapPublisher.sink { [weak self] _ in
@@ -90,7 +89,7 @@ class ToyViewController: ViewController {
                 self.currentIndex = 0
             }
 
-            self.customView.carouselView.scrollView.scrollTo(index: self.currentIndex)
+            self.customView.carouselView.scrollContent(index: self.currentIndex)
         }.store(in: &cancellables)
     }
 

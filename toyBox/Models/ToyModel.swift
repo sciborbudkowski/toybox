@@ -3,6 +3,7 @@ import Foundation
 enum ToysType: String, Codable {
     case popular = "popular-toys"
     case recent = "recent-toys"
+    case single = "get-toy"
 }
 
 struct ToyModel: Codable {

@@ -30,13 +30,12 @@ struct NetworkDispatcher {
                    !(200...299).contains(response.statusCode) {
                     throw httpError(response.statusCode)
                 }
-                print("ReturnType: \(ReturnType.self), \(data.prettyJSON)")
+                // print("ReturnType: \(ReturnType.self), \(String(describing: data.prettyJSON))")
 
                 return data
             })
             .decode(type: ReturnType.self, decoder: SnakeCaseJSONDecoder())
-            .mapError { handleError($0) }
-            .retry(1)
+            .mapError { print($0); return handleError($0) }
             .eraseToAnyPublisher()
     }
 }

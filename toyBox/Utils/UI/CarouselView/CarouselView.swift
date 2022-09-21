@@ -27,20 +27,16 @@ class CarouselView: View {
         return button
     }()
 
-    private let indicator: IndicatorView = {
-        let view = IndicatorView()
-        return view
-    }()
-
     private let stackView: UIStackView = {
         let view = UIStackView()
         view.axis = .horizontal
         return view
     }()
 
+    private var indicator: PageIndicatorView? = nil
+
     func configure(with images: [String]) {
         contentView.addSubviews([stackView])
-        print(images)
 
         images.enumerated().forEach { (index, imageUrlString) in
             let url = URL(string: imageUrlString)
@@ -53,6 +49,22 @@ class CarouselView: View {
             imageView.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
             imageView.heightAnchor.constraint(equalTo: heightAnchor).isActive = true
         }
+
+        if images.count > 0 {
+            self.indicator = PageIndicatorView(itemsCount: images.count)
+            guard let indicator = self.indicator else { return }
+
+            addSubviews([indicator])
+            indicator.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
+            indicator.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -20).isActive = true
+            indicator.widthAnchor.constraint(equalToConstant: 150).isActive = true
+            indicator.heightAnchor.constraint(equalToConstant: 10).isActive = true
+        }
+    }
+
+    func scrollContent(index: Int) {
+        scrollView.scrollTo(index: index)
+        indicator?.currentIndex = index
     }
 
     func configure(with emptyImage: UIImage) {
@@ -69,8 +81,8 @@ class CarouselView: View {
     }
 
     func disableArrows() {
-        previousButton.isEnabled = false
-        nextButton.isEnabled = false
+        previousButton.isHidden = true
+        nextButton.isHidden = true
     }
 
     override func setupConstraints() {
