@@ -1,3 +1,5 @@
+var ObjectId = require('mongodb').ObjectId;
+
 const { getDatabase } = require('./mongo');
 
 const collectionName = 'toys';
@@ -28,4 +30,22 @@ async function getRecentToys() {
     return json;
 };
 
-module.exports = { getPopularToys, getRecentToys };
+async function getToy(toyId) {
+    const database = await getDatabase();
+    const idForQuery = new ObjectId(toyId);
+    const query = { _id: idForQuery };
+    const result = await database.collection(collectionName).find(query).toArray();
+
+    const json = {
+        'result': true,
+        'type': 'get-toy',
+        'count': 1,
+        'data': result
+    };
+
+    console.log(json);
+
+    return json
+}
+
+module.exports = { getPopularToys, getRecentToys, getToy };

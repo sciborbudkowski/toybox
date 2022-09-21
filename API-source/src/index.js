@@ -7,7 +7,7 @@ const https = require('https');
 const fs = require('fs');
 
 const { startDatabase } = require('./database/mongo');
-const { getPopularToys, getRecentToys } = require('./database/toys');
+const { getPopularToys, getRecentToys, getToy } = require('./database/toys');
 const { getCategories } = require('./database/categories');
 const { getInitialData } = require('./database/initialData');
 const { isFavorite, switchFavorite } = require('./database/favorities');
@@ -116,7 +116,25 @@ app.get('/get-cart', async (req, res) => {
         }
     };
     res.send(await json);
-})
+});
+
+app.get('/get-toy', async (req, res) => {
+    if (typeof req.query.toyId !== 'undefined') {
+        const toyId = req.query.toyId;
+        res.send(await getToy(toyId));
+        return;
+    }
+
+    const json = {
+        'result': false,
+        'type': 'getToy',
+        'count': -1,
+        'data': {
+            'message': 'toyId parameter not provided.'
+        }
+    };
+    res.send(await json);
+});
 
 startDatabase().then(async () => {
     https.createServer(httpsOptions, app).listen(PORT);
