@@ -22,6 +22,9 @@
 		304BA96828D885F90008B423 /* UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304BA96728D885F90008B423 /* UIScrollView.swift */; };
 		3070A840289A7CF100E807DD /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3070A83F289A7CF100E807DD /* Secrets.swift */; };
 		307354AF28D06F25007A3E3F /* toyBoxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307354AE28D06F25007A3E3F /* toyBoxTests.swift */; };
+		30887E5828DB22130008378C /* SearchFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30887E5728DB22130008378C /* SearchFilterView.swift */; };
+		30887E5A28DB222F0008378C /* SearchFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30887E5928DB222F0008378C /* SearchFilterViewController.swift */; };
+		30887E5D28DB264D0008378C /* SFTitleFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30887E5C28DB264D0008378C /* SFTitleFilterView.swift */; };
 		30B3C06D28B6187B006C605A /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B3C06C28B6187A006C605A /* CategoriesViewController.swift */; };
 		30B3C06F28B618A6006C605A /* CategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B3C06E28B618A6006C605A /* CategoriesView.swift */; };
 		30B3C07128B619B2006C605A /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B3C07028B619B2006C605A /* CategoryCell.swift */; };
@@ -143,6 +146,9 @@
 		3070A83F289A7CF100E807DD /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		307354AC28D06F25007A3E3F /* toyBoxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = toyBoxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		307354AE28D06F25007A3E3F /* toyBoxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toyBoxTests.swift; sourceTree = "<group>"; };
+		30887E5728DB22130008378C /* SearchFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilterView.swift; sourceTree = "<group>"; };
+		30887E5928DB222F0008378C /* SearchFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilterViewController.swift; sourceTree = "<group>"; };
+		30887E5C28DB264D0008378C /* SFTitleFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFTitleFilterView.swift; sourceTree = "<group>"; };
 		30B3C06C28B6187A006C605A /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
 		30B3C06E28B618A6006C605A /* CategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesView.swift; sourceTree = "<group>"; };
 		30B3C07028B619B2006C605A /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
@@ -284,6 +290,70 @@
 			path = toyBoxTests;
 			sourceTree = "<group>";
 		};
+		30887E5128DB20660008378C /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				30E7E8FE2892B7B300057155 /* DashboardViewController.swift */,
+				30E7E9002892B7F300057155 /* DashboardView.swift */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		30887E5228DB20820008378C /* Favorities */ = {
+			isa = PBXGroup;
+			children = (
+				30E7E9022892B82A00057155 /* FavoritesViewController.swift */,
+				30E7E9042892B84400057155 /* FavoritesView.swift */,
+			);
+			path = Favorities;
+			sourceTree = "<group>";
+		};
+		30887E5328DB20A10008378C /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				30E7E9062892B9F800057155 /* SettingsViewController.swift */,
+				30E7E9082892BA5000057155 /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		30887E5428DB20C40008378C /* Loader */ = {
+			isa = PBXGroup;
+			children = (
+				30DE310928ABC31100509C14 /* LoaderViewController.swift */,
+				30DE310B28ABC34B00509C14 /* LoaderView.swift */,
+			);
+			path = Loader;
+			sourceTree = "<group>";
+		};
+		30887E5528DB210A0008378C /* ChildViews */ = {
+			isa = PBXGroup;
+			children = (
+				30887E5628DB21F80008378C /* SearchFilter */,
+				30DE311328AD254F00509C14 /* Toy */,
+				30B3C06B28B6185C006C605A /* Categories */,
+			);
+			path = ChildViews;
+			sourceTree = "<group>";
+		};
+		30887E5628DB21F80008378C /* SearchFilter */ = {
+			isa = PBXGroup;
+			children = (
+				30887E5B28DB25FD0008378C /* SearchFilterInternalViews */,
+				30887E5728DB22130008378C /* SearchFilterView.swift */,
+				30887E5928DB222F0008378C /* SearchFilterViewController.swift */,
+			);
+			path = SearchFilter;
+			sourceTree = "<group>";
+		};
+		30887E5B28DB25FD0008378C /* SearchFilterInternalViews */ = {
+			isa = PBXGroup;
+			children = (
+				30887E5C28DB264D0008378C /* SFTitleFilterView.swift */,
+			);
+			path = SearchFilterInternalViews;
+			sourceTree = "<group>";
+		};
 		30B3C06B28B6185C006C605A /* Categories */ = {
 			isa = PBXGroup;
 			children = (
@@ -293,14 +363,6 @@
 				30B3C07E28B783D9006C605A /* CategoriesDataSource+Delegate.swift */,
 			);
 			path = Categories;
-			sourceTree = "<group>";
-		};
-		30B3C07228B61BF2006C605A /* SearchBar */ = {
-			isa = PBXGroup;
-			children = (
-				30B3C07328B61C0C006C605A /* SearchBarView.swift */,
-			);
-			path = SearchBar;
 			sourceTree = "<group>";
 		};
 		30B3C07828B75B9E006C605A /* SignIn */ = {
@@ -433,11 +495,9 @@
 			children = (
 				30459F6D28D0B56200FE05A0 /* PageIndicator */,
 				30B3C07928B75BEC006C605A /* MainView */,
-				30B3C07228B61BF2006C605A /* SearchBar */,
 				30DE311B28AE27F100509C14 /* GroupedTableView */,
 				30F35C6C2894164D00D8B88F /* TileView */,
-				30F35C652893F86F00D8B88F /* Gestures */,
-				30DE311A28AD268400509C14 /* CarouselView */,
+				30F35C652893F86F00D8B88F /* UIView+Gesture */,
 				30B542B6283E3638007D8A81 /* View.swift */,
 				30B542B8283E364C007D8A81 /* TableCell.swift */,
 				30B542BA283E3660007D8A81 /* CollectionCell.swift */,
@@ -446,6 +506,8 @@
 				30F35C5B2893C43600D8B88F /* SocialMediaButton.swift */,
 				30F35C5D2893D87900D8B88F /* TextField.swift */,
 				30DE310D28ACE80700509C14 /* Label.swift */,
+				30B3C07328B61C0C006C605A /* SearchBarView.swift */,
+				304BA96528D86E740008B423 /* CarouselView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -453,7 +515,11 @@
 		30B542BC283E3A60007D8A81 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				30B3C07828B75B9E006C605A /* SignIn */,
+				3018D2CD28915C780008087F /* SignUp */,
+				30459F5A28D0852100FE05A0 /* Intro */,
 				30B542C9283E3CC8007D8A81 /* Main */,
+				30887E5528DB210A0008378C /* ChildViews */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -479,15 +545,12 @@
 		30B542C9283E3CC8007D8A81 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				30459F5A28D0852100FE05A0 /* Intro */,
+				30E7E90A2892BADD00057155 /* TabBarViewController.swift */,
+				30887E5128DB20660008378C /* Dashboard */,
+				30887E5228DB20820008378C /* Favorities */,
+				30887E5328DB20A10008378C /* Settings */,
 				30D7247028CB57A00077393F /* Cart */,
-				30B3C06B28B6185C006C605A /* Categories */,
-				30DE311328AD254F00509C14 /* Toy */,
-				30E7E8FD2892B79B00057155 /* Components */,
-				3018D2CD28915C780008087F /* SignUp */,
-				30B3C07828B75B9E006C605A /* SignIn */,
-				30DE310928ABC31100509C14 /* LoaderViewController.swift */,
-				30DE310B28ABC34B00509C14 /* LoaderView.swift */,
+				30887E5428DB20C40008378C /* Loader */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -521,14 +584,6 @@
 			path = Toy;
 			sourceTree = "<group>";
 		};
-		30DE311A28AD268400509C14 /* CarouselView */ = {
-			isa = PBXGroup;
-			children = (
-				304BA96528D86E740008B423 /* CarouselView.swift */,
-			);
-			path = CarouselView;
-			sourceTree = "<group>";
-		};
 		30DE311B28AE27F100509C14 /* GroupedTableView */ = {
 			isa = PBXGroup;
 			children = (
@@ -539,28 +594,14 @@
 			path = GroupedTableView;
 			sourceTree = "<group>";
 		};
-		30E7E8FD2892B79B00057155 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				30E7E8FE2892B7B300057155 /* DashboardViewController.swift */,
-				30E7E9002892B7F300057155 /* DashboardView.swift */,
-				30E7E9022892B82A00057155 /* FavoritesViewController.swift */,
-				30E7E9042892B84400057155 /* FavoritesView.swift */,
-				30E7E9062892B9F800057155 /* SettingsViewController.swift */,
-				30E7E9082892BA5000057155 /* SettingsView.swift */,
-				30E7E90A2892BADD00057155 /* TabBarViewController.swift */,
-			);
-			path = Components;
-			sourceTree = "<group>";
-		};
-		30F35C652893F86F00D8B88F /* Gestures */ = {
+		30F35C652893F86F00D8B88F /* UIView+Gesture */ = {
 			isa = PBXGroup;
 			children = (
 				30F35C632893F6B900D8B88F /* GesturePublisher.swift */,
 				30F35C662893F88700D8B88F /* GestureSubscription.swift */,
 				30F35C682893FA9200D8B88F /* UIView+Gesture.swift */,
 			);
-			path = Gestures;
+			path = "UIView+Gesture";
 			sourceTree = "<group>";
 		};
 		30F35C6C2894164D00D8B88F /* TileView */ = {
@@ -801,6 +842,7 @@
 				30459F6A28D0964500FE05A0 /* IntroModel.swift in Sources */,
 				30E7E9032892B82A00057155 /* FavoritesViewController.swift in Sources */,
 				30B542B9283E364C007D8A81 /* TableCell.swift in Sources */,
+				30887E5A28DB222F0008378C /* SearchFilterViewController.swift in Sources */,
 				30DE310C28ABC34B00509C14 /* LoaderView.swift in Sources */,
 				3018D2CC28915A1E0008087F /* ViewController.swift in Sources */,
 				30B542BF283E3AC2007D8A81 /* Request.swift in Sources */,
@@ -839,6 +881,7 @@
 				30E7E9092892BA5000057155 /* SettingsView.swift in Sources */,
 				3018D2CA28914E8B0008087F /* String.swift in Sources */,
 				30D95F1428C89ECF007F9E02 /* CartView.swift in Sources */,
+				30887E5D28DB264D0008378C /* SFTitleFilterView.swift in Sources */,
 				30DE310E28ACE80700509C14 /* Label.swift in Sources */,
 				30F35C672893F88700D8B88F /* GestureSubscription.swift in Sources */,
 				30DE312728AE38B900509C14 /* ToyDelegate+DataSource.swift in Sources */,
@@ -857,6 +900,7 @@
 				30459F6F28D0B57700FE05A0 /* PageIndicatorView.swift in Sources */,
 				30E7E90B2892BADD00057155 /* TabBarViewController.swift in Sources */,
 				304BA96628D86E740008B423 /* CarouselView.swift in Sources */,
+				30887E5828DB22130008378C /* SearchFilterView.swift in Sources */,
 				30C3FD3528C7690D0007B45A /* FavoriteModels.swift in Sources */,
 				30B3C06F28B618A6006C605A /* CategoriesView.swift in Sources */,
 				30D95F1228C89EA9007F9E02 /* CartViewController.swift in Sources */,

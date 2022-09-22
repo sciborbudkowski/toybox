@@ -38,8 +38,18 @@ class DashboardViewController: ViewController {
         .store(in: &cancellables)
 
         customView.refreshControl.isRefreshingPublisher.sink { [weak self] _ in
-            self?.getDataFromApi(withoutLoader: true)
-            self?.customView.refreshControl.endRefreshing()
+            guard let self = self else { return }
+
+            self.getDataFromApi(withoutLoader: true)
+            self.customView.refreshControl.endRefreshing()
+        }
+        .store(in: &cancellables)
+
+        customView.searchBarView.filterButton.tapPublisher.sink { [weak self] _ in
+            guard let self = self else { return }
+
+            let searchFilterViewController = SearchFilterViewController()
+            self.present(searchFilterViewController, animated: true)
         }
         .store(in: &cancellables)
     }
@@ -57,6 +67,7 @@ class DashboardViewController: ViewController {
             .tryMap { $0 }
             .sink(receiveCompletion: { [weak self] completion in
                 guard let self = self else { return }
+
                 switch completion {
                 case .failure(let error):
                     DispatchQueue.main.async {
@@ -100,7 +111,7 @@ class DashboardViewController: ViewController {
 
     private func updatePopularTiles(with model: [ToyModel]) {
         toysPopular = ToysModel(result: true, type: .popular, count: model.count, data: model)
-        let max = model.count < 4 ? model.count : 3
+        let max = model.count < Settings.shared.numberOfPopularTileButtons ? model.count : 3
 
         for index in 0...max {
             var image: String? = nil
@@ -125,7 +136,7 @@ class DashboardViewController: ViewController {
 
     private func updateRecentTiles(with model: [ToyModel]) {
         toysRecent = ToysModel(result: true, type: .popular, count: model.count, data: model)
-        let max = model.count < 4 ? model.count : 3
+        let max = model.count < Settings.shared.numberOfRecentTileButtons ? model.count : 3
 
         for index in 0...max {
             var image: String? = nil
@@ -149,7 +160,7 @@ class DashboardViewController: ViewController {
     }
 
     private func updateFeaturedCategories(with model: [CategoryModel]) {
-        let max = model.count < 4 ? model.count : 3
+        let max = model.count < Settings.shared.numberOfFeaturedCategoriesTileButtons ? model.count : 3
 
         for index in 0...max {
             let button = TileButtonModel(title: model[index].name,
