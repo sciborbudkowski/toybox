@@ -7,7 +7,7 @@ class Settings {
     let userDefaults = UserDefaults.standard
 
     var isAppFirstRun: Bool {
-        var value = userDefaults.value(forKey: "isAppFirstRun") as? Bool
+        let value = userDefaults.value(forKey: "isAppFirstRun") as? Bool
 
         if let value = value, !value {
             return false
@@ -22,4 +22,12 @@ class Settings {
 
     let dummyUserId: String = "tYM69m2Lx9agjlWWBtWJQhnpF0q1"
     let dummyToyId: String = "630365927c37bce8c1b8a083"
+
+    let numberOfPopularTileButtons = 4
+    let numberOfRecentTileButtons = 4
+    let numberOfFeaturedCategoriesTileButtons = 4
+
+    let distanceFromEdge: Float = 25
+    let distanceBetweenControls: Float = 10
+    let distanceBetweenGroups: Float = 20
 }
