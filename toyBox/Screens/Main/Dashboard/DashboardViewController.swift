@@ -52,6 +52,11 @@ class DashboardViewController: ViewController {
             self.present(searchFilterViewController, animated: true)
         }
         .store(in: &cancellables)
+
+        customView.popularTileView.allButton.tapPublisher.sink { _ in
+            print("Place name: ", Storage.shared.locationInfo?.placeName as Any)
+        }
+        .store(in: &cancellables)
     }
 
     private func getDataFromApi(withoutLoader: Bool = false) {
@@ -125,7 +130,8 @@ class DashboardViewController: ViewController {
             DispatchQueue.main.async {
                 self.customView.popularTileView.buttons[index].configure(with: button)
                 self.customView.popularTileView.buttons[index].gesture().sink { _ in
-                    let toyViewController = ToyViewController()
+                    let isToyOwnedByUser = Storage.shared
+                    let toyViewController = ToyViewController(updateViewCount: true)
                     toyViewController.configure(with: model[index])
 
                     self.navigationController?.pushViewController(toyViewController, animated: true)

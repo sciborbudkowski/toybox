@@ -12,6 +12,7 @@ struct ToyModel: Codable {
     var description: String
     var dateAdded: String
     var userId: String
+    var location: LocationModel
     var isActive: Bool
     var isFeatured: Bool
     var viewCount: Int
@@ -31,6 +32,7 @@ struct ToyModel: Codable {
         case description
         case dateAdded
         case userId
+        case location
         case isActive
         case isFeatured
         case viewCount
@@ -74,12 +76,15 @@ struct Toy: Request {
     var queryParams: [String : String]? = [:]
     var path = "get-toy"
     var toyId: String
+    var updateViewCount: Bool
 
-    init(toyId: String) {
+    init(toyId: String, updateViewCount: Bool = false) {
         self.toyId = toyId
+        self.updateViewCount = updateViewCount
 
         queryParams = [
-            "toyId": toyId
+            "toyId": toyId,
+            "update": String(updateViewCount)
         ]
     }
 }
