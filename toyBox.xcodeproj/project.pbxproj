@@ -22,6 +22,8 @@
 		304BA96828D885F90008B423 /* UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304BA96728D885F90008B423 /* UIScrollView.swift */; };
 		3070A840289A7CF100E807DD /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3070A83F289A7CF100E807DD /* Secrets.swift */; };
 		307354AF28D06F25007A3E3F /* toyBoxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307354AE28D06F25007A3E3F /* toyBoxTests.swift */; };
+		3083D11328DDB92500BE2A60 /* LocationUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3083D11228DDB92500BE2A60 /* LocationUpdater.swift */; };
+		3083D11528DDC9BA00BE2A60 /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3083D11428DDC9BA00BE2A60 /* LocationModel.swift */; };
 		30887E5828DB22130008378C /* SearchFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30887E5728DB22130008378C /* SearchFilterView.swift */; };
 		30887E5A28DB222F0008378C /* SearchFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30887E5928DB222F0008378C /* SearchFilterViewController.swift */; };
 		30887E5D28DB264D0008378C /* SFTitleFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30887E5C28DB264D0008378C /* SFTitleFilterView.swift */; };
@@ -146,6 +148,8 @@
 		3070A83F289A7CF100E807DD /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		307354AC28D06F25007A3E3F /* toyBoxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = toyBoxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		307354AE28D06F25007A3E3F /* toyBoxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toyBoxTests.swift; sourceTree = "<group>"; };
+		3083D11228DDB92500BE2A60 /* LocationUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationUpdater.swift; sourceTree = "<group>"; };
+		3083D11428DDC9BA00BE2A60 /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
 		30887E5728DB22130008378C /* SearchFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilterView.swift; sourceTree = "<group>"; };
 		30887E5928DB222F0008378C /* SearchFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilterViewController.swift; sourceTree = "<group>"; };
 		30887E5C28DB264D0008378C /* SFTitleFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFTitleFilterView.swift; sourceTree = "<group>"; };
@@ -538,6 +542,7 @@
 			isa = PBXGroup;
 			children = (
 				30B542C7283E3BFD007D8A81 /* LocationService.swift */,
+				3083D11228DDB92500BE2A60 /* LocationUpdater.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -622,6 +627,7 @@
 				30C3FD3428C7690D0007B45A /* FavoriteModels.swift */,
 				30D95F1528C8AD85007F9E02 /* CartModel.swift */,
 				30459F6928D0964500FE05A0 /* IntroModel.swift */,
+				3083D11428DDC9BA00BE2A60 /* LocationModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -881,6 +887,7 @@
 				30E7E9092892BA5000057155 /* SettingsView.swift in Sources */,
 				3018D2CA28914E8B0008087F /* String.swift in Sources */,
 				30D95F1428C89ECF007F9E02 /* CartView.swift in Sources */,
+				3083D11528DDC9BA00BE2A60 /* LocationModel.swift in Sources */,
 				30887E5D28DB264D0008378C /* SFTitleFilterView.swift in Sources */,
 				30DE310E28ACE80700509C14 /* Label.swift in Sources */,
 				30F35C672893F88700D8B88F /* GestureSubscription.swift in Sources */,
@@ -892,6 +899,7 @@
 				30E7E9072892B9F800057155 /* SettingsViewController.swift in Sources */,
 				30DE311228AD0C7500509C14 /* InitialDataModel.swift in Sources */,
 				30DE311D28AE281700509C14 /* GroupedTableView.swift in Sources */,
+				3083D11328DDB92500BE2A60 /* LocationUpdater.swift in Sources */,
 				30F35C692893FA9200D8B88F /* UIView+Gesture.swift in Sources */,
 				30B542BB283E3660007D8A81 /* CollectionCell.swift in Sources */,
 				30D95F1B28C8B8F8007F9E02 /* MainFlatView.swift in Sources */,

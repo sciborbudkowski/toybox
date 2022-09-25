@@ -16,6 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         )
 
         FirebaseApp.configure()
+        LocationUpdater.shared.startLocationService()
+
         setupNavigationBar()
 
         return true

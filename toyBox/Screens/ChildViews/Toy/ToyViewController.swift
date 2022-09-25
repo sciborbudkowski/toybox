@@ -9,10 +9,14 @@ class ToyViewController: ViewController {
     let dataSource = ToyDataSource()
 
     private var data: ToyModel?
-
     private var images: [String] = []
-
     private var currentIndex: Int = 0
+    private var updateViewCount: Bool = false
+
+    convenience init(updateViewCount: Bool = false) {
+        self.init()
+        self.updateViewCount = updateViewCount
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +49,7 @@ class ToyViewController: ViewController {
     override func setupCombineComponents() {
         guard let data = data else { fatalError("this shouldn't happen!") }
 
-        apiClient.dispatch(Toy(toyId: data.id))
+        apiClient.dispatch(Toy(toyId: data.id, updateViewCount: updateViewCount))
             .map { $0.data }
             .sink(receiveCompletion: { _ in
             }, receiveValue: { [weak self] received in
@@ -97,18 +101,27 @@ class ToyViewController: ViewController {
         data = model
         guard let data = data else { return }
 
-        let properties: [ToyPropertyType] = [
-            ToyPropertyType(name: "Added:", value: data.dateAdded),
-            ToyPropertyType(name: "View count:", value: String(data.viewCount)),
+        let general: [ToyPropertyType] = [
+            ToyPropertyType(name: "Name:", value: data.name),
+            ToyPropertyType(name: "", value: data.description),
             ToyPropertyType(name: "Price:", value: String(data.price)),
-            ToyPropertyType(name: "Gender", value: data.gender == 0 ? "none" : data.gender == -1 ? "girl" : "boy"),
             ToyPropertyType(name: "Brand", value: data.brand),
+            ToyPropertyType(name: "Gender", value: data.gender == 0 ? "Any" : data.gender == -1 ? "Girl" : "Boy"),
             ToyPropertyType(name: "Age min:", value: String(data.ageMin))
         ]
 
+        let location: [ToyPropertyType] = [
+            ToyPropertyType(name: "City", value: data.location.placeName)
+        ]
+
+        let statistics: [ToyPropertyType] = [
+            ToyPropertyType(name: "View count:", value: String(data.viewCount)),
+        ]
+
         let sections: [ToyPropertySections] = [
-            ToyPropertySections(sectionName: "General", properties: properties),
-            ToyPropertySections(sectionName: "Test", properties: properties)
+            ToyPropertySections(sectionName: "General", properties: general),
+            ToyPropertySections(sectionName: "Location", properties: location),
+            ToyPropertySections(sectionName: "Statistics", properties: statistics)
         ]
 
         dataSource.sections = sections

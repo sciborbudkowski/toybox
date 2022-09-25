@@ -1,7 +1,6 @@
 import UIKit
 import Combine
 import CombineCocoa
-import CoreLocation
 import FBSDKCoreKit
 import FBSDKLoginKit
 import FirebaseCore
@@ -14,24 +13,17 @@ import AuthenticationServices
 
 class SignInViewController: ViewController {
 
-    var locationQueue = DispatchQueue(label: "locationQueue")
-
     private let customView = SignInView()
 
-    private var locationInfo: LocationInfo?
     private var twitterAuthProvider = OAuthProvider(providerID: "twitter.com")
     private var authState: AuthStateDidChangeListenerHandle?
 
     fileprivate var currentNonce: String?
 
-    let locationService = LocationService()
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
         view.backgroundColor = .systemBackground
-
-        startLocationService()
     }
 
     override func loadView() {
@@ -177,26 +169,6 @@ class SignInViewController: ViewController {
             let signupPopup = SignUpViewController()
             self?.present(signupPopup, animated: true)
         }.store(in: &cancellables)
-    }
-}
-
-extension SignInViewController {
-
-    private func startLocationService() {
-        let _ = Future<Int, Never> { promise in
-            self.locationService.manager.requestWhenInUseAuthorization()
-            return promise(.success(1))
-        }
-            .delay(for: 1.0, scheduler: locationQueue)
-            .receive(on: RunLoop.main)
-            .sink { _ in }
-
-        locationService.publisher.receive(on: RunLoop.main)
-            .sink(receiveCompletion: { _ in }, receiveValue: { [weak self] value in
-                self?.locationInfo = value
-            }).store(in: &cancellables)
-
-        locationService.enable()
     }
 }
 
