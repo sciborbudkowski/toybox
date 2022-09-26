@@ -95,16 +95,7 @@ class DashboardViewController: ViewController {
 
                 DispatchQueue.main.async {
                     self.customView.insideViews.forEach { $0.isHidden = false }
-
-                    let cartBarItem = self.tabBarController?.tabBar.items?.first { $0.title == "Cart" }
-                    cartBarItem?.badgeColor = UIColor(named: "TabBarBadge")
-                    let cartItemsCount = Storage.shared.cart.count
-                    (cartItemsCount == 0) ? (cartBarItem?.badgeValue = nil) : (cartBarItem?.badgeValue = String(cartItemsCount))
-
-                    let favoritiesBarItem = self.tabBarController?.tabBar.items?.first { $0.title == "Favorities" }
-                    favoritiesBarItem?.badgeColor = UIColor(named: "TabBarBadge")
-                    let favoritiesItemsCount = Storage.shared.favorities.data.count
-                    (favoritiesItemsCount == 0) ? (favoritiesBarItem?.badgeValue = nil) : (favoritiesBarItem?.badgeValue = String(favoritiesItemsCount))
+                    self.updateTabBarBadgeValues()
 
                     if !withoutLoader {
                         loader.dismiss(animated: true)
@@ -115,7 +106,7 @@ class DashboardViewController: ViewController {
     }
 
     private func updatePopularTiles(with model: [ToyModel]) {
-        toysPopular = ToysModel(result: true, type: .popular, count: model.count, data: model)
+        toysPopular = ToysModel(result: true, count: model.count, data: model)
         let max = model.count < Settings.shared.numberOfPopularTileButtons ? model.count : 3
 
         for index in 0...max {
@@ -130,7 +121,6 @@ class DashboardViewController: ViewController {
             DispatchQueue.main.async {
                 self.customView.popularTileView.buttons[index].configure(with: button)
                 self.customView.popularTileView.buttons[index].gesture().sink { _ in
-                    let isToyOwnedByUser = Storage.shared
                     let toyViewController = ToyViewController(updateViewCount: true)
                     toyViewController.configure(with: model[index])
 
@@ -141,7 +131,7 @@ class DashboardViewController: ViewController {
     }
 
     private func updateRecentTiles(with model: [ToyModel]) {
-        toysRecent = ToysModel(result: true, type: .popular, count: model.count, data: model)
+        toysRecent = ToysModel(result: true, count: model.count, data: model)
         let max = model.count < Settings.shared.numberOfRecentTileButtons ? model.count : 3
 
         for index in 0...max {

@@ -57,3 +57,18 @@ struct SwitchFavorite: Request {
         ]
     }
 }
+
+struct GetFavorities: Request {
+    typealias ReturnType = ToysModel
+    var queryParams: [String : String]? = [:]
+    var path = "get-favorities"
+    var userId: String
+
+    init(userId: String) {
+        self.userId = userId
+
+        queryParams = [
+            "userId": userId
+        ]
+    }
+}

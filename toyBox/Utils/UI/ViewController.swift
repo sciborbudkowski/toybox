@@ -27,4 +27,12 @@ class ViewController: UIViewController {
         alert.addAction(action)
         present(alert, animated: true)
     }
+
+    func updateTabBarBadgeValues() {
+        let cartBarItem = self.tabBarController?.tabBar.items?.first { $0.title == "Cart" }
+        let favoritiesBarItem = self.tabBarController?.tabBar.items?.first { $0.title == "Favorities" }
+
+        (Storage.shared.cart.count == 0) ? (cartBarItem?.badgeValue = nil) : (cartBarItem?.badgeValue = String(Storage.shared.cart.count))
+        (Storage.shared.favorities.data.count == 0) ? (favoritiesBarItem?.badgeValue = nil) : (favoritiesBarItem?.badgeValue = String(Storage.shared.favorities.data.count))
+    }
 }

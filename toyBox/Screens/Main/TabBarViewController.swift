@@ -30,12 +30,14 @@ class TabBarViewController: TabBarController {
         let tabFavoritesBarItem = UITabBarItem(title: "Favorities",
                                                image: UIImage(systemName: "heart"),
                                                selectedImage: UIImage(systemName: "heart.fill"))
+        tabFavoritesBarItem.badgeColor = UIColor(named: "TabBarBadge")
         tabFavorites.tabBarItem = tabFavoritesBarItem
 
         let tabCart = CartViewController()
         let tabCartBarItem = UITabBarItem(title: "Cart",
                                           image: UIImage(systemName: "cart"),
                                           selectedImage: UIImage(systemName: "cart.fill"))
+        tabCartBarItem.badgeColor = UIColor(named: "TabBarBadge")
         tabCart.tabBarItem = tabCartBarItem
 
         let tabSettings = SettingsViewController()

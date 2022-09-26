@@ -1,6 +1,6 @@
 import UIKit
 
-class FavoritesView: MainFlatView {
+class FavoritesView: MainStackedView {
 
     private let emptyView: UIView = {
         let view = UIView()
@@ -18,23 +18,22 @@ class FavoritesView: MainFlatView {
 
     var isEmpty: Bool = true {
         didSet {
-            print(isEmpty)
             emptyView.isHidden = !isEmpty
             normalView.isHidden = isEmpty
         }
     }
 
     override func setupConstraints() {
-        insideView.addSubviews([emptyView, normalView])
-
-        emptyView.topAnchor.constraint(equalTo: insideView.topAnchor).isActive = true
-        emptyView.leadingAnchor.constraint(equalTo: insideView.leadingAnchor).isActive = true
-        emptyView.trailingAnchor.constraint(equalTo: insideView.trailingAnchor).isActive = true
-        emptyView.bottomAnchor.constraint(equalTo: insideView.bottomAnchor).isActive = true
-
-        normalView.topAnchor.constraint(equalTo: insideView.topAnchor).isActive = true
-        normalView.leadingAnchor.constraint(equalTo: insideView.leadingAnchor).isActive = true
-        normalView.trailingAnchor.constraint(equalTo: insideView.trailingAnchor).isActive = true
-        normalView.bottomAnchor.constraint(equalTo: insideView.bottomAnchor).isActive = true
+//        contentView.addSubviews([emptyView, normalView])
+//
+//        emptyView.topAnchor.constraint(equalTo: insideView.topAnchor).isActive = true
+//        emptyView.leadingAnchor.constraint(equalTo: insideView.leadingAnchor).isActive = true
+//        emptyView.trailingAnchor.constraint(equalTo: insideView.trailingAnchor).isActive = true
+//        emptyView.bottomAnchor.constraint(equalTo: insideView.bottomAnchor).isActive = true
+//
+//        normalView.topAnchor.constraint(equalTo: insideView.topAnchor).isActive = true
+//        normalView.leadingAnchor.constraint(equalTo: insideView.leadingAnchor).isActive = true
+//        normalView.trailingAnchor.constraint(equalTo: insideView.trailingAnchor).isActive = true
+//        normalView.bottomAnchor.constraint(equalTo: insideView.bottomAnchor).isActive = true
     }
 }
