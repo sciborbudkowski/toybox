@@ -27,6 +27,8 @@
 		30887E5828DB22130008378C /* SearchFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30887E5728DB22130008378C /* SearchFilterView.swift */; };
 		30887E5A28DB222F0008378C /* SearchFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30887E5928DB222F0008378C /* SearchFilterViewController.swift */; };
 		30887E5D28DB264D0008378C /* SFTitleFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30887E5C28DB264D0008378C /* SFTitleFilterView.swift */; };
+		30ACF98528E2FCE700B1596E /* FavoritesDelegate+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ACF98428E2FCE700B1596E /* FavoritesDelegate+DataSource.swift */; };
+		30ACF98728E2FD7200B1596E /* FavoriteViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ACF98628E2FD7200B1596E /* FavoriteViewCell.swift */; };
 		30B3C06D28B6187B006C605A /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B3C06C28B6187A006C605A /* CategoriesViewController.swift */; };
 		30B3C06F28B618A6006C605A /* CategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B3C06E28B618A6006C605A /* CategoriesView.swift */; };
 		30B3C07128B619B2006C605A /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B3C07028B619B2006C605A /* CategoryCell.swift */; };
@@ -153,6 +155,8 @@
 		30887E5728DB22130008378C /* SearchFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilterView.swift; sourceTree = "<group>"; };
 		30887E5928DB222F0008378C /* SearchFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilterViewController.swift; sourceTree = "<group>"; };
 		30887E5C28DB264D0008378C /* SFTitleFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFTitleFilterView.swift; sourceTree = "<group>"; };
+		30ACF98428E2FCE700B1596E /* FavoritesDelegate+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoritesDelegate+DataSource.swift"; sourceTree = "<group>"; };
+		30ACF98628E2FD7200B1596E /* FavoriteViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewCell.swift; sourceTree = "<group>"; };
 		30B3C06C28B6187A006C605A /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
 		30B3C06E28B618A6006C605A /* CategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesView.swift; sourceTree = "<group>"; };
 		30B3C07028B619B2006C605A /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
@@ -308,6 +312,8 @@
 			children = (
 				30E7E9022892B82A00057155 /* FavoritesViewController.swift */,
 				30E7E9042892B84400057155 /* FavoritesView.swift */,
+				30ACF98428E2FCE700B1596E /* FavoritesDelegate+DataSource.swift */,
+				30ACF98628E2FD7200B1596E /* FavoriteViewCell.swift */,
 			);
 			path = Favorities;
 			sourceTree = "<group>";
@@ -869,6 +875,7 @@
 				30459F7128D0B8CF00FE05A0 /* PageIndicatorItem.swift in Sources */,
 				30DE312328AE357800509C14 /* ToyViewCell.swift in Sources */,
 				30B542A1283E3400007D8A81 /* UIFont.swift in Sources */,
+				30ACF98728E2FD7200B1596E /* FavoriteViewCell.swift in Sources */,
 				30F35C5E2893D87900D8B88F /* TextField.swift in Sources */,
 				30DE311528AD257600509C14 /* ToyViewController.swift in Sources */,
 				30F35C6B28940DFA00D8B88F /* TileView.swift in Sources */,
@@ -901,6 +908,7 @@
 				30DE311D28AE281700509C14 /* GroupedTableView.swift in Sources */,
 				3083D11328DDB92500BE2A60 /* LocationUpdater.swift in Sources */,
 				30F35C692893FA9200D8B88F /* UIView+Gesture.swift in Sources */,
+				30ACF98528E2FCE700B1596E /* FavoritesDelegate+DataSource.swift in Sources */,
 				30B542BB283E3660007D8A81 /* CollectionCell.swift in Sources */,
 				30D95F1B28C8B8F8007F9E02 /* MainFlatView.swift in Sources */,
 				30B54282283E3243007D8A81 /* SceneDelegate.swift in Sources */,

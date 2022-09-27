@@ -11,36 +11,26 @@ class MainFlatView: View {
 
     let contentView = UIView()
 
-    let searchBarView = SearchBarView()
-
-    var insideView = UIView()
+    let refreshControl: UIRefreshControl = {
+        let control = UIRefreshControl()
+        control.tintColor = UIColor(named: "Accent")
+        control.attributedTitle = NSAttributedString(string: "Pull to refresh",
+                                                     attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "Accent")!,
+                                                                  NSAttributedString.Key.font: UIFont.FontKarla(.regular, ofSize: 16)])
+        return control
+    }()
 
     override func setupConstraints() {
-        addSubviews([scrollView, searchBarView])
-        scrollView.addSubviews([contentView])
-        contentView.addSubviews([insideView])
+        addSubviews([scrollView])
+        scrollView.addSubviews([contentView, refreshControl])
 
-        searchBarView.topAnchor.constraint(equalTo: topAnchor, constant: 50).isActive = true
-        searchBarView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        searchBarView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        searchBarView.heightAnchor.constraint(equalToConstant: 40).isActive = true
-
-        scrollView.topAnchor.constraint(equalTo: searchBarView.bottomAnchor, constant: 10).isActive = true
+        scrollView.topAnchor.constraint(equalTo: topAnchor, constant: 50).isActive = true
         scrollView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -100).isActive = true
         scrollView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
         scrollView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
 
-        contentView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
-        contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
-        contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
-        contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor).isActive = true
+        contentView.constraintToAllEdges(of: scrollView)
         contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
-        contentView.backgroundColor = .yellow
-
-        insideView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-        insideView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
-        insideView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
-        insideView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
-        insideView.backgroundColor = .blue
+        contentView.heightAnchor.constraint(equalTo: scrollView.heightAnchor).isActive = true
     }
 }

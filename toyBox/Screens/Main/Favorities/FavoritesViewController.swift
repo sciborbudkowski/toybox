@@ -4,6 +4,16 @@ class FavoritesViewController: ViewController {
 
     let customView = FavoritesView()
 
+    var dataSource = FavoritesDataSource()
+
+    var toysFavorites: ToysModel? {
+        didSet {
+            guard let data = toysFavorites?.data else { return }
+            dataSource.items = data
+            customView.favoritesTableView.reloadData()
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -12,11 +22,28 @@ class FavoritesViewController: ViewController {
 
         navigationController?.setNavigationBarHidden(true, animated: false)
 
-        getDataFromApi()
+        customView.favoritesTableView.dataSource = dataSource
+        customView.favoritesTableView.delegate = dataSource
     }
 
     override func loadView() {
         view = customView
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        getDataFromApi()
+    }
+
+    override func setupCombineComponents() {
+        customView.refreshControl.isRefreshingPublisher.sink { [weak self] _ in
+            guard let self = self else { return }
+
+            self.getDataFromApi(withoutLoader: true)
+            self.customView.refreshControl.endRefreshing()
+        }
+        .store(in: &cancellables)
     }
 
     private func getDataFromApi(withoutLoader: Bool = false) {
@@ -47,6 +74,7 @@ class FavoritesViewController: ViewController {
                 guard let self = self else { return }
 
                 self.customView.isEmpty = received.isEmpty
+                self.toysFavorites = ToysModel(result: true, count: received.count, data: received)
                 DispatchQueue.main.async {
                     if !withoutLoader {
                         loader.dismiss(animated: true)

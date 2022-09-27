@@ -8,5 +8,5 @@ class Storage {
 
     var favorities: FavoriteModel = FavoriteModel(result: true, type: "", data: [])
 
-    var locationInfo: LocationInfo? = nil
+    var locationInfo: LocationInfo?
 }

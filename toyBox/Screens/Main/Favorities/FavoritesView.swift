@@ -1,39 +1,76 @@
 import UIKit
 
-class FavoritesView: MainStackedView {
+class FavoritesView: MainFlatView {
 
     private let emptyView: UIView = {
         let view = UIView()
-        view.backgroundColor = .red
-        view.isHidden = false
-        return view
-    }()
-
-    private let normalView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .green
         view.isHidden = true
         return view
     }()
 
+    private let emptyImageView: UIImageView = {
+        let view = UIImageView()
+        view.image = UIImage(named: "EmptyFavorites")
+        return view
+    }()
+
+    private let emptyLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.FontKarla(.regular, ofSize: 18)
+        label.text = "You have no favorities yet."
+        label.textColor = UIColor(named: "Info")
+        return label
+    }()
+
+    private let normalView: UIView = {
+        let view = UIView()
+        view.isHidden = true
+        return view
+    }()
+
+    let favoritesTableView: UITableView = {
+        let view = UITableView()
+        view.register(FavoriteViewCell.self, forCellReuseIdentifier: FavoriteViewCell.identifier)
+        view.separatorStyle = .none
+        view.allowsSelection = false
+        return view
+    }()
+
+    let sortOptionsButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "slider.horizontal.3"), for: .normal)
+        button.tintColor = UIColor.darkGray
+        return button
+    }()
+
     var isEmpty: Bool = true {
         didSet {
-            emptyView.isHidden = !isEmpty
-            normalView.isHidden = isEmpty
+            if isEmpty {
+                emptyView.isHidden = false
+                normalView.isHidden = true
+            } else {
+                emptyView.isHidden = true
+                normalView.isHidden = false
+            }
         }
     }
 
-    override func setupConstraints() {
-//        contentView.addSubviews([emptyView, normalView])
-//
-//        emptyView.topAnchor.constraint(equalTo: insideView.topAnchor).isActive = true
-//        emptyView.leadingAnchor.constraint(equalTo: insideView.leadingAnchor).isActive = true
-//        emptyView.trailingAnchor.constraint(equalTo: insideView.trailingAnchor).isActive = true
-//        emptyView.bottomAnchor.constraint(equalTo: insideView.bottomAnchor).isActive = true
-//
-//        normalView.topAnchor.constraint(equalTo: insideView.topAnchor).isActive = true
-//        normalView.leadingAnchor.constraint(equalTo: insideView.leadingAnchor).isActive = true
-//        normalView.trailingAnchor.constraint(equalTo: insideView.trailingAnchor).isActive = true
-//        normalView.bottomAnchor.constraint(equalTo: insideView.bottomAnchor).isActive = true
+    override func setupProperties() {
+        contentView.addSubviews([emptyView, normalView])
+
+        emptyView.addSubviews([emptyImageView, emptyLabel])
+        normalView.addSubviews([favoritesTableView, sortOptionsButton])
+
+        emptyView.constraintToAllEdges(of: contentView)
+        normalView.constraintToAllEdges(of: contentView)
+        favoritesTableView.constraintToAllEdges(of: normalView)
+
+        emptyImageView.centerYAnchor.constraint(equalTo: emptyView.centerYAnchor, constant: -75).isActive = true
+        emptyImageView.centerXAnchor.constraint(equalTo: emptyView.centerXAnchor).isActive = true
+
+        emptyLabel.centerYAnchor.constraint(equalTo: emptyView.centerYAnchor).isActive = true
+        emptyLabel.centerXAnchor.constraint(equalTo: emptyView.centerXAnchor).isActive = true
+
+
     }
 }
