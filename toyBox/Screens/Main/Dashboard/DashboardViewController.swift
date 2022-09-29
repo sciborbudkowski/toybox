@@ -91,7 +91,7 @@ class DashboardViewController: ViewController {
                 self.updateFeaturedCategories(with: received.categories)
 
                 Storage.shared.cart = CartModel(result: true, type: "cart", count: received.cart.count, data: received.cart)
-                Storage.shared.favorities = FavoriteModel(result: true, type: "favorities", data: received.favorities)
+                Storage.shared.favorites = FavoriteModel(result: true, type: "favorites", data: received.favorites)
 
                 DispatchQueue.main.async {
                     self.customView.insideViews.forEach { $0.isHidden = false }

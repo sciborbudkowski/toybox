@@ -30,9 +30,12 @@ class ViewController: UIViewController {
 
     func updateTabBarBadgeValues() {
         let cartBarItem = self.tabBarController?.tabBar.items?.first { $0.title == "Cart" }
-        let favoritiesBarItem = self.tabBarController?.tabBar.items?.first { $0.title == "Favorities" }
+        let favoritesBarItem = self.tabBarController?.tabBar.items?.first { $0.title == "Favorites" }
+
+        cartBarItem?.badgeColor = UIColor(named: "TabBarBadge")
+        favoritesBarItem?.badgeColor = UIColor(named: "TabBarBadge")
 
         (Storage.shared.cart.count == 0) ? (cartBarItem?.badgeValue = nil) : (cartBarItem?.badgeValue = String(Storage.shared.cart.count))
-        (Storage.shared.favorities.data.count == 0) ? (favoritiesBarItem?.badgeValue = nil) : (favoritiesBarItem?.badgeValue = String(Storage.shared.favorities.data.count))
+        (Storage.shared.favorites.data.count == 0) ? (favoritesBarItem?.badgeValue = nil) : (favoritesBarItem?.badgeValue = String(Storage.shared.favorites.data.count))
     }
 }

@@ -1,9 +1,6 @@
 import UIKit
-import CoreLocation
 
-class FavoritesDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
-
-    var items: [ToyModel] = []
+extension FavoritesViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
@@ -19,14 +16,17 @@ class FavoritesDataSource: NSObject, UITableViewDataSource, UITableViewDelegate 
                                       title: currentItem.name,
                                       place: currentItem.location.placeName,
                                       distance: LocationUpdater.shared.getDistance(to: currentItem.location),
-                                      price: String(currentItem.price))
+                                      price: String(currentItem.price),
+                                      id: currentItem.id)
         cell.configure(with: model)
-
-        if indexPath.row % 2 != 0 {
-            cell.backgroundColor = UIColor.systemGray6
-        }
-
+        
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let toyViewController = ToyViewController(updateViewCount: true)
+        toyViewController.configure(with: items[indexPath.row])
+        navigationController?.pushViewController(toyViewController, animated: true)
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

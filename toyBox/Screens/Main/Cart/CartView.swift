@@ -1,6 +1,6 @@
 import UIKit
 
-class CartView: MainStackedView {
+class CartView: MainFlatView {
 
     var items: [ToyModel] = []
 //    {
@@ -14,9 +14,16 @@ class CartView: MainStackedView {
 //            }
 //        }
 //    }
+    private let viewTitleLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.FontKarla(.regular, ofSize: 22)
+        label.text = "Favorite Toys"
+        label.textColor = UIColor(named: "Accent")
+        return label
+    }()
 
     private let emptyView = UIView()
-    private let cartView = UIView()
+    private let normalView = UIView()
 
     private let emptyCartLabel: UILabel = {
         let label = UILabel()
@@ -33,8 +40,8 @@ class CartView: MainStackedView {
     }()
 
     override func setupConstraints() {
+        contentView.addSubviews([emptyView, normalView])
         emptyView.addSubviews([emptyCartLabel, emptyCardImage])
-        insideViews = [emptyView]
 
 //        emptyCartLabel.centerYAnchor.constraint(equalTo: insideView.centerYAnchor).isActive = true
 //        emptyCartLabel.centerXAnchor.constraint(equalTo: insideView.centerXAnchor).isActive = true

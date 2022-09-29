@@ -16,7 +16,7 @@ struct FavoriteModel: Codable {
     var data: [UserToToyModel]
 }
 
-struct IsFavorities: Request {
+struct IsFavorite: Request {
     typealias ReturnType = FavoriteModel
     var queryParams: [String : String]? = [:]
     var path = "is-favorite"
@@ -58,7 +58,7 @@ struct SwitchFavorite: Request {
     }
 }
 
-struct GetFavorities: Request {
+struct GetFavorites: Request {
     typealias ReturnType = ToysModel
     var queryParams: [String : String]? = [:]
     var path = "get-favorities"

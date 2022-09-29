@@ -7,9 +7,12 @@ struct FavoriteCellModel {
     var place: String
     var distance: String
     var price: String
+    var id: String
 }
 
 class FavoriteViewCell: TableCell {
+
+    var model: FavoriteCellModel?
 
     private let image: UIImageView = {
         let view = UIImageView()
@@ -68,6 +71,8 @@ class FavoriteViewCell: TableCell {
     }
 
     func configure(with model: FavoriteCellModel) {
+        self.model = model
+        
         if let imageStringUrl = model.image, let imageUrl = URL(string: imageStringUrl) {
             image.kf.setImage(with: imageUrl)
         } else {
@@ -78,5 +83,11 @@ class FavoriteViewCell: TableCell {
         distanceLabel.text = "(\(model.distance))"
         placeLabel.text = model.place
         priceLabel.text = "\(model.price) pln"
+    }
+
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+
+        contentView.backgroundColor = .systemBackground
     }
 }

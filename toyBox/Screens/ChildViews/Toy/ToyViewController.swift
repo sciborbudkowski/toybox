@@ -129,7 +129,7 @@ class ToyViewController: ViewController {
 
         customView.nameLabel.text = data.name
 
-        let isFavorite = Storage.shared.favorities.data.contains(where: { item in
+        let isFavorite = Storage.shared.favorites.data.contains(where: { item in
             if item.userId == Secrets.shared.userId, item.toyId == model.id {
                 return true
             }

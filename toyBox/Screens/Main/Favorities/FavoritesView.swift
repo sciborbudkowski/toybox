@@ -2,6 +2,14 @@ import UIKit
 
 class FavoritesView: MainFlatView {
 
+    private let viewTitleLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.FontKarla(.regular, ofSize: 22)
+        label.text = "Favorite Toys"
+        label.textColor = UIColor(named: "Accent")
+        return label
+    }()
+
     private let emptyView: UIView = {
         let view = UIView()
         view.isHidden = true
@@ -17,7 +25,7 @@ class FavoritesView: MainFlatView {
     private let emptyLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.FontKarla(.regular, ofSize: 18)
-        label.text = "You have no favorities yet."
+        label.text = "You have no favorites yet."
         label.textColor = UIColor(named: "Info")
         return label
     }()
@@ -31,8 +39,6 @@ class FavoritesView: MainFlatView {
     let favoritesTableView: UITableView = {
         let view = UITableView()
         view.register(FavoriteViewCell.self, forCellReuseIdentifier: FavoriteViewCell.identifier)
-        view.separatorStyle = .none
-        view.allowsSelection = false
         return view
     }()
 
@@ -59,10 +65,15 @@ class FavoritesView: MainFlatView {
         contentView.addSubviews([emptyView, normalView])
 
         emptyView.addSubviews([emptyImageView, emptyLabel])
-        normalView.addSubviews([favoritesTableView, sortOptionsButton])
+        normalView.addSubviews([favoritesTableView, sortOptionsButton, viewTitleLabel])
 
         emptyView.constraintToAllEdges(of: contentView)
-        normalView.constraintToAllEdges(of: contentView)
+
+        normalView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 25).isActive = true
+        normalView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+        normalView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
+        normalView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
+
         favoritesTableView.constraintToAllEdges(of: normalView)
 
         emptyImageView.centerYAnchor.constraint(equalTo: emptyView.centerYAnchor, constant: -75).isActive = true
@@ -71,6 +82,10 @@ class FavoritesView: MainFlatView {
         emptyLabel.centerYAnchor.constraint(equalTo: emptyView.centerYAnchor).isActive = true
         emptyLabel.centerXAnchor.constraint(equalTo: emptyView.centerXAnchor).isActive = true
 
+        sortOptionsButton.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+        sortOptionsButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
 
+        viewTitleLabel.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+        viewTitleLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
     }
 }

@@ -7,7 +7,7 @@ struct InitialDataModel: Codable {
     var recentToys: [ToyModel]
     var categories: [CategoryModel]
     var cart: [UserToToyModel]
-    var favorities: [UserToToyModel]
+    var favorites: [UserToToyModel]
     var userToys: [ToyModel]
 
     enum CodingKeys: String, CodingKey {
@@ -17,7 +17,7 @@ struct InitialDataModel: Codable {
         case recentToys = "recentToysData"
         case categories
         case cart
-        case favorities
+        case favorites
         case userToys
     }
 }

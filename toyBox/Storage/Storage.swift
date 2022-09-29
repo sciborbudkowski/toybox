@@ -6,7 +6,7 @@ class Storage {
 
     var cart: CartModel = CartModel(result: true, type: "", count: 0, data: [])
 
-    var favorities: FavoriteModel = FavoriteModel(result: true, type: "", data: [])
+    var favorites: FavoriteModel = FavoriteModel(result: true, type: "", data: [])
 
     var locationInfo: LocationInfo?
 }

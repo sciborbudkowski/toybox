@@ -4,12 +4,12 @@ class FavoritesViewController: ViewController {
 
     let customView = FavoritesView()
 
-    var dataSource = FavoritesDataSource()
+    var items: [ToyModel] = []
 
     var toysFavorites: ToysModel? {
         didSet {
             guard let data = toysFavorites?.data else { return }
-            dataSource.items = data
+            self.items = data
             customView.favoritesTableView.reloadData()
         }
     }
@@ -22,8 +22,8 @@ class FavoritesViewController: ViewController {
 
         navigationController?.setNavigationBarHidden(true, animated: false)
 
-        customView.favoritesTableView.dataSource = dataSource
-        customView.favoritesTableView.delegate = dataSource
+        customView.favoritesTableView.dataSource = self
+        customView.favoritesTableView.delegate = self
     }
 
     override func loadView() {
@@ -54,7 +54,7 @@ class FavoritesViewController: ViewController {
             tabBarController?.present(loader, animated: true)
         }
 
-        apiClient.dispatch(GetFavorities(userId: Secrets.shared.userId))
+        apiClient.dispatch(GetFavorites(userId: Secrets.shared.userId))
             .delay(for: 1.0, scheduler: RunLoop.main)
             .tryMap { $0.data }
             .sink(receiveCompletion: { [weak self] completion in
@@ -75,6 +75,8 @@ class FavoritesViewController: ViewController {
 
                 self.customView.isEmpty = received.isEmpty
                 self.toysFavorites = ToysModel(result: true, count: received.count, data: received)
+                self.updateTabBarBadgeValues()
+                
                 DispatchQueue.main.async {
                     if !withoutLoader {
                         loader.dismiss(animated: true)

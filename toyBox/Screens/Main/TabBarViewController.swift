@@ -27,7 +27,7 @@ class TabBarViewController: TabBarController {
         tabDashboard.tabBarItem = tabDashboardBarItem
 
         let tabFavorites = FavoritesViewController()
-        let tabFavoritesBarItem = UITabBarItem(title: "Favorities",
+        let tabFavoritesBarItem = UITabBarItem(title: "Favorites",
                                                image: UIImage(systemName: "heart"),
                                                selectedImage: UIImage(systemName: "heart.fill"))
         tabFavoritesBarItem.badgeColor = UIColor(named: "TabBarBadge")
