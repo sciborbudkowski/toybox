@@ -2,6 +2,21 @@ import UIKit
 
 class SettingsView: View {
 
+    private let viewTitleLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.FontKarla(.regular, ofSize: 22)
+        label.text = "Settings"
+        label.textColor = UIColor(named: "Accent")
+        return label
+    }()
+
+    let settingsTableView: UITableView = {
+        let view = UITableView()
+        view.register(SettingsViewCell.self, forCellReuseIdentifier: SettingsViewCell.identifier)
+        view.separatorStyle = .none
+        return view
+    }()
+
     let signOffButton: UIButton = {
         let button = UIButton(type: .custom)
         button.setAttributedTitle(NSAttributedString(string: "Sign Off", attributes: [
@@ -14,9 +29,17 @@ class SettingsView: View {
     }()
 
     override func setupConstraints() {
-        addSubviews([signOffButton])
+        addSubviews([viewTitleLabel, settingsTableView, signOffButton])
 
-        signOffButton.topAnchor.constraint(equalTo: topAnchor, constant: 50).isActive = true
+        viewTitleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
+        viewTitleLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+
+        settingsTableView.topAnchor.constraint(equalTo: viewTitleLabel.bottomAnchor, constant: 10).isActive = true
+        settingsTableView.bottomAnchor.constraint(equalTo: signOffButton.topAnchor, constant: -10).isActive = true
+        settingsTableView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
+        settingsTableView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
+
+        signOffButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -100).isActive = true
         signOffButton.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         signOffButton.widthAnchor.constraint(equalToConstant: 150).isActive = true
     }

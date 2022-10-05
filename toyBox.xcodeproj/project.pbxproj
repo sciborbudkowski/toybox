@@ -7,11 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07058923AA76A7E59FEB40F4 /* Pods_toyBox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4406F8058EF146FA17AD8338 /* Pods_toyBox.framework */; };
 		30165D2328ABA951000CDBFE /* ToyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30165D2228ABA951000CDBFE /* ToyModel.swift */; };
 		3018D2CA28914E8B0008087F /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3018D2C928914E8B0008087F /* String.swift */; };
 		3018D2CC28915A1E0008087F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3018D2CB28915A1E0008087F /* ViewController.swift */; };
 		3018D2CF28915C870008087F /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3018D2CE28915C870008087F /* SignUpViewController.swift */; };
 		3018D2D128915CAB0008087F /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3018D2D028915CAA0008087F /* SignUpView.swift */; };
+		30220A7328EADAEE005953DC /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30220A7228EADAEE005953DC /* ForgotPasswordViewController.swift */; };
+		30220A7528EADB13005953DC /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30220A7428EADB13005953DC /* ForgotPasswordView.swift */; };
+		30220A7E28EC27FB005953DC /* SettingsDelegate+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30220A7D28EC27FB005953DC /* SettingsDelegate+DataSource.swift */; };
+		30220A8028EC2BAA005953DC /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30220A7F28EC2BAA005953DC /* SettingsViewController.swift */; };
+		30220A8228EC2BD3005953DC /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30220A8128EC2BD3005953DC /* SettingsView.swift */; };
 		30459F5C28D0854000FE05A0 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30459F5B28D0854000FE05A0 /* IntroViewController.swift */; };
 		30459F6628D08FEB00FE05A0 /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30459F6528D08FEB00FE05A0 /* IntroView.swift */; };
 		30459F6A28D0964500FE05A0 /* IntroModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30459F6928D0964500FE05A0 /* IntroModel.swift */; };
@@ -74,6 +80,7 @@
 		30B542DD283E3E97007D8A81 /* Quicksand-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30B5429C283E33F0007D8A81 /* Quicksand-Bold.ttf */; };
 		30B542DE283E3E97007D8A81 /* Quicksand-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30B5429E283E33F0007D8A81 /* Quicksand-SemiBold.ttf */; };
 		30C3FD3528C7690D0007B45A /* FavoriteModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C3FD3428C7690D0007B45A /* FavoriteModels.swift */; };
+		30C5DEFD28EC3E5D00D564C4 /* SettingsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C5DEFC28EC3E5D00D564C4 /* SettingsViewCell.swift */; };
 		30D95F1228C89EA9007F9E02 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D95F1128C89EA9007F9E02 /* CartViewController.swift */; };
 		30D95F1428C89ECF007F9E02 /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D95F1328C89ECF007F9E02 /* CartView.swift */; };
 		30D95F1628C8AD85007F9E02 /* CartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D95F1528C8AD85007F9E02 /* CartModel.swift */; };
@@ -96,8 +103,6 @@
 		30E7E9012892B7F300057155 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E7E9002892B7F300057155 /* DashboardView.swift */; };
 		30E7E9032892B82A00057155 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E7E9022892B82A00057155 /* FavoritesViewController.swift */; };
 		30E7E9052892B84400057155 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E7E9042892B84400057155 /* FavoritesView.swift */; };
-		30E7E9072892B9F800057155 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E7E9062892B9F800057155 /* SettingsViewController.swift */; };
-		30E7E9092892BA5000057155 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E7E9082892BA5000057155 /* SettingsView.swift */; };
 		30E7E90B2892BADD00057155 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E7E90A2892BADD00057155 /* TabBarViewController.swift */; };
 		30E7E90D2892C16000057155 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E7E90C2892C16000057155 /* TabBarController.swift */; };
 		30F35C5C2893C43700D8B88F /* SocialMediaButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F35C5B2893C43600D8B88F /* SocialMediaButton.swift */; };
@@ -107,7 +112,6 @@
 		30F35C692893FA9200D8B88F /* UIView+Gesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F35C682893FA9200D8B88F /* UIView+Gesture.swift */; };
 		30F35C6B28940DFA00D8B88F /* TileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F35C6A28940DFA00D8B88F /* TileView.swift */; };
 		30F35C6E2894168000D8B88F /* TileButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F35C6D2894168000D8B88F /* TileButton.swift */; };
-		4A3471806718ED9B81272A6D /* Pods_toyBox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 719FC79AF5007D058CF2CA31 /* Pods_toyBox.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,11 +138,17 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		293A5B0B40F149B061C075D0 /* Pods-toyBox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-toyBox.release.xcconfig"; path = "Target Support Files/Pods-toyBox/Pods-toyBox.release.xcconfig"; sourceTree = "<group>"; };
 		30165D2228ABA951000CDBFE /* ToyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToyModel.swift; sourceTree = "<group>"; };
 		3018D2C928914E8B0008087F /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		3018D2CB28915A1E0008087F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3018D2CE28915C870008087F /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		3018D2D028915CAA0008087F /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		30220A7228EADAEE005953DC /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		30220A7428EADB13005953DC /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
+		30220A7D28EC27FB005953DC /* SettingsDelegate+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsDelegate+DataSource.swift"; sourceTree = "<group>"; };
+		30220A7F28EC2BAA005953DC /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		30220A8128EC2BD3005953DC /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		30459F5B28D0854000FE05A0 /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		30459F6528D08FEB00FE05A0 /* IntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroView.swift; sourceTree = "<group>"; };
 		30459F6928D0964500FE05A0 /* IntroModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroModel.swift; sourceTree = "<group>"; };
@@ -204,6 +214,7 @@
 		30B542C7283E3BFD007D8A81 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		30B542CA283E3CD8007D8A81 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		30C3FD3428C7690D0007B45A /* FavoriteModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteModels.swift; sourceTree = "<group>"; };
+		30C5DEFC28EC3E5D00D564C4 /* SettingsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewCell.swift; sourceTree = "<group>"; };
 		30D95F1128C89EA9007F9E02 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		30D95F1328C89ECF007F9E02 /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
 		30D95F1528C8AD85007F9E02 /* CartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartModel.swift; sourceTree = "<group>"; };
@@ -226,8 +237,6 @@
 		30E7E9002892B7F300057155 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		30E7E9022892B82A00057155 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		30E7E9042892B84400057155 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
-		30E7E9062892B9F800057155 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		30E7E9082892BA5000057155 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		30E7E90A2892BADD00057155 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		30E7E90C2892C16000057155 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		30F35C5B2893C43600D8B88F /* SocialMediaButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialMediaButton.swift; sourceTree = "<group>"; };
@@ -237,11 +246,8 @@
 		30F35C682893FA9200D8B88F /* UIView+Gesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Gesture.swift"; sourceTree = "<group>"; };
 		30F35C6A28940DFA00D8B88F /* TileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileView.swift; sourceTree = "<group>"; };
 		30F35C6D2894168000D8B88F /* TileButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileButton.swift; sourceTree = "<group>"; };
-		3323A767657C9FAFA4B9EA02 /* Pods-toyBox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-toyBox.release.xcconfig"; path = "Target Support Files/Pods-toyBox/Pods-toyBox.release.xcconfig"; sourceTree = "<group>"; };
-		719FC79AF5007D058CF2CA31 /* Pods_toyBox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_toyBox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8A904FF35C0F981EA4AE4B1B /* Pods-fmBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fmBox.debug.xcconfig"; path = "Target Support Files/Pods-fmBox/Pods-fmBox.debug.xcconfig"; sourceTree = "<group>"; };
-		A5B716A04261E59AA5A9D42B /* Pods-toyBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-toyBox.debug.xcconfig"; path = "Target Support Files/Pods-toyBox/Pods-toyBox.debug.xcconfig"; sourceTree = "<group>"; };
-		E21CF8F5E4B79AECE78E6485 /* Pods-fmBox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fmBox.release.xcconfig"; path = "Target Support Files/Pods-fmBox/Pods-fmBox.release.xcconfig"; sourceTree = "<group>"; };
+		4406F8058EF146FA17AD8338 /* Pods_toyBox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_toyBox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BED49D10CB8665FF901EDA08 /* Pods-toyBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-toyBox.debug.xcconfig"; path = "Target Support Files/Pods-toyBox/Pods-toyBox.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -256,7 +262,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A3471806718ED9B81272A6D /* Pods_toyBox.framework in Frameworks */,
+				07058923AA76A7E59FEB40F4 /* Pods_toyBox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,6 +276,22 @@
 				3018D2D028915CAA0008087F /* SignUpView.swift */,
 			);
 			path = SignUp;
+			sourceTree = "<group>";
+		};
+		30220A7128EADAD4005953DC /* ForgotPassword */ = {
+			isa = PBXGroup;
+			children = (
+				30220A7228EADAEE005953DC /* ForgotPasswordViewController.swift */,
+				30220A7428EADB13005953DC /* ForgotPasswordView.swift */,
+			);
+			path = ForgotPassword;
+			sourceTree = "<group>";
+		};
+		30220A7828EC2799005953DC /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		30459F5A28D0852100FE05A0 /* Intro */ = {
@@ -321,8 +343,10 @@
 		30887E5328DB20A10008378C /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				30E7E9062892B9F800057155 /* SettingsViewController.swift */,
-				30E7E9082892BA5000057155 /* SettingsView.swift */,
+				30220A7D28EC27FB005953DC /* SettingsDelegate+DataSource.swift */,
+				30C5DEFC28EC3E5D00D564C4 /* SettingsViewCell.swift */,
+				30220A7F28EC2BAA005953DC /* SettingsViewController.swift */,
+				30220A8128EC2BD3005953DC /* SettingsView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -339,6 +363,7 @@
 		30887E5528DB210A0008378C /* ChildViews */ = {
 			isa = PBXGroup;
 			children = (
+				30220A7128EADAD4005953DC /* ForgotPassword */,
 				30887E5628DB21F80008378C /* SearchFilter */,
 				30DE311328AD254F00509C14 /* Toy */,
 				30B3C06B28B6185C006C605A /* Categories */,
@@ -400,7 +425,7 @@
 				307354AD28D06F25007A3E3F /* toyBoxTests */,
 				30B5427D283E3243007D8A81 /* Products */,
 				96F95B2EBA7675189148A9CD /* Pods */,
-				EC7F885A4CB1FDCB1BA156E5 /* Frameworks */,
+				5F477A03EA45471C1A7A4AA0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -503,6 +528,7 @@
 		30B542B5283E3627007D8A81 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				30220A7828EC2799005953DC /* Settings */,
 				30459F6D28D0B56200FE05A0 /* PageIndicator */,
 				30B3C07928B75BEC006C605A /* MainView */,
 				30DE311B28AE27F100509C14 /* GroupedTableView */,
@@ -638,23 +664,21 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		5F477A03EA45471C1A7A4AA0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4406F8058EF146FA17AD8338 /* Pods_toyBox.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		96F95B2EBA7675189148A9CD /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				8A904FF35C0F981EA4AE4B1B /* Pods-fmBox.debug.xcconfig */,
-				E21CF8F5E4B79AECE78E6485 /* Pods-fmBox.release.xcconfig */,
-				A5B716A04261E59AA5A9D42B /* Pods-toyBox.debug.xcconfig */,
-				3323A767657C9FAFA4B9EA02 /* Pods-toyBox.release.xcconfig */,
+				BED49D10CB8665FF901EDA08 /* Pods-toyBox.debug.xcconfig */,
+				293A5B0B40F149B061C075D0 /* Pods-toyBox.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		EC7F885A4CB1FDCB1BA156E5 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				719FC79AF5007D058CF2CA31 /* Pods_toyBox.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -682,13 +706,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 30B54290283E3247007D8A81 /* Build configuration list for PBXNativeTarget "toyBox" */;
 			buildPhases = (
-				17EEF184E457D806A4F80C98 /* [CP] Check Pods Manifest.lock */,
+				0483DEA8F361CBDCBDE6275F /* [CP] Check Pods Manifest.lock */,
 				30B54278283E3243007D8A81 /* Sources */,
 				30B54279283E3243007D8A81 /* Frameworks */,
 				30B5427A283E3243007D8A81 /* Resources */,
-				881D3420F8D1AB41CC2FFC8C /* [CP] Embed Pods Frameworks */,
-				6D5BD48E4463683D22DE8248 /* [CP] Copy Pods Resources */,
 				3070AA14289AA9BE00E807DD /* Embed Frameworks */,
+				30C5DEFB28EC34C500D564C4 /* ShellScript */,
+				69B79303F2C0FCCB3309136F /* [CP] Embed Pods Frameworks */,
+				45394251EB4001F70180627F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -777,9 +802,8 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		17EEF184E457D806A4F80C98 /* [CP] Check Pods Manifest.lock */ = {
+		0483DEA8F361CBDCBDE6275F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -800,7 +824,25 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		6D5BD48E4463683D22DE8248 /* [CP] Copy Pods Resources */ = {
+		30C5DEFB28EC34C500D564C4 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "public_path=\"${PUBLIC_HEADERS_FOLDER_PATH#$CONTENTS_FOLDER_PATH/}\"\nif [ ! -f \"$public_path\"]; then\n    ln -fs \"${PUBLIC_HEADERS_FOLDER_PATH#$WRAPPER_NAME/}\" \"$public_path\"\nfi\n\nprivate_path=\"${PRIVATE_HEADERS_FOLDER_PATH#$CONTENTS_FOLDER_PATH/}\"\nif [ ! -f \"$private_path\" ]; then\n    ln -fs \"${PRIVATE_HEADERS_FOLDER_PATH#$WRAPPER_NAME/}\" \"$private_path\"\nfi\n";
+		};
+		45394251EB4001F70180627F /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -817,9 +859,8 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-toyBox/Pods-toyBox-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		881D3420F8D1AB41CC2FFC8C /* [CP] Embed Pods Frameworks */ = {
+		69B79303F2C0FCCB3309136F /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -872,6 +913,7 @@
 				30E7E9052892B84400057155 /* FavoritesView.swift in Sources */,
 				30F35C5C2893C43700D8B88F /* SocialMediaButton.swift in Sources */,
 				30E7E9012892B7F300057155 /* DashboardView.swift in Sources */,
+				30220A7528EADB13005953DC /* ForgotPasswordView.swift in Sources */,
 				30459F7128D0B8CF00FE05A0 /* PageIndicatorItem.swift in Sources */,
 				30DE312328AE357800509C14 /* ToyViewCell.swift in Sources */,
 				30B542A1283E3400007D8A81 /* UIFont.swift in Sources */,
@@ -879,11 +921,13 @@
 				30F35C5E2893D87900D8B88F /* TextField.swift in Sources */,
 				30DE311528AD257600509C14 /* ToyViewController.swift in Sources */,
 				30F35C6B28940DFA00D8B88F /* TileView.swift in Sources */,
+				30C5DEFD28EC3E5D00D564C4 /* SettingsViewCell.swift in Sources */,
 				30DE312128AE305B00509C14 /* GroupedSectionHeader.swift in Sources */,
 				30459F6628D08FEB00FE05A0 /* IntroView.swift in Sources */,
 				30B542C3283E3B0D007D8A81 /* ApiClient.swift in Sources */,
 				30B542B7283E3638007D8A81 /* View.swift in Sources */,
 				3018D2D128915CAB0008087F /* SignUpView.swift in Sources */,
+				30220A7E28EC27FB005953DC /* SettingsDelegate+DataSource.swift in Sources */,
 				30E7E8FF2892B7B300057155 /* DashboardViewController.swift in Sources */,
 				30E7E90D2892C16000057155 /* TabBarController.swift in Sources */,
 				30B542C5283E3B2D007D8A81 /* Settings.swift in Sources */,
@@ -891,9 +935,9 @@
 				30DE311028ACFDBB00509C14 /* CategoryModel.swift in Sources */,
 				30DE310A28ABC31100509C14 /* LoaderViewController.swift in Sources */,
 				30B542CB283E3CD8007D8A81 /* SignInView.swift in Sources */,
-				30E7E9092892BA5000057155 /* SettingsView.swift in Sources */,
 				3018D2CA28914E8B0008087F /* String.swift in Sources */,
 				30D95F1428C89ECF007F9E02 /* CartView.swift in Sources */,
+				30220A8028EC2BAA005953DC /* SettingsViewController.swift in Sources */,
 				3083D11528DDC9BA00BE2A60 /* LocationModel.swift in Sources */,
 				30887E5D28DB264D0008378C /* SFTitleFilterView.swift in Sources */,
 				30DE310E28ACE80700509C14 /* Label.swift in Sources */,
@@ -903,7 +947,6 @@
 				30B54296283E3359007D8A81 /* UIColor.swift in Sources */,
 				30B54280283E3243007D8A81 /* AppDelegate.swift in Sources */,
 				30B3C07B28B75C12006C605A /* MainStackedView.swift in Sources */,
-				30E7E9072892B9F800057155 /* SettingsViewController.swift in Sources */,
 				30DE311228AD0C7500509C14 /* InitialDataModel.swift in Sources */,
 				30DE311D28AE281700509C14 /* GroupedTableView.swift in Sources */,
 				3083D11328DDB92500BE2A60 /* LocationUpdater.swift in Sources */,
@@ -912,6 +955,7 @@
 				30B542BB283E3660007D8A81 /* CollectionCell.swift in Sources */,
 				30D95F1B28C8B8F8007F9E02 /* MainFlatView.swift in Sources */,
 				30B54282283E3243007D8A81 /* SceneDelegate.swift in Sources */,
+				30220A7328EADAEE005953DC /* ForgotPasswordViewController.swift in Sources */,
 				30B3C07F28B783D9006C605A /* CategoriesDataSource+Delegate.swift in Sources */,
 				30459F6F28D0B57700FE05A0 /* PageIndicatorView.swift in Sources */,
 				30E7E90B2892BADD00057155 /* TabBarViewController.swift in Sources */,
@@ -919,6 +963,7 @@
 				30887E5828DB22130008378C /* SearchFilterView.swift in Sources */,
 				30C3FD3528C7690D0007B45A /* FavoriteModels.swift in Sources */,
 				30B3C06F28B618A6006C605A /* CategoriesView.swift in Sources */,
+				30220A8228EC2BD3005953DC /* SettingsView.swift in Sources */,
 				30D95F1228C89EA9007F9E02 /* CartViewController.swift in Sources */,
 				304BA96828D885F90008B423 /* UIScrollView.swift in Sources */,
 				3070A840289A7CF100E807DD /* Secrets.swift in Sources */,
@@ -1114,7 +1159,7 @@
 		};
 		30B54291283E3247007D8A81 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A5B716A04261E59AA5A9D42B /* Pods-toyBox.debug.xcconfig */;
+			baseConfigurationReference = BED49D10CB8665FF901EDA08 /* Pods-toyBox.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1123,7 +1168,6 @@
 				DEVELOPMENT_TEAM = GCQ4TX8M8Z;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/ios-sdk-1.2.2",
 					"$(PROJECT_DIR)",
 				);
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1153,7 +1197,7 @@
 		};
 		30B54292283E3247007D8A81 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3323A767657C9FAFA4B9EA02 /* Pods-toyBox.release.xcconfig */;
+			baseConfigurationReference = 293A5B0B40F149B061C075D0 /* Pods-toyBox.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1162,7 +1206,6 @@
 				DEVELOPMENT_TEAM = GCQ4TX8M8Z;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/ios-sdk-1.2.2",
 					"$(PROJECT_DIR)",
 				);
 				GENERATE_INFOPLIST_FILE = YES;

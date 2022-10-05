@@ -1,0 +1,96 @@
+import UIKit
+
+class SettingsViewCell: TableCell, SettingsCellContent {
+
+    private let titleLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.FontKarla(.regular, ofSize: 16)
+        label.textColor = UIColor(named: "Text")
+        return label
+    }()
+
+    private let icon: UIImageView = {
+        let view = UIImageView()
+        view.isHidden = true
+        view.tintColor = UIColor(named: "Text")
+        return view
+    }()
+
+    private let switchControl: UISwitch = {
+        let control = UISwitch()
+        control.tintColor = UIColor(named: "Accent")
+        control.isHidden = true
+        return control
+    }()
+
+    private let linkButton: UIButton = {
+        var attributedTitle = AttributedString.init()
+        attributedTitle.font = UIFont.FontKarla(.regular, ofSize: 18)
+
+        var config = UIButton.Configuration.plain()
+        config.attributedTitle = attributedTitle
+        config.baseForegroundColor = UIColor(named: "Accent")
+
+        let button = UIButton(configuration: config)
+        button.isHidden = true
+        return button
+    }()
+
+    func createContent(for cellType: SettingsCellType) {
+        contentView.addSubviews([titleLabel, icon, switchControl, linkButton])
+
+        switch cellType {
+        case .parent(let label, _):
+            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+            titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10).isActive = true
+            titleLabel.text = label
+
+            icon.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10).isActive = true
+            icon.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
+            icon.widthAnchor.constraint(equalToConstant: 25).isActive = true
+            icon.heightAnchor.constraint(equalToConstant: 25).isActive = true
+            icon.image = UIImage(systemName: "arrowtriangle.forward")
+            icon.isHidden = false
+
+        case .switchOption(let label, let state):
+            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+            titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10).isActive = true
+            titleLabel.text = label
+
+            switchControl.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10).isActive = true
+            switchControl.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor).isActive = true
+            switchControl.isHidden = false
+            switchControl.isOn = state
+
+        case .externalLink(let label, _):
+            linkButton.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+            linkButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+            linkButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
+            linkButton.setAttributedTitle(NSAttributedString(string: label), for: .normal)
+            linkButton.isHidden = false
+
+        case .info(let label, let image):
+            if let image = image {
+                icon.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10).isActive = true
+                icon.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
+                icon.widthAnchor.constraint(equalToConstant: 50).isActive = true
+                icon.heightAnchor.constraint(equalToConstant: 50).isActive = true
+                icon.image = image
+                icon.isHidden = false
+
+                titleLabel.topAnchor.constraint(equalTo: icon.bottomAnchor, constant: 10).isActive = true
+                titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+                titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
+                titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
+            } else {
+                titleLabel.constraintToAllEdges(of: contentView)
+            }
+
+            titleLabel.textAlignment = .center
+            titleLabel.text = label
+            titleLabel.numberOfLines = 0
+        }
+    }
+}

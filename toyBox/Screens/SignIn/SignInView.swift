@@ -42,7 +42,6 @@ class SignInView: View {
         field.borderStyle = .none
         field.textColor = UIColor(named: "Text")
         field.borderStyle = .roundedRect
-        field.text = "a@a.pl"
         return field
     }()
 
@@ -56,7 +55,6 @@ class SignInView: View {
         field.isSecureTextEntry = true
         field.borderStyle = .roundedRect
         field.textColor = UIColor(named: "Text")
-        field.text = "12345678"
         return field
     }()
 

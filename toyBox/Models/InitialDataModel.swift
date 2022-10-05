@@ -17,7 +17,7 @@ struct InitialDataModel: Codable {
         case recentToys = "recentToysData"
         case categories
         case cart
-        case favorites
+        case favorites = "favorities"
         case userToys
     }
 }

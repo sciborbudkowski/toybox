@@ -7,14 +7,15 @@ import FBSDKLoginKit
 class SettingsViewController: ViewController {
 
     let customView = SettingsView()
+    let dataSource = SettingsDataSource()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = .systemBackground
-        title = "Settings"
+        view.backgroundColor = UIColor.systemBackground
 
-        navigationController?.setNavigationBarHidden(true, animated: false)
+        customView.settingsTableView.dataSource = dataSource
+        customView.settingsTableView.delegate = dataSource
     }
 
     override func loadView() {
@@ -23,8 +24,9 @@ class SettingsViewController: ViewController {
 
     override func setupCombineComponents() {
         customView.signOffButton.tapPublisher.sink { [weak self] _ in
-            self?.signOut()
-            self?.navigationController?.popToRootViewController(animated: true)
+            guard let self = self else { return }
+            self.signOut()
+            self.navigationController?.popToRootViewController(animated: true)
         }.store(in: &cancellables)
     }
 
