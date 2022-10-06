@@ -13,6 +13,7 @@ async function getInitialData(userId) {
     const resultRecentToys = await database.collection(toysCollectionName).find({}).sort({ dateAdded: -1 }).toArray();
     const resultCart = await database.collection(cartsCollectionName).find({ userId: userId }).toArray();
     const resultFavorities = await database.collection(favoritiesCollectionName).find({ userId: userId }).toArray();
+    const userToys = await database.collection(toysCollectionName).find({ userId: userId }).toArray();
 
     const json = {
         'result': true,
@@ -21,7 +22,8 @@ async function getInitialData(userId) {
         'recentToysData': resultRecentToys,
         'categories': resultCategories,
         'cart': resultCart,
-        'favorities': resultFavorities
+        'favorities': resultFavorities,
+        'userToys': userToys
     };
 
     return json;

@@ -24,21 +24,36 @@ class SettingsViewCell: TableCell, SettingsCellContent {
     }()
 
     private let linkButton: UIButton = {
-        var attributedTitle = AttributedString.init()
-        attributedTitle.font = UIFont.FontKarla(.regular, ofSize: 18)
-
         var config = UIButton.Configuration.plain()
-        config.attributedTitle = attributedTitle
-        config.baseForegroundColor = UIColor(named: "Accent")
-
         let button = UIButton(configuration: config)
         button.isHidden = true
         return button
     }()
 
-    func createContent(for cellType: SettingsCellType) {
-        contentView.addSubviews([titleLabel, icon, switchControl, linkButton])
+    private let selectedOptionLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.FontKarla(.bold, ofSize: 16)
+        label.textColor = UIColor(named: "Text")
+        label.isHidden = true
+        return label
+    }()
 
+    private var controls: [UIView] = []
+
+    override func setupProperties() {
+        controls = [titleLabel, icon, switchControl, linkButton, selectedOptionLabel]
+        contentView.subviews.forEach {
+            $0.removeFromSuperview()
+        }
+    }
+
+    override func setupLayoutConstraints() {
+        contentView.addSubviews(controls)
+        controls.forEach { $0.isHidden = true }
+        titleLabel.isHidden = false
+    }
+
+    func createContent(for cellType: SettingsCellType) {
         switch cellType {
         case .parent(let label, _):
             titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
@@ -68,15 +83,18 @@ class SettingsViewCell: TableCell, SettingsCellContent {
             linkButton.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
             linkButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
             linkButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
-            linkButton.setAttributedTitle(NSAttributedString(string: label), for: .normal)
+            linkButton.setAttributedTitle(NSAttributedString(string: label, attributes: [
+                NSAttributedString.Key.font: UIFont.FontKarla(.regular, ofSize: 16),
+                NSAttributedString.Key.foregroundColor: UIColor(named: "Link") as Any
+            ]), for: .normal)
             linkButton.isHidden = false
 
         case .info(let label, let image):
             if let image = image {
                 icon.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10).isActive = true
                 icon.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
-                icon.widthAnchor.constraint(equalToConstant: 50).isActive = true
-                icon.heightAnchor.constraint(equalToConstant: 50).isActive = true
+                icon.widthAnchor.constraint(equalToConstant: 100).isActive = true
+                icon.heightAnchor.constraint(equalToConstant: 100).isActive = true
                 icon.image = image
                 icon.isHidden = false
 
@@ -91,6 +109,25 @@ class SettingsViewCell: TableCell, SettingsCellContent {
             titleLabel.textAlignment = .center
             titleLabel.text = label
             titleLabel.numberOfLines = 0
+
+        case .selection(let label, let options):
+            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+            titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10).isActive = true
+            titleLabel.text = label
+
+            let selectedOptionText = options.first { $0.state == true }
+            selectedOptionLabel.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+            selectedOptionLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+            selectedOptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10).isActive = true
+            selectedOptionLabel.isHidden = false
+            selectedOptionLabel.text = "[\(selectedOptionText?.title ?? "")]"
         }
+    }
+
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+
+        contentView.backgroundColor = .systemBackground
     }
 }

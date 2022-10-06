@@ -30,20 +30,29 @@ async function getRecentToys() {
     return json;
 };
 
-async function getToy(toyId) {
+async function getToy(toyId, updateViewCount) {
+    var result, json;
     const database = await getDatabase();
     const idForQuery = new ObjectId(toyId);
-    const query = { _id: idForQuery };
-    const result = await database.collection(collectionName).find(query).toArray();
 
-    const json = {
+    if (updateViewCount) {
+        result = database.collection(collectionName).updateOne({ _id: idForQuery },{ $inc: { viewCount: 1 } });
+        json = {
+            'result': result.acknowledged,
+            'type': 'updateViewCount',
+            'operation': 'increment'
+        };
+    }
+    
+    const query = { _id: idForQuery };
+    result = await database.collection(collectionName).find(query).toArray();
+
+    json = {
         'result': true,
         'type': 'get-toy',
         'count': 1,
         'data': result
     };
-
-    console.log(json);
 
     return json
 }

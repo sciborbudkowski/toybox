@@ -10,7 +10,7 @@ const { startDatabase } = require('./database/mongo');
 const { getPopularToys, getRecentToys, getToy } = require('./database/toys');
 const { getCategories } = require('./database/categories');
 const { getInitialData } = require('./database/initialData');
-const { isFavorite, switchFavorite } = require('./database/favorities');
+const { isFavorite, switchFavorite, getFavorities } = require('./database/favorities');
 const { getCartForUser } = require('./database/carts');
 
 const httpsOptions = {
@@ -119,9 +119,13 @@ app.get('/get-cart', async (req, res) => {
 });
 
 app.get('/get-toy', async (req, res) => {
+    var update = false;
+    if (typeof req.query.update !== 'undefined' && req.query.update === 'true') {
+        update = true;
+    }
     if (typeof req.query.toyId !== 'undefined') {
         const toyId = req.query.toyId;
-        res.send(await getToy(toyId));
+        res.send(await getToy(toyId, update));
         return;
     }
 
@@ -131,6 +135,24 @@ app.get('/get-toy', async (req, res) => {
         'count': -1,
         'data': {
             'message': 'toyId parameter not provided.'
+        }
+    };
+    res.send(await json);
+});
+
+app.get('/get-favorities', async (req, res) => {
+    if (typeof req.query.userId !== 'undefined') {
+        const userId = req.query.userId;
+        res.send(await getFavorities(userId));
+        return;
+    }
+
+    const json = {
+        'result': false,
+        'type': 'getFavorities',
+        'count': -1,
+        'data': {
+            'message': 'userId parameter not provided.'
         }
     };
     res.send(await json);

@@ -1,10 +1,16 @@
 import UIKit
 
+struct SettingsSelectionOption {
+    var title: String
+    var state: Bool
+}
+
 enum SettingsCellType {
     case parent(String, [SettingsCellType])
     case switchOption(String, Bool)
     case externalLink(String, URL)
     case info(String, UIImage? = nil)
+    case selection(String, [SettingsSelectionOption])
 }
 
 protocol SettingsCellContent {
@@ -14,15 +20,19 @@ protocol SettingsCellContent {
 class SettingsDataSource: NSObject, UITableViewDelegate, UITableViewDataSource {
 
     var items: [SettingsCellType] = [
-        SettingsCellType.parent("Title for parent", [
-            SettingsCellType.info("Info 1"),
-            SettingsCellType.info("Info 2"),
-            SettingsCellType.info("Info 3")
+        SettingsCellType.info("toyBox\nVersion 0.1", UIImage(named: "AppIcon")),
+        SettingsCellType.selection("Starting Screen", [
+            SettingsSelectionOption(title: "Dashboard", state: true),
+            SettingsSelectionOption(title: "Cart", state: false),
+            SettingsSelectionOption(title: "Favorites", state: false)
         ]),
         SettingsCellType.switchOption("The switch is on", true),
         SettingsCellType.switchOption("The switch is off", false),
         SettingsCellType.externalLink("Some link here", URL(string: "https://www.google.com")!),
-        SettingsCellType.info("2022-10-05 13:17:49.645271+0200 toyBox[89172:10031725] [Presentation] Attempt to present <UIAlertController: 0x14d009800> on <UINavigationController: 0x14b057000> (from <toyBox.DashboardViewController: 0x14a01a600>) which is already presenting <toyBox.LoaderViewController: 0x149b6a3a0>.", UIImage(named: "AppIcon"))
+        SettingsCellType.parent("Testing parent", [
+            SettingsCellType.switchOption("switch 1", true),
+            SettingsCellType.switchOption("switch 2", false)
+        ])
     ]
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -34,15 +44,41 @@ class SettingsDataSource: NSObject, UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         cell.createContent(for: items[indexPath.row])
+
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let currentItem = items[indexPath.row]
+
+        switch currentItem {
+        case .info:
+            break
+
+        case .parent(_, let childItems):
+            print(childItems.count)
+            print(childItems)
+            items = childItems
+            tableView.reloadData()
+            tableView.setNeedsUpdateConstraints()
+
+        case .switchOption(_, _):
+            break
+
+        case .externalLink(_, let url):
+            UIApplication.shared.open(url)
+
+        case .selection(_, _):
+            break
+        }
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let test = items[indexPath.row]
         if case .info = test {
-            return 200
+            return 175
         }
 
-        return 50
+        return 40
     }
 }
