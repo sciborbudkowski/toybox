@@ -74,26 +74,28 @@ class ToyViewController: ViewController {
             })
             .store(in: &cancellables)
 
+        customView.carouselView.gesture(.swipeLeft()).sink { [weak self] _ in
+            guard let self = self else { return }
+            if self.currentIndex != 0 {
+                self.swipeToPrevious()
+            }
+        }.store(in: &cancellables)
+
+        customView.carouselView.gesture(.swipeRight()).sink { [weak self] _ in
+            guard let self = self else { return }
+            if self.currentIndex < self.images.count - 1 {
+                self.swipeToNext()
+            }
+        }.store(in: &cancellables)
+
         customView.carouselView.previousButton.tapPublisher.sink { [weak self] _ in
             guard let self = self else { return }
-
-            self.currentIndex -= 1
-            if self.currentIndex < 0 {
-                self.currentIndex = self.images.count - 1
-            }
-
-            self.customView.carouselView.scrollContent(index: self.currentIndex)
+            self.swipeToPrevious()
         }.store(in: &cancellables)
 
         customView.carouselView.nextButton.tapPublisher.sink { [weak self] _ in
             guard let self = self else { return }
-
-            self.currentIndex += 1
-            if self.currentIndex == self.images.count {
-                self.currentIndex = 0
-            }
-
-            self.customView.carouselView.scrollContent(index: self.currentIndex)
+            self.swipeToNext()
         }.store(in: &cancellables)
     }
 
@@ -163,5 +165,23 @@ class ToyViewController: ViewController {
                 }
             }
             .store(in: &cancellables)
+    }
+
+    private func swipeToPrevious() {
+        currentIndex -= 1
+        if currentIndex < 0 {
+            currentIndex = images.count - 1
+        }
+
+        customView.carouselView.scrollContent(index: currentIndex)
+    }
+
+    private func swipeToNext() {
+        currentIndex += 1
+        if currentIndex == images.count {
+            currentIndex = 0
+        }
+
+        self.customView.carouselView.scrollContent(index: currentIndex)
     }
 }

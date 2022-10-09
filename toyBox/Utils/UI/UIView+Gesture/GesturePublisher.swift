@@ -7,7 +7,8 @@ enum GestureType {
     case longPress(UILongPressGestureRecognizer = .init())
     case pan(UIPanGestureRecognizer = .init())
     case pinch(UIPinchGestureRecognizer = .init())
-    case swipe(UISwipeGestureRecognizer = .init())
+    case swipeLeft(UISwipeGestureRecognizer = .init())
+    case swipeRight(UISwipeGestureRecognizer = .init())
     case edge(UIScreenEdgePanGestureRecognizer = .init())
 
     func getType() -> UIGestureRecognizer {
@@ -20,7 +21,11 @@ enum GestureType {
             return panGesture
         case let .pinch(pinchGesture):
             return pinchGesture
-        case let .swipe(swipeGesture):
+        case let .swipeLeft(swipeGesture):
+            swipeGesture.direction = .left
+            return swipeGesture
+        case let .swipeRight(swipeGesture):
+            swipeGesture.direction = .right
             return swipeGesture
         case let .edge(edgeGesture):
             return edgeGesture
