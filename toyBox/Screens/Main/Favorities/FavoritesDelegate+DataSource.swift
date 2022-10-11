@@ -19,7 +19,7 @@ extension FavoritesViewController: UITableViewDataSource, UITableViewDelegate {
                                       price: String(currentItem.price),
                                       id: currentItem.id)
         cell.configure(with: model)
-        
+
         return cell
     }
 

@@ -14,7 +14,7 @@ class Settings {
         }
 
         userDefaults.set(false, forKey: "isAppFirstRun")
-        
+
         return true
     }
 

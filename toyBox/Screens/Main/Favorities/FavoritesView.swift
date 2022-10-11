@@ -4,7 +4,7 @@ class FavoritesView: MainFlatView {
 
     private let viewTitleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.FontKarla(.regular, ofSize: 22)
+        label.font = UIFont.fontKarla(.regular, ofSize: 22)
         label.text = "Favorite Toys"
         label.textColor = UIColor(named: "Accent")
         return label
@@ -24,7 +24,7 @@ class FavoritesView: MainFlatView {
 
     private let emptyLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.FontKarla(.regular, ofSize: 18)
+        label.font = UIFont.fontKarla(.regular, ofSize: 18)
         label.text = "You have no favorites yet."
         label.textColor = UIColor(named: "Info")
         return label

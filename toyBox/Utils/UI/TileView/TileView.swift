@@ -4,7 +4,7 @@ class TileView: View {
 
     let titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.FontKarla(.medium, ofSize: 16)
+        label.font = UIFont.fontKarla(.medium, ofSize: 16)
         label.textColor = .black
         return label
     }()
@@ -12,7 +12,7 @@ class TileView: View {
     let allButton: UIButton = {
         let button = UIButton()
         button.setAttributedTitle(NSAttributedString(string: "All >", attributes: [
-            NSAttributedString.Key.font: UIFont.FontKarla(.medium, ofSize: 16),
+            NSAttributedString.Key.font: UIFont.fontKarla(.medium, ofSize: 16),
             NSAttributedString.Key.foregroundColor: UIColor(named: "Accent")!
         ]), for: .normal)
         return button

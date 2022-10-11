@@ -1,15 +1,15 @@
-//import UIKit
+// import UIKit
 //
-//protocol GroupedSectionHeader {
+// protocol GroupedSectionHeader {
 //
 //    var indicatorImageView: UIImageView { get }
 //    var imageAnimationDuration: TimeInterval { get }
 //
 //    func updateViewForOpenState(animated: Bool)
 //    func updateViewForCloseState(animated: Bool)
-//}
+// }
 //
-//extension GroupedSectionHeader {
+// extension GroupedSectionHeader {
 //
 //    public var imageAnimationDuration: TimeInterval {
 //        return 0.33
@@ -28,4 +28,4 @@
 //            self.indicatorImageView.transform = CGAffineTransform(rotationAngle: CGFloat(2 * Double.pi))
 //        }
 //    }
-//}
+// }

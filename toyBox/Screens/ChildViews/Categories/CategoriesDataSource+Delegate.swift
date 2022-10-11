@@ -14,7 +14,7 @@ class CategoriesDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CategoryCell.identifier, for: indexPath) as? CategoryCell else { return UITableViewCell() }
         cell.model = items[indexPath.row]
         cell.background.backgroundColor = UIColor(named: colorName)
-        
+
         return cell
     }
 

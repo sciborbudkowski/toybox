@@ -4,7 +4,7 @@ class SFTitleFilterView: View {
 
     let categoryTitleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.FontKarla(.bold, ofSize: 22)
+        label.font = UIFont.fontKarla(.bold, ofSize: 22)
         label.textColor = UIColor(named: "Text")
         label.text = "Options"
         return label
@@ -12,7 +12,7 @@ class SFTitleFilterView: View {
 
     let useTitleInSearchLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.FontKarla(.regular, ofSize: 18)
+        label.font = UIFont.fontKarla(.regular, ofSize: 18)
         label.textColor = UIColor(named: "Text")
         label.text = "Search in titles"
         return label
@@ -27,7 +27,7 @@ class SFTitleFilterView: View {
 
     let useDescriptionInSearchLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.FontKarla(.regular, ofSize: 18)
+        label.font = UIFont.fontKarla(.regular, ofSize: 18)
         label.textColor = UIColor(named: "Text")
         label.text = "Search in descriptions"
         return label
@@ -60,7 +60,6 @@ class SFTitleFilterView: View {
         useTitleInSearchSwitch.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -distanceFromEdge).isActive = true
         useTitleInSearchLabel.centerYAnchor.constraint(equalTo: useTitleInSearchSwitch.centerYAnchor).isActive = true
         useTitleInSearchLabel.leadingAnchor.constraint(equalTo: categoryTitleLabel.leadingAnchor).isActive = true
-
 
         useDescriptionInSearchSwitch.topAnchor.constraint(equalTo: useTitleInSearchSwitch.bottomAnchor, constant: distanceBetweenControls).isActive = true
         useDescriptionInSearchSwitch.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -distanceFromEdge).isActive = true

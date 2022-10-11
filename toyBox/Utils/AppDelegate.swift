@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) { }
 
-    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
         ApplicationDelegate.shared.application(
             app,
             open: url,
@@ -44,6 +44,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().backIndicatorImage = UIImage(systemName: "arrow.left")
         UINavigationBar.appearance().backIndicatorTransitionMaskImage = UIImage(systemName: "arrow.left")
         UINavigationBar.appearance().tintColor = UIColor(named: "Accent")
-        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.font: UIFont.FontKarla(.regular, ofSize: 18)]
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.font: UIFont.fontKarla(.regular, ofSize: 18)]
     }
 }

@@ -6,7 +6,7 @@ class ToyView: View {
     let nameLabel: Label = {
         let label = Label()
         label.textColor = UIColor(named: "Text")
-        label.font = UIFont.FontKarla(.regular, ofSize: 20)
+        label.font = UIFont.fontKarla(.regular, ofSize: 20)
         label.text = "Some test text here"
         label.numberOfLines = 0
         label.textAlignment = .center
@@ -27,7 +27,7 @@ class ToyView: View {
 
     let addToCartButton: UIButton = {
         var attributedTitle = AttributedString("Add to Cart")
-        attributedTitle.font = UIFont.FontKarla(.regular, ofSize: 18)
+        attributedTitle.font = UIFont.fontKarla(.regular, ofSize: 18)
 
         var config = UIButton.Configuration.plain()
         config.attributedTitle = attributedTitle
@@ -42,7 +42,7 @@ class ToyView: View {
 
     let buyNowButton: UIButton = {
         var attributedTitle = AttributedString("Buy Now!")
-        attributedTitle.font = UIFont.FontKarla(.regular, ofSize: 18)
+        attributedTitle.font = UIFont.fontKarla(.regular, ofSize: 18)
 
         var config = UIButton.Configuration.filled()
         config.attributedTitle = attributedTitle

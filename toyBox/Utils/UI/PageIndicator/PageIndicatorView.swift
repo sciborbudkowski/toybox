@@ -41,8 +41,8 @@ class PageIndicatorView: View {
               let color = color
         else { return }
 
-        for i in 0...itemsCount - 1 {
-            let type: PageIndicatorType = i == currentIndex ? .wide : .dot
+        for item in 0...itemsCount - 1 {
+            let type: PageIndicatorType = item == currentIndex ? .wide : .dot
             let item = PageIndicatorItem(type: type, color: color)
             stackView.addArrangedSubview(item)
         }
@@ -57,4 +57,3 @@ class PageIndicatorView: View {
         stackView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
     }
 }
-

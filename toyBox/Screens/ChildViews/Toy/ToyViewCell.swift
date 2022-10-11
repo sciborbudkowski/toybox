@@ -16,7 +16,7 @@ class ToyViewCell: TableCell {
 
     let rightLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.FontKarla(.regular, ofSize: 16)
+        label.font = UIFont.fontKarla(.regular, ofSize: 16)
         label.textColor = UIColor(named: "Text")
         label.textAlignment = .left
         return label
@@ -24,7 +24,7 @@ class ToyViewCell: TableCell {
 
     let leftLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.FontKarla(.bold, ofSize: 16)
+        label.font = UIFont.fontKarla(.bold, ofSize: 16)
         label.textColor = UIColor(named: "Text")
         label.textAlignment = .right
         return label

@@ -76,7 +76,7 @@ class FavoritesViewController: ViewController {
                 self.customView.isEmpty = received.isEmpty
                 self.toysFavorites = ToysModel(result: true, count: received.count, data: received)
                 self.updateTabBarBadgeValues()
-                
+
                 DispatchQueue.main.async {
                     if !withoutLoader {
                         loader.dismiss(animated: true)

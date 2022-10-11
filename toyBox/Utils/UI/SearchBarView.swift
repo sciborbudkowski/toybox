@@ -4,9 +4,9 @@ class SearchBarView: View {
 
     let searchTextField: TextField = {
         let field = TextField()
-        field.font = UIFont.FontQuicksand(.regular, ofSize: 15)
+        field.font = UIFont.fontQuicksand(.regular, ofSize: 15)
         field.attributedPlaceholder = NSAttributedString(string: "Find toy, puzzle and more...",
-                                                         attributes: [NSAttributedString.Key.font: UIFont.FontKarla(.regular, ofSize: 16),
+                                                         attributes: [NSAttributedString.Key.font: UIFont.fontKarla(.regular, ofSize: 16),
                                                                       NSAttributedString.Key.foregroundColor: UIColor.lightGray])
         field.autocorrectionType = .no
         field.autocapitalizationType = .none
@@ -28,7 +28,7 @@ class SearchBarView: View {
 
     override func setupConstraints() {
         addSubviews([searchTextField, filterButton])
-        
+
         searchTextField.topAnchor.constraint(equalTo: topAnchor).isActive = true
         searchTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
         searchTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -50).isActive = true

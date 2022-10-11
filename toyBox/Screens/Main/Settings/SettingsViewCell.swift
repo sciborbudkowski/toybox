@@ -4,7 +4,7 @@ class SettingsViewCell: TableCell, SettingsCellContent {
 
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.FontKarla(.regular, ofSize: 16)
+        label.font = UIFont.fontKarla(.regular, ofSize: 16)
         label.textColor = UIColor(named: "Text")
         return label
     }()
@@ -32,7 +32,7 @@ class SettingsViewCell: TableCell, SettingsCellContent {
 
     private let selectedOptionLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.FontKarla(.bold, ofSize: 16)
+        label.font = UIFont.fontKarla(.bold, ofSize: 16)
         label.textColor = UIColor(named: "Text")
         label.isHidden = true
         return label
@@ -53,6 +53,7 @@ class SettingsViewCell: TableCell, SettingsCellContent {
         titleLabel.isHidden = false
     }
 
+    // swiftlint:disable function_body_length
     func createContent(for cellType: SettingsCellType) {
         switch cellType {
         case .parent(let label, _):
@@ -84,7 +85,7 @@ class SettingsViewCell: TableCell, SettingsCellContent {
             linkButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
             linkButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
             linkButton.setAttributedTitle(NSAttributedString(string: label, attributes: [
-                NSAttributedString.Key.font: UIFont.FontKarla(.regular, ofSize: 16),
+                NSAttributedString.Key.font: UIFont.fontKarla(.regular, ofSize: 16),
                 NSAttributedString.Key.foregroundColor: UIColor(named: "Link") as Any
             ]), for: .normal)
             linkButton.isHidden = false

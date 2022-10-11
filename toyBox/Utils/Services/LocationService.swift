@@ -38,6 +38,10 @@ final class LocationService: NSObject, CLLocationManagerDelegate {
         var regionName = ""
         let geocoder = CLGeocoder()
         geocoder.reverseGeocodeLocation(currentLocation, completionHandler: { placemarks, error in
+            if let error = error {
+                fatalError(error.localizedDescription)
+            }
+
             guard let placemark = placemarks?.first else { return }
             placeName = placemark.locality ?? ""
             regionName = placemark.administrativeArea ?? ""

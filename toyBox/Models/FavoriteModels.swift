@@ -18,7 +18,7 @@ struct FavoriteModel: Codable {
 
 struct IsFavorite: Request {
     typealias ReturnType = FavoriteModel
-    var queryParams: [String : String]? = [:]
+    var queryParams: [String: String]? = [:]
     var path = "is-favorite"
     var userId: String
     var toyId: String
@@ -42,7 +42,7 @@ struct FavoriteSwitchModel: Codable {
 
 struct SwitchFavorite: Request {
     typealias ReturnType = FavoriteSwitchModel
-    var queryParams: [String : String]? = [:]
+    var queryParams: [String: String]? = [:]
     var path = "switch-favorite"
     var userId: String
     var toyId: String
@@ -60,7 +60,7 @@ struct SwitchFavorite: Request {
 
 struct GetFavorites: Request {
     typealias ReturnType = ToysModel
-    var queryParams: [String : String]? = [:]
+    var queryParams: [String: String]? = [:]
     var path = "get-favorities"
     var userId: String
 

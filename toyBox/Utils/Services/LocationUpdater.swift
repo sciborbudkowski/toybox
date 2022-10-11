@@ -13,7 +13,7 @@ class LocationUpdater {
 
     func startLocationService() {
 
-        let _ = Future<Int, Never> { [weak self] promise in
+        _ = Future<Int, Never> { [weak self] promise in
             self?.locationService.manager.requestWhenInUseAuthorization()
             return promise(.success(1))
         }
@@ -42,7 +42,7 @@ class LocationUpdater {
     }
 
     func getDistance(to location: LocationModel) -> String {
-        var distance: Double? = nil
+        var distance: Double?
         var distanceString = ""
 
         if let locationInfo = Storage.shared.locationInfo {

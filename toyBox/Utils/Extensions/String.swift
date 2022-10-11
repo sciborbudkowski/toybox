@@ -7,13 +7,13 @@ extension String {
         let emailPattern = #"^\S+@\S+\.\S+$"#
         let result = self.range(of: emailPattern, options: .regularExpression)
         let validEmail = (result != nil)
-        
+
         return validEmail
     }
 
     static func randomNonceString(length: Int = 32) -> String {
       precondition(length > 0)
-      let charset: Array<Character> =
+      let charset: [Character] =
           Array("0123456789ABCDEFGHIJKLMNOPQRSTUVXYZabcdefghijklmnopqrstuvwxyz-._")
       var result = ""
       var remainingLength = length

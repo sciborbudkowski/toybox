@@ -18,6 +18,7 @@
 		30220A7E28EC27FB005953DC /* SettingsDelegate+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30220A7D28EC27FB005953DC /* SettingsDelegate+DataSource.swift */; };
 		30220A8028EC2BAA005953DC /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30220A7F28EC2BAA005953DC /* SettingsViewController.swift */; };
 		30220A8228EC2BD3005953DC /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30220A8128EC2BD3005953DC /* SettingsView.swift */; };
+		303D9C4028F588B30098924A /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 303D9C3F28F588B30098924A /* .swiftlint.yml */; };
 		30459F5C28D0854000FE05A0 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30459F5B28D0854000FE05A0 /* IntroViewController.swift */; };
 		30459F6628D08FEB00FE05A0 /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30459F6528D08FEB00FE05A0 /* IntroView.swift */; };
 		30459F6A28D0964500FE05A0 /* IntroModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30459F6928D0964500FE05A0 /* IntroModel.swift */; };
@@ -149,6 +150,7 @@
 		30220A7D28EC27FB005953DC /* SettingsDelegate+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsDelegate+DataSource.swift"; sourceTree = "<group>"; };
 		30220A7F28EC2BAA005953DC /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		30220A8128EC2BD3005953DC /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		303D9C3F28F588B30098924A /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		30459F5B28D0854000FE05A0 /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		30459F6528D08FEB00FE05A0 /* IntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroView.swift; sourceTree = "<group>"; };
 		30459F6928D0964500FE05A0 /* IntroModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroModel.swift; sourceTree = "<group>"; };
@@ -426,6 +428,7 @@
 				30B5427D283E3243007D8A81 /* Products */,
 				96F95B2EBA7675189148A9CD /* Pods */,
 				5F477A03EA45471C1A7A4AA0 /* Frameworks */,
+				303D9C3F28F588B30098924A /* .swiftlint.yml */,
 			);
 			sourceTree = "<group>";
 		};
@@ -732,7 +735,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1400;
-				LastUpgradeCheck = 1340;
+				LastUpgradeCheck = 1400;
 				TargetAttributes = {
 					307354AB28D06F25007A3E3F = {
 						CreatedOnToolsVersion = 14.0;
@@ -794,6 +797,7 @@
 				30B542D0283E3E8E007D8A81 /* Karla-Italic.ttf in Resources */,
 				30B542D1283E3E8E007D8A81 /* Karla-Regular.ttf in Resources */,
 				304A762928A3C6CD0032618B /* GoogleService-Info.plist in Resources */,
+				303D9C4028F588B30098924A /* .swiftlint.yml in Resources */,
 				30B542D3283E3E8E007D8A81 /* Karla-Light.ttf in Resources */,
 				30B542DD283E3E97007D8A81 /* Quicksand-Bold.ttf in Resources */,
 			);
@@ -840,7 +844,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "public_path=\"${PUBLIC_HEADERS_FOLDER_PATH#$CONTENTS_FOLDER_PATH/}\"\nif [ ! -f \"$public_path\"]; then\n    ln -fs \"${PUBLIC_HEADERS_FOLDER_PATH#$WRAPPER_NAME/}\" \"$public_path\"\nfi\n\nprivate_path=\"${PRIVATE_HEADERS_FOLDER_PATH#$CONTENTS_FOLDER_PATH/}\"\nif [ ! -f \"$private_path\" ]; then\n    ln -fs \"${PRIVATE_HEADERS_FOLDER_PATH#$WRAPPER_NAME/}\" \"$private_path\"\nfi\n";
+			shellScript = "public_path=\"${PUBLIC_HEADERS_FOLDER_PATH#$CONTENTS_FOLDER_PATH/}\"\nif [ ! -f \"$public_path\"]; then\n    ln -fs \"${PUBLIC_HEADERS_FOLDER_PATH#$WRAPPER_NAME/}\" \"$public_path\"\nfi\n\nprivate_path=\"${PRIVATE_HEADERS_FOLDER_PATH#$CONTENTS_FOLDER_PATH/}\"\nif [ ! -f \"$private_path\" ]; then\n    ln -fs \"${PRIVATE_HEADERS_FOLDER_PATH#$WRAPPER_NAME/}\" \"$private_path\"\nfi\n\nif which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"Warning: SwiftLint not installed.\"\nfi\n";
 		};
 		45394251EB4001F70180627F /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1004,6 +1008,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = GCQ4TX8M8Z;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -1027,6 +1032,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = GCQ4TX8M8Z;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;

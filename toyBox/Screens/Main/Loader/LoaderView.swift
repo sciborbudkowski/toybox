@@ -12,7 +12,7 @@ class LoaderView: View {
     let loadingLabel: Label = {
         let label = Label()
         label.text = "loading..."
-        label.font = UIFont.FontKarla(.ligth, ofSize: 20)
+        label.font = UIFont.fontKarla(.ligth, ofSize: 20)
         label.textColor = UIColor.white
         return label
     }()

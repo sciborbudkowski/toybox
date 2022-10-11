@@ -44,14 +44,14 @@ struct ToyModel: Codable {
 
 struct ToysModel: Codable {
     var result: Bool
-    var type: String? = nil
+    var type: String?
     var count: Int
     var data: [ToyModel]
 }
 
 struct ToysPopular: Request {
     typealias ReturnType = ToysModel
-    var queryParams: [String : String]? = [:]
+    var queryParams: [String: String]? = [:]
     var path = "toys-popular"
 
     init() { }
@@ -59,7 +59,7 @@ struct ToysPopular: Request {
 
 struct ToysRecent: Request {
     typealias ReturnType = ToysModel
-    var queryParams: [String : String]? = [:]
+    var queryParams: [String: String]? = [:]
     var path = "toys-recent"
 
     init() { }
@@ -67,7 +67,7 @@ struct ToysRecent: Request {
 
 struct Toy: Request {
     typealias ReturnType = ToysModel
-    var queryParams: [String : String]? = [:]
+    var queryParams: [String: String]? = [:]
     var path = "get-toy"
     var toyId: String
     var updateViewCount: Bool

@@ -24,7 +24,7 @@ struct InitialDataModel: Codable {
 
 struct InitialData: Request {
     typealias ReturnType = InitialDataModel
-    var queryParams: [String : String]? = [:]
+    var queryParams: [String: String]? = [:]
     var path = "initial-data"
     var userId: String
 

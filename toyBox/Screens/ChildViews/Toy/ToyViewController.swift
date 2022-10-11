@@ -117,7 +117,7 @@ class ToyViewController: ViewController {
         ]
 
         let statistics: [ToyPropertyType] = [
-            ToyPropertyType(name: "View count:", value: String(data.viewCount)),
+            ToyPropertyType(name: "View count:", value: String(data.viewCount))
         ]
 
         let sections: [ToyPropertySections] = [

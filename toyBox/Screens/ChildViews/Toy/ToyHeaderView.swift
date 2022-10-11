@@ -6,7 +6,7 @@ class ToyHeaderView: UITableViewHeaderFooterView {
 
     let titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.FontKarla(.medium, ofSize: 16)
+        label.font = UIFont.fontKarla(.medium, ofSize: 16)
         label.textColor = UIColor(named: "Text")
         return label
     }()

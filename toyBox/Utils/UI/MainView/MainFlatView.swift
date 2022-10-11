@@ -16,7 +16,7 @@ class MainFlatView: View {
         control.tintColor = UIColor(named: "Accent")
         control.attributedTitle = NSAttributedString(string: "Pull to refresh",
                                                      attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "Accent")!,
-                                                                  NSAttributedString.Key.font: UIFont.FontKarla(.regular, ofSize: 16)])
+                                                                  NSAttributedString.Key.font: UIFont.fontKarla(.regular, ofSize: 16)])
         return control
     }()
 

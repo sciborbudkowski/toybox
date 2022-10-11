@@ -23,28 +23,28 @@ class FavoriteViewCell: TableCell {
 
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.FontKarla(.semiBold, ofSize: 20)
+        label.font = UIFont.fontKarla(.semiBold, ofSize: 20)
         label.textColor = UIColor(named: "Text")
         return label
     }()
 
     private let priceLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.FontKarla(.bold, ofSize: 22)
+        label.font = UIFont.fontKarla(.bold, ofSize: 22)
         label.textColor = UIColor(named: "Text")
         return label
     }()
 
     private let placeLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.FontKarla(.regular, ofSize: 16)
+        label.font = UIFont.fontKarla(.regular, ofSize: 16)
         label.textColor = UIColor(named: "Text")
         return label
     }()
 
     private let distanceLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.FontKarla(.ligth, ofSize: 16)
+        label.font = UIFont.fontKarla(.ligth, ofSize: 16)
         label.textColor = UIColor(named: "Text")
         return label
     }()
@@ -72,7 +72,7 @@ class FavoriteViewCell: TableCell {
 
     func configure(with model: FavoriteCellModel) {
         self.model = model
-        
+
         if let imageStringUrl = model.image, let imageUrl = URL(string: imageStringUrl) {
             image.kf.setImage(with: imageUrl)
         } else {

@@ -15,7 +15,7 @@ class IntroView: View {
     let titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = UIColor(named: "Text")
-        label.font = UIFont.FontKarla(.semiBold, ofSize: 20)
+        label.font = UIFont.fontKarla(.semiBold, ofSize: 20)
         label.textAlignment = .center
         return label
     }()
@@ -23,7 +23,7 @@ class IntroView: View {
     let descriptionLabel: UILabel = {
         let label = UILabel()
         label.textColor = UIColor(named: "TextSecondary")
-        label.font = UIFont.FontKarla(.ligth, ofSize: 16)
+        label.font = UIFont.fontKarla(.ligth, ofSize: 16)
         label.textAlignment = .center
         label.numberOfLines = 0
         return label
@@ -33,7 +33,7 @@ class IntroView: View {
         let button = UIButton()
         button.setAttributedTitle(NSAttributedString(
             string: "Skip Intro", attributes: [
-                NSAttributedString.Key.font: UIFont.FontKarla(.regular, ofSize: 16),
+                NSAttributedString.Key.font: UIFont.fontKarla(.regular, ofSize: 16),
                 NSAttributedString.Key.foregroundColor: UIColor(named: "Link")!
             ]), for: .normal)
         return button
@@ -41,7 +41,7 @@ class IntroView: View {
 
     let nextButton: UIButton = {
         var attributedTitle = AttributedString.init("Next Page")
-        attributedTitle.font = UIFont.FontKarla(.regular, ofSize: 18)
+        attributedTitle.font = UIFont.fontKarla(.regular, ofSize: 18)
 
         var config = UIButton.Configuration.filled()
         config.attributedTitle = attributedTitle
@@ -57,7 +57,7 @@ class IntroView: View {
 
     let startButton: UIButton = {
         var attributedTitle = AttributedString.init("Let's Start!")
-        attributedTitle.font = UIFont.FontKarla(.regular, ofSize: 18)
+        attributedTitle.font = UIFont.fontKarla(.regular, ofSize: 18)
 
         var config = UIButton.Configuration.filled()
         config.attributedTitle = attributedTitle
@@ -89,7 +89,11 @@ class IntroView: View {
         guard let pageIndicator = pageIndicator else { return }
 
         addSubviews([imageView, roundedImageView, titleLabel, descriptionLabel, pageIndicator])
-        hasSkipButton ? addSubviews([skipButton, nextButton]) : addSubviews([startButton])
+        if hasSkipButton {
+            addSubviews([skipButton, nextButton])
+        } else {
+            addSubviews([startButton])
+        }
 
         imageView.topAnchor.constraint(equalTo: topAnchor, constant: 5).isActive = true
         imageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -250).isActive = true

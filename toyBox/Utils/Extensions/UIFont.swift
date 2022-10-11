@@ -10,7 +10,7 @@ extension UIFont {
         case semiBold = "-SemiBold"
     }
 
-    static func FontQuicksand(_ type: QuicksandFontType = .regular, ofSize: CGFloat = UIFont.systemFontSize) -> UIFont {
+    static func fontQuicksand(_ type: QuicksandFontType = .regular, ofSize: CGFloat = UIFont.systemFontSize) -> UIFont {
         return UIFont(name: "Quicksand\(type.rawValue)", size: ofSize)!
     }
 
@@ -31,8 +31,7 @@ extension UIFont {
         case semiBoldItalic = "-SemiBoldItalic"
     }
 
-    static func FontKarla(_ type: KarlaFontType = .regular, ofSize: CGFloat = UIFont.systemFontSize) -> UIFont {
+    static func fontKarla(_ type: KarlaFontType = .regular, ofSize: CGFloat = UIFont.systemFontSize) -> UIFont {
         return UIFont(name: "Karla\(type.rawValue)", size: ofSize)!
     }
 }
-

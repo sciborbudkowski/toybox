@@ -4,7 +4,7 @@ class SettingsView: View {
 
     private let viewTitleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.FontKarla(.regular, ofSize: 22)
+        label.font = UIFont.fontKarla(.regular, ofSize: 22)
         label.text = "Settings"
         label.textColor = UIColor(named: "Accent")
         return label
@@ -20,7 +20,7 @@ class SettingsView: View {
     let signOffButton: UIButton = {
         let button = UIButton(type: .custom)
         button.setAttributedTitle(NSAttributedString(string: "Sign Off", attributes: [
-            NSAttributedString.Key.font: UIFont.FontKarla(.medium, ofSize: 18),
+            NSAttributedString.Key.font: UIFont.fontKarla(.medium, ofSize: 18),
             NSAttributedString.Key.foregroundColor: UIColor(named: "ButtonInverted")!
         ]), for: .normal)
         button.backgroundColor = #colorLiteral(red: 0.6589999795, green: 0.8550000191, blue: 0.8629999757, alpha: 1)

@@ -16,7 +16,7 @@ class CategoryCell: TableCell {
 
     let text: UILabel = {
         let label = UILabel()
-        label.font = UIFont.FontKarla(.regular, ofSize: 16)
+        label.font = UIFont.fontKarla(.regular, ofSize: 16)
         label.textColor = UIColor(named: "Text")
         return label
     }()

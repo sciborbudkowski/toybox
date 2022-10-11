@@ -20,7 +20,7 @@ struct CategoriesModel: Codable {
 
 struct Categories: Request {
     typealias ReturnType = CategoriesModel
-    var queryParams: [String : String]? = [:]
+    var queryParams: [String: String]? = [:]
     var path = "categories"
     var parrentId: String
 

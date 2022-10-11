@@ -5,14 +5,14 @@ class ViewController: UIViewController {
 
     lazy var apiClientQueue = DispatchQueue(label: "apiClientQueue")
     lazy var apiClient = ApiClient()
-    
+
     var cancellables = Set<AnyCancellable>()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupCombineComponents()
-        
+
         navigationItem.backButtonTitle = ""
     }
 

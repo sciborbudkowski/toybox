@@ -9,7 +9,7 @@ struct CartModel: Codable {
 
 struct Cart: Request {
     typealias ReturnType = CartModel
-    var queryParams: [String : String]? = [:]
+    var queryParams: [String: String]? = [:]
     var path = "get-cart"
     var userId: String
 

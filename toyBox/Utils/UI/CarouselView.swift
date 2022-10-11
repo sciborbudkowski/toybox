@@ -33,12 +33,12 @@ class CarouselView: View {
         return view
     }()
 
-    private var indicator: PageIndicatorView? = nil
+    private var indicator: PageIndicatorView?
 
     func configure(with images: [String]) {
         contentView.addSubviews([stackView])
 
-        images.enumerated().forEach { (index, imageUrlString) in
+        images.enumerated().forEach { (_, imageUrlString) in
             let url = URL(string: imageUrlString)
             let imageView = UIImageView()
             imageView.kf.setImage(with: url)

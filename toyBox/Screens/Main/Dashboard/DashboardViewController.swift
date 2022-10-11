@@ -17,7 +17,7 @@ class DashboardViewController: ViewController {
 
         navigationController?.setNavigationBarHidden(true, animated: false)
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
@@ -110,7 +110,7 @@ class DashboardViewController: ViewController {
         let max = model.count < Settings.shared.numberOfPopularTileButtons ? model.count : 3
 
         for index in 0...max {
-            var image: String? = nil
+            var image: String?
 
             if model[index].images.count > 0 {
                 image = model[index].images[0]
@@ -135,7 +135,7 @@ class DashboardViewController: ViewController {
         let max = model.count < Settings.shared.numberOfRecentTileButtons ? model.count : 3
 
         for index in 0...max {
-            var image: String? = nil
+            var image: String?
 
             if model[index].images.count > 0 {
                 image = model[index].images[0]

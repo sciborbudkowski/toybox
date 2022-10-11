@@ -52,7 +52,7 @@ class SignInViewController: ViewController {
                         self.showErrorAlert(button: "OK", title: "Error", message: "Error signing out: \(error.localizedDescription)")
                     }
                 }
-                
+
                 let tabBarViewController = TabBarViewController()
                 self.navigationController?.pushViewController(tabBarViewController, animated: true)
             }
@@ -99,7 +99,7 @@ extension SignInViewController: ASAuthorizationControllerDelegate, ASAuthorizati
                                                       idToken: idTokenString,
                                                       rawNonce: nonce)
 
-            Auth.auth().signIn(with: credential) { [weak self] result, error in
+            Auth.auth().signIn(with: credential) { [weak self] _, error in
                 guard let self = self else { return }
                 if let error = error {
                     self.showErrorAlert(button: "OK", title: "Error", message: error.localizedDescription)
@@ -147,7 +147,7 @@ extension SignInViewController {
     private func setupFbButton() {
         customView.fbButton.gesture().sink { _ in
             let loginManager = LoginManager()
-            loginManager.logIn(permissions: [], from: self) { [weak self] result, error in
+            loginManager.logIn(permissions: [], from: self) { [weak self] _, error in
                 if let error = error {
                     self?.showErrorAlert(button: "OK", title: "Error", message: error.localizedDescription)
                     return
@@ -155,7 +155,7 @@ extension SignInViewController {
 
                 guard let facebookToken = AccessToken.current?.tokenString else { return }
                 let credential = FacebookAuthProvider.credential(withAccessToken: facebookToken)
-                Auth.auth().signIn(with: credential) { [weak self] result, error in
+                Auth.auth().signIn(with: credential) { [weak self] _, error in
                     guard let self = self else { return }
                     if let error = error {
                         self.showErrorAlert(button: "OK", title: "Error", message: error.localizedDescription)
@@ -181,7 +181,7 @@ extension SignInViewController {
 
                 let credential = GoogleAuthProvider.credential(withIDToken: idToken, accessToken: authentication.accessToken)
 
-                Auth.auth().signIn(with: credential) { result, error in
+                Auth.auth().signIn(with: credential) { _, error in
                     if let error = error {
                         print("error 2:", error.localizedDescription)
                         return
@@ -200,11 +200,11 @@ extension SignInViewController {
                     return
                 }
                 if let credential = credential {
-                    Auth.auth().signIn(with: credential) { authResult, error in
+                    Auth.auth().signIn(with: credential) { _, error in
                         if error != nil {
                             print("error 2", error ?? "")
                         } else {
-                            Auth.auth().currentUser?.link(with: credential) { result, error in
+                            Auth.auth().currentUser?.link(with: credential) { _, error in
                                 if let error = error {
                                     print("error 3", error)
                                 }

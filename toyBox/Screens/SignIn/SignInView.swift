@@ -17,7 +17,7 @@ class SignInView: View {
 
     let titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.FontKarla(.medium, ofSize: 20)
+        label.font = UIFont.fontKarla(.medium, ofSize: 20)
         label.text = "Login"
         label.textColor = UIColor(named: "Text")
         return label
@@ -25,7 +25,7 @@ class SignInView: View {
 
     let descriptionLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.FontKarla(.ligth, ofSize: 15)
+        label.font = UIFont.fontKarla(.ligth, ofSize: 15)
         label.text = "To keep connected with us please login with your personal info."
         label.numberOfLines = 2
         label.textColor = UIColor(named: "Text")
@@ -34,7 +34,7 @@ class SignInView: View {
 
     let usernameField: UITextField = {
         let field = UITextField()
-        field.font = UIFont.FontQuicksand(.regular, ofSize: 15)
+        field.font = UIFont.fontQuicksand(.regular, ofSize: 15)
         field.placeholder = "Email"
         field.autocorrectionType = .no
         field.autocapitalizationType = .none
@@ -47,7 +47,7 @@ class SignInView: View {
 
     let passwordField: UITextField = {
         let field = UITextField()
-        field.font = UIFont.FontQuicksand(.regular, ofSize: 15)
+        field.font = UIFont.fontQuicksand(.regular, ofSize: 15)
         field.placeholder = "Password"
         field.autocorrectionType = .no
         field.autocapitalizationType = .none
@@ -65,7 +65,7 @@ class SignInView: View {
         button.backgroundColor = UIColor(named: "Background")
         button.setAttributedTitle(
             NSAttributedString(string: "Login",
-                               attributes: [NSAttributedString.Key.font: UIFont.FontKarla(.regular, ofSize: 18),
+                               attributes: [NSAttributedString.Key.font: UIFont.fontKarla(.regular, ofSize: 18),
                                             NSAttributedString.Key.foregroundColor: UIColor(named: "Button")!
                                            ]),
             for: .normal)
@@ -76,7 +76,7 @@ class SignInView: View {
         let button = UIButton()
         button.setAttributedTitle(
             NSAttributedString(string: "Forgot password?",
-                               attributes: [NSAttributedString.Key.font: UIFont.FontKarla(.ligth, ofSize: 15),
+                               attributes: [NSAttributedString.Key.font: UIFont.fontKarla(.ligth, ofSize: 15),
                                             NSAttributedString.Key.foregroundColor: UIColor(named: "Link")!
                                            ]),
             for: .normal)
@@ -87,7 +87,7 @@ class SignInView: View {
         let button = UIButton()
         button.setAttributedTitle(
             NSAttributedString(string: "Sign up for new account",
-                               attributes: [NSAttributedString.Key.font: UIFont.FontKarla(.ligth, ofSize: 15),
+                               attributes: [NSAttributedString.Key.font: UIFont.fontKarla(.ligth, ofSize: 15),
                                             NSAttributedString.Key.foregroundColor: UIColor(named: "Link")!
                                            ]),
             for: .normal)
@@ -116,7 +116,7 @@ class SignInView: View {
 
     let smLoginLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.FontKarla(.ligth, ofSize: 15)
+        label.font = UIFont.fontKarla(.ligth, ofSize: 15)
         label.text = "Or login with other providers"
         label.textColor = UIColor(named: "Text")
         return label
@@ -150,6 +150,7 @@ class SignInView: View {
         return button
     }()
 
+    // swiftlint:disable function_body_length
     override func setupConstraints() {
         addSubviews([accentImageView, accentBackgroundView,
                      logoView, titleLabel, descriptionLabel,

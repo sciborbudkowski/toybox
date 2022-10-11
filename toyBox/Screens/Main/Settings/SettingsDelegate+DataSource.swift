@@ -62,13 +62,13 @@ class SettingsDataSource: NSObject, UITableViewDelegate, UITableViewDataSource {
             tableView.reloadData()
             tableView.setNeedsUpdateConstraints()
 
-        case .switchOption(_, _):
+        case .switchOption:
             break
 
         case .externalLink(_, let url):
             UIApplication.shared.open(url)
 
-        case .selection(_, _):
+        case .selection:
             break
         }
     }

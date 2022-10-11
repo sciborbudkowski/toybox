@@ -20,7 +20,7 @@ class TileButton: View {
 
     let titleLabel: Label = {
         let label = Label()
-        label.font = UIFont.FontKarla(.regular, ofSize: 16)
+        label.font = UIFont.fontKarla(.regular, ofSize: 16)
         label.text = ""
         label.textColor = .black
         label.backgroundColor = .lightGray.withAlphaComponent(0.5)
@@ -31,7 +31,7 @@ class TileButton: View {
 
     let subTitleLabel: Label = {
         let label = Label()
-        label.font = UIFont.FontKarla(.regular, ofSize: 12)
+        label.font = UIFont.fontKarla(.regular, ofSize: 12)
         label.text = ""
         label.textColor = .black
         label.backgroundColor = .lightGray.withAlphaComponent(0.5)

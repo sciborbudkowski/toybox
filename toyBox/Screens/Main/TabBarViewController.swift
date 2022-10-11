@@ -17,8 +17,8 @@ class TabBarViewController: TabBarController {
         tabBar.unselectedItemTintColor = UIColor(named: "TabBarUnselected")
         tabBar.isTranslucent = true
 
-        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont.FontKarla(.regular, ofSize: 14)], for: .normal)
-        UITabBarItem.appearance().setBadgeTextAttributes([NSAttributedString.Key.font: UIFont.FontKarla(.regular, ofSize: 12)], for: .normal)
+        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont.fontKarla(.regular, ofSize: 14)], for: .normal)
+        UITabBarItem.appearance().setBadgeTextAttributes([NSAttributedString.Key.font: UIFont.fontKarla(.regular, ofSize: 12)], for: .normal)
 
         let tabDashboard = DashboardViewController()
         let tabDashboardBarItem = UITabBarItem(title: "Dashboard",

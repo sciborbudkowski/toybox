@@ -4,12 +4,12 @@ class SearchFilterView: MainStackedView {
 
     private let titleFilterView = SFTitleFilterView()
 
-    override func setupConstraints() {
-        mainView.addArrangedSubview(titleFilterView)
+    override func setupProperties() {
+        insideViews.append(titleFilterView)
+    }
 
-//        titleFilterView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-//        titleFilterView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-//        titleFilterView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        titleFilterView.backgroundColor = .blue
+    override func setupConstraints() {
+        titleFilterView.layer.borderWidth = 2
+        titleFilterView.layer.borderColor = UIColor.green.cgColor
     }
 }

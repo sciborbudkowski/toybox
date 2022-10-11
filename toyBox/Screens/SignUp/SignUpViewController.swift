@@ -46,7 +46,7 @@ class SignUpViewController: ViewController {
             self.customView.activity.isHidden = false
             self.customView.activity.startAnimating()
 
-            Auth.auth().createUser(withEmail: email, password: password1) { result, error in
+            Auth.auth().createUser(withEmail: email, password: password1) { _, error in
                 if let error = error {
                     self.customView.activity.stopAnimating()
                     self.customView.activity.isHidden = true

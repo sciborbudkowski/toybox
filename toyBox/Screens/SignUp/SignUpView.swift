@@ -10,7 +10,7 @@ class SignUpView: View {
 
     let titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.FontKarla(.medium, ofSize: 20)
+        label.font = UIFont.fontKarla(.medium, ofSize: 20)
         label.text = "Sign Up"
         label.textColor = UIColor(named: "Text")
         return label
@@ -18,7 +18,7 @@ class SignUpView: View {
 
     let descriptionLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.FontKarla(.ligth, ofSize: 15)
+        label.font = UIFont.fontKarla(.ligth, ofSize: 15)
         label.text = "To keep connected with us please create new account below."
         label.numberOfLines = 2
         label.textColor = UIColor(named: "Text")
@@ -27,7 +27,7 @@ class SignUpView: View {
 
     let usernameField: UITextField = {
         let field = UITextField()
-        field.font = UIFont.FontQuicksand(.regular, ofSize: 15)
+        field.font = UIFont.fontQuicksand(.regular, ofSize: 15)
         field.placeholder = "Email"
         field.autocorrectionType = .no
         field.autocapitalizationType = .none
@@ -39,7 +39,7 @@ class SignUpView: View {
 
     let passwordField: UITextField = {
         let field = UITextField()
-        field.font = UIFont.FontQuicksand(.regular, ofSize: 15)
+        field.font = UIFont.fontQuicksand(.regular, ofSize: 15)
         field.placeholder = "Password"
         field.autocorrectionType = .no
         field.autocapitalizationType = .none
@@ -52,7 +52,7 @@ class SignUpView: View {
 
     let confirmPasswordField: UITextField = {
         let field = UITextField()
-        field.font = UIFont.FontQuicksand(.regular, ofSize: 15)
+        field.font = UIFont.fontQuicksand(.regular, ofSize: 15)
         field.placeholder = "Confirm Password"
         field.autocorrectionType = .no
         field.autocapitalizationType = .none
@@ -70,7 +70,7 @@ class SignUpView: View {
         button.backgroundColor = UIColor(named: "Background")
         button.setAttributedTitle(
             NSAttributedString(string: "Sign Up",
-                               attributes: [NSAttributedString.Key.font: UIFont.FontKarla(.regular, ofSize: 16),
+                               attributes: [NSAttributedString.Key.font: UIFont.fontKarla(.regular, ofSize: 16),
                                             NSAttributedString.Key.foregroundColor: UIColor(named: "Button")!
                                            ]),
             for: .normal)
@@ -81,7 +81,7 @@ class SignUpView: View {
         let button = UIButton()
         button.setAttributedTitle(
             NSAttributedString(string: "Cancel",
-                               attributes: [NSAttributedString.Key.font: UIFont.FontKarla(.ligth, ofSize: 15),
+                               attributes: [NSAttributedString.Key.font: UIFont.fontKarla(.ligth, ofSize: 15),
                                             NSAttributedString.Key.foregroundColor: UIColor(named: "Link")!
                                            ]),
             for: .normal)

@@ -16,7 +16,7 @@ class CartView: MainFlatView {
 //    }
     private let viewTitleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.FontKarla(.regular, ofSize: 22)
+        label.font = UIFont.fontKarla(.regular, ofSize: 22)
         label.text = "Favorite Toys"
         label.textColor = UIColor(named: "Accent")
         return label
@@ -27,7 +27,7 @@ class CartView: MainFlatView {
 
     private let emptyCartLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.FontKarla(.regular, ofSize: 18)
+        label.font = UIFont.fontKarla(.regular, ofSize: 18)
         label.text = "The cart is empty."
         label.textColor = UIColor(named: "Info")
         return label
