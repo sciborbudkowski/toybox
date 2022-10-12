@@ -5,17 +5,15 @@ struct ToyPropertySections {
     var properties: [ToyPropertyType]
 }
 
-class ToyDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
+final class ToyDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
 
     lazy var sections = [ToyPropertySections]()
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // print("sections[section].properties.count", sections[section].properties.count)
         return sections[section].properties.count
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        // print("sections.count", sections.count)
         return sections.count
     }
 
@@ -27,18 +25,6 @@ class ToyDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
 
         return cell
     }
-
-//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        guard let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: ToyHeaderView.identifier) as? ToyHeaderView else {
-//            print("xxxxxx")
-//            return UITableViewHeaderFooterView()
-//        }
-//        view.titleLabel.text = sections[section].sectionName
-//        let view = UIView()
-//        view.backgroundColor = .red
-//
-//        return view
-//    }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return sections[section].sectionName

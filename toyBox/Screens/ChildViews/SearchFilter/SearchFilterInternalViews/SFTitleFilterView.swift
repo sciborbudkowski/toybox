@@ -1,6 +1,6 @@
 import UIKit
 
-class SFTitleFilterView: View {
+final class SFTitleFilterView: View {
 
     let categoryTitleLabel: UILabel = {
         let label = UILabel()

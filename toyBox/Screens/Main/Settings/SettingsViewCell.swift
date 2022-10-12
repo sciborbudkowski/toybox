@@ -1,6 +1,6 @@
 import UIKit
 
-class SettingsViewCell: TableCell, SettingsCellContent {
+final class SettingsViewCell: TableCell, SettingsCellContent {
 
     private let titleLabel: UILabel = {
         let label = UILabel()
@@ -54,7 +54,7 @@ class SettingsViewCell: TableCell, SettingsCellContent {
     }
 
     // swiftlint:disable function_body_length
-    func createContent(for cellType: SettingsCellType) {
+    func makeContent(for cellType: SettingsCellType) {
         switch cellType {
         case .parent(let label, _):
             titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true

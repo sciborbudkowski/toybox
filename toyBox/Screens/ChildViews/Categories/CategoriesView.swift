@@ -1,6 +1,6 @@
 import UIKit
 
-class CategoriesView: View {
+final class CategoriesView: View {
 
     let categoriesTableView: UITableView = {
         let view = UITableView()

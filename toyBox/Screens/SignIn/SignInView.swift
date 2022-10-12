@@ -1,13 +1,6 @@
 import UIKit
-import FBSDKCoreKit
-import FBSDKLoginKit
-import AuthenticationServices
-import FirebaseCore
-import GoogleSignIn
-import Combine
-import CombineCocoa
 
-class SignInView: View {
+final class SignInView: View {
 
     let logoView: UIImageView = {
         let view = UIImageView()
@@ -65,9 +58,10 @@ class SignInView: View {
         button.backgroundColor = UIColor(named: "Background")
         button.setAttributedTitle(
             NSAttributedString(string: "Login",
-                               attributes: [NSAttributedString.Key.font: UIFont.fontKarla(.regular, ofSize: 18),
-                                            NSAttributedString.Key.foregroundColor: UIColor(named: "Button")!
-                                           ]),
+                               attributes: [
+                                NSAttributedString.Key.font: UIFont.fontKarla(.regular, ofSize: 18),
+                                NSAttributedString.Key.foregroundColor: UIColor(named: "Button")!
+                               ]),
             for: .normal)
         return button
     }()
@@ -76,9 +70,10 @@ class SignInView: View {
         let button = UIButton()
         button.setAttributedTitle(
             NSAttributedString(string: "Forgot password?",
-                               attributes: [NSAttributedString.Key.font: UIFont.fontKarla(.ligth, ofSize: 15),
-                                            NSAttributedString.Key.foregroundColor: UIColor(named: "Link")!
-                                           ]),
+                               attributes: [
+                                NSAttributedString.Key.font: UIFont.fontKarla(.ligth, ofSize: 15),
+                                NSAttributedString.Key.foregroundColor: UIColor(named: "Link")!
+                               ]),
             for: .normal)
         return button
     }()
@@ -87,9 +82,10 @@ class SignInView: View {
         let button = UIButton()
         button.setAttributedTitle(
             NSAttributedString(string: "Sign up for new account",
-                               attributes: [NSAttributedString.Key.font: UIFont.fontKarla(.ligth, ofSize: 15),
-                                            NSAttributedString.Key.foregroundColor: UIColor(named: "Link")!
-                                           ]),
+                               attributes: [
+                                NSAttributedString.Key.font: UIFont.fontKarla(.ligth, ofSize: 15),
+                                NSAttributedString.Key.foregroundColor: UIColor(named: "Link")!
+                               ]),
             for: .normal)
         return button
     }()

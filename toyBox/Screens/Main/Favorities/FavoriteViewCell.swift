@@ -10,9 +10,9 @@ struct FavoriteCellModel {
     var id: String
 }
 
-class FavoriteViewCell: TableCell {
+final class FavoriteViewCell: TableCell {
 
-    var model: FavoriteCellModel?
+    private var model: FavoriteCellModel?
 
     private let image: UIImageView = {
         let view = UIImageView()

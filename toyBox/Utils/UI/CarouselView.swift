@@ -1,7 +1,7 @@
 import UIKit
 import Kingfisher
 
-class CarouselView: View {
+final class CarouselView: View {
 
     let contentView = UIView()
 

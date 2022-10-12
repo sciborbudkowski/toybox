@@ -1,6 +1,6 @@
 import UIKit
 
-class ToyHeaderView: UITableViewHeaderFooterView {
+final class ToyHeaderView: UITableViewHeaderFooterView {
 
     static let identifier = String(describing: ToyHeaderView.self)
 

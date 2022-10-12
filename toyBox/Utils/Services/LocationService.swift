@@ -10,16 +10,16 @@ struct LocationInfo {
 
 final class LocationService: NSObject, CLLocationManagerDelegate {
 
-    let manager = CLLocationManager()
+    lazy var manager = CLLocationManager()
+    var publisher: AnyPublisher<LocationInfo, Error>
 
     private let locationPublisher = PassthroughSubject<LocationInfo, Error>()
 
-    var publisher: AnyPublisher<LocationInfo, Error>
-
     override init() {
         publisher = locationPublisher.eraseToAnyPublisher()
-
+        
         super.init()
+
         manager.delegate = self
     }
 

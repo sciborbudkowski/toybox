@@ -9,8 +9,6 @@ class TabBarController: UITabBarController {
             items.forEach { item in item.imageInsets = UIEdgeInsets(top: 30, left: 30, bottom: 30, right: 30) }
         }
 
-//        self.tabBar.layer.insertSublayer(layer, at: 0)
-
         tabBar.itemWidth = 30.0
         tabBar.itemSpacing = 50.0
         tabBar.itemPositioning = .centered

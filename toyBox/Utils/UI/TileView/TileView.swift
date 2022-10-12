@@ -1,6 +1,6 @@
 import UIKit
 
-class TileView: View {
+final class TileView: View {
 
     let titleLabel: UILabel = {
         let label = UILabel()
@@ -11,10 +11,13 @@ class TileView: View {
 
     let allButton: UIButton = {
         let button = UIButton()
-        button.setAttributedTitle(NSAttributedString(string: "All >", attributes: [
-            NSAttributedString.Key.font: UIFont.fontKarla(.medium, ofSize: 16),
-            NSAttributedString.Key.foregroundColor: UIColor(named: "Accent")!
-        ]), for: .normal)
+        button.setAttributedTitle(
+            NSAttributedString(string: "All >", attributes: [
+                NSAttributedString.Key.font: UIFont.fontKarla(.medium, ofSize: 16),
+                NSAttributedString.Key.foregroundColor: UIColor(named: "Accent")!
+            ]),
+            for: .normal
+        )
         return button
     }()
 
@@ -48,27 +51,12 @@ class TileView: View {
         return view
     }()
 
-    private let buttonTL: TileButton = {
-        let button = TileButton()
-        return button
-    }()
+    private let buttonTL = TileButton()
+    private let buttonTR = TileButton()
+    private let buttonBL = TileButton()
+    private let buttonBR = TileButton()
 
-    private let buttonTR: TileButton = {
-        let button = TileButton()
-        return button
-    }()
-
-    private let buttonBL: TileButton = {
-        let button = TileButton()
-        return button
-    }()
-
-    private let buttonBR: TileButton = {
-        let button = TileButton()
-        return button
-    }()
-
-    var buttons: [TileButton] = []
+    lazy var buttons = [TileButton]()
 
     override func setupConstraints() {
         addSubviews([topRowView, tilesView])

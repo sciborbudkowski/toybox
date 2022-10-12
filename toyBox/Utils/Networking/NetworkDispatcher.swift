@@ -18,7 +18,7 @@ enum NetworkRequestError: LocalizedError, Equatable {
 struct NetworkDispatcher {
     let urlSession: URLSession!
 
-    public init(urlSession: URLSession = .shared) {
+    init(urlSession: URLSession = .shared) {
         self.urlSession = urlSession
     }
 
@@ -30,7 +30,10 @@ struct NetworkDispatcher {
                    !(200...299).contains(response.statusCode) {
                     throw httpError(response.statusCode)
                 }
-                // print("ReturnType: \(ReturnType.self), \(String(describing: data.prettyJSON))")
+
+                if Settings.shared.dumpJSON {
+                    print("ReturnType: \(ReturnType.self), \(String(describing: data.prettyJSON))")
+                }
 
                 return data
             })
@@ -40,10 +43,13 @@ struct NetworkDispatcher {
     }
 }
 
-extension NetworkDispatcher {
+private extension NetworkDispatcher {
 
-    private func httpError(_ statusCode: Int) -> NetworkRequestError {
-        // print("HTTP ERROR: \(statusCode)")
+    func httpError(_ statusCode: Int) -> NetworkRequestError {
+        if Settings.shared.dumpNetworkStatus {
+            print("HTTP ERROR: \(statusCode)")
+        }
+
         switch statusCode {
         case 400: return .badRequest
         case 401: return .unauthorized
@@ -56,8 +62,11 @@ extension NetworkDispatcher {
         }
     }
 
-    private func handleError(_ error: Error) -> NetworkRequestError {
-        // print("ERROR: \(error)")
+    func handleError(_ error: Error) -> NetworkRequestError {
+        if Settings.shared.dumpNetworkStatus {
+            print("ERROR: \(error)")
+        }
+        
         switch error {
         case is Swift.DecodingError: return .decodingError
         case let urlError as URLError: return .urlSessionFailed(urlError)

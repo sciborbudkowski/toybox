@@ -1,12 +1,10 @@
 import UIKit
-import Kingfisher
-import Combine
 import CombineCocoa
 
-class ToyViewController: ViewController {
+final class ToyViewController: ViewController {
 
-    let customView = ToyView()
-    let dataSource = ToyDataSource()
+    private let customView = ToyView()
+    private let dataSource = ToyDataSource()
 
     private var data: ToyModel?
     private var images: [String] = []
@@ -74,30 +72,12 @@ class ToyViewController: ViewController {
             })
             .store(in: &cancellables)
 
-        customView.carouselView.gesture(.swipeLeft()).sink { [weak self] _ in
-            guard let self = self else { return }
-            if self.currentIndex != 0 {
-                self.swipeToPrevious()
-            }
-        }.store(in: &cancellables)
-
-        customView.carouselView.gesture(.swipeRight()).sink { [weak self] _ in
-            guard let self = self else { return }
-            if self.currentIndex < self.images.count - 1 {
-                self.swipeToNext()
-            }
-        }.store(in: &cancellables)
-
-        customView.carouselView.previousButton.tapPublisher.sink { [weak self] _ in
-            guard let self = self else { return }
-            self.swipeToPrevious()
-        }.store(in: &cancellables)
-
-        customView.carouselView.nextButton.tapPublisher.sink { [weak self] _ in
-            guard let self = self else { return }
-            self.swipeToNext()
-        }.store(in: &cancellables)
+        addGestures()
+        addTapPublishers()
     }
+}
+
+private extension ToyViewController {
 
     func configure(with model: ToyModel) {
         data = model
@@ -131,26 +111,26 @@ class ToyViewController: ViewController {
 
         customView.nameLabel.text = data.name
 
-        let isFavorite = Storage.shared.favorites.data.contains(where: { item in
+        let isFavorite = Storage.shared.favorites.data.contains { item in
             if item.userId == Secrets.shared.userId, item.toyId == model.id {
                 return true
             }
             return false
-        })
+        }
 
         let imageName = isFavorite ? "heart.fill" : "heart"
         let button = UIBarButtonItem(image: UIImage(systemName: imageName), style: .plain, target: nil, action: nil)
         navigationItem.rightBarButtonItem = button
 
-        navigationItem.rightBarButtonItem?.tapPublisher.sink(receiveValue: { [weak self] _ in
+        navigationItem.rightBarButtonItem?.tapPublisher.sink { [weak self] _ in
             guard let self = self else { return }
 
             self.switchFavoriteStatus()
-        })
+        }
         .store(in: &cancellables)
     }
 
-    private func switchFavoriteStatus() {
+    func switchFavoriteStatus() {
         guard let data = data else { fatalError("this shouldn't happen!") }
 
         apiClient.dispatch(SwitchFavorite(userId: Secrets.shared.userId, toyId: data.id))
@@ -167,7 +147,7 @@ class ToyViewController: ViewController {
             .store(in: &cancellables)
     }
 
-    private func swipeToPrevious() {
+    func swipeToPrevious() {
         currentIndex -= 1
         if currentIndex < 0 {
             currentIndex = images.count - 1
@@ -176,12 +156,40 @@ class ToyViewController: ViewController {
         customView.carouselView.scrollContent(index: currentIndex)
     }
 
-    private func swipeToNext() {
+    func swipeToNext() {
         currentIndex += 1
         if currentIndex == images.count {
             currentIndex = 0
         }
 
-        self.customView.carouselView.scrollContent(index: currentIndex)
+        customView.carouselView.scrollContent(index: currentIndex)
+    }
+
+    func addGestures() {
+        customView.carouselView.gesture(.swipeLeft()).sink { [weak self] _ in
+            guard let self = self else { return }
+            if self.currentIndex != 0 {
+                self.swipeToPrevious()
+            }
+        }.store(in: &cancellables)
+
+        customView.carouselView.gesture(.swipeRight()).sink { [weak self] _ in
+            guard let self = self else { return }
+            if self.currentIndex < self.images.count - 1 {
+                self.swipeToNext()
+            }
+        }.store(in: &cancellables)
+    }
+
+    func addTapPublishers() {
+        customView.carouselView.previousButton.tapPublisher.sink { [weak self] _ in
+            guard let self = self else { return }
+            self.swipeToPrevious()
+        }.store(in: &cancellables)
+
+        customView.carouselView.nextButton.tapPublisher.sink { [weak self] _ in
+            guard let self = self else { return }
+            self.swipeToNext()
+        }.store(in: &cancellables)
     }
 }

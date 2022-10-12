@@ -1,6 +1,6 @@
 import UIKit
 
-class SettingsView: View {
+final class SettingsView: View {
 
     private let viewTitleLabel: UILabel = {
         let label = UILabel()
@@ -23,7 +23,7 @@ class SettingsView: View {
             NSAttributedString.Key.font: UIFont.fontKarla(.medium, ofSize: 18),
             NSAttributedString.Key.foregroundColor: UIColor(named: "ButtonInverted")!
         ]), for: .normal)
-        button.backgroundColor = #colorLiteral(red: 0.6589999795, green: 0.8550000191, blue: 0.8629999757, alpha: 1)
+        button.backgroundColor = UIColor(168, 218, 220)
         button.layer.cornerRadius = 10
         return button
     }()

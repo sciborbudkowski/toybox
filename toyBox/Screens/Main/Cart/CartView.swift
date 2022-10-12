@@ -1,6 +1,6 @@
 import UIKit
 
-class CartView: MainFlatView {
+final class CartView: MainFlatView {
 
     var items: [ToyModel] = []
 //    {
@@ -14,6 +14,7 @@ class CartView: MainFlatView {
 //            }
 //        }
 //    }
+
     private let viewTitleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.fontKarla(.regular, ofSize: 22)

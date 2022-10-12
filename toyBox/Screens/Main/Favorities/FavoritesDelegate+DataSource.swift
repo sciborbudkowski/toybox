@@ -12,12 +12,14 @@ extension FavoritesViewController: UITableViewDataSource, UITableViewDelegate {
         }
 
         let currentItem = items[indexPath.row]
-        let model = FavoriteCellModel(image: currentItem.images.first,
-                                      title: currentItem.name,
-                                      place: currentItem.location.placeName,
-                                      distance: LocationUpdater.shared.getDistance(to: currentItem.location),
-                                      price: String(currentItem.price),
-                                      id: currentItem.id)
+        let model = FavoriteCellModel(
+            image: currentItem.images.first,
+            title: currentItem.name,
+            place: currentItem.location.placeName,
+            distance: LocationUpdater.shared.getDistance(to: currentItem.location),
+            price: String(currentItem.price),
+            id: currentItem.id
+        )
         cell.configure(with: model)
 
         return cell

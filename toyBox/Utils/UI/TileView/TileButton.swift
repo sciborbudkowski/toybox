@@ -7,7 +7,7 @@ struct TileButtonModel {
     var image: String?
 }
 
-class TileButton: View {
+final class TileButton: View {
 
     private var shadowLayer: CAShapeLayer?
 

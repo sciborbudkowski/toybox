@@ -30,4 +30,7 @@ class Settings {
     let distanceFromEdge: Float = 25
     let distanceBetweenControls: Float = 10
     let distanceBetweenGroups: Float = 20
+
+    let dumpNetworkStatus = false
+    let dumpJSON = false
 }

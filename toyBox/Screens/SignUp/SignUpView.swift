@@ -1,6 +1,6 @@
 import UIKit
 
-class SignUpView: View {
+final class SignUpView: View {
 
     let logoView: UIImageView = {
         let view = UIImageView()
@@ -70,9 +70,10 @@ class SignUpView: View {
         button.backgroundColor = UIColor(named: "Background")
         button.setAttributedTitle(
             NSAttributedString(string: "Sign Up",
-                               attributes: [NSAttributedString.Key.font: UIFont.fontKarla(.regular, ofSize: 16),
-                                            NSAttributedString.Key.foregroundColor: UIColor(named: "Button")!
-                                           ]),
+                               attributes: [
+                                NSAttributedString.Key.font: UIFont.fontKarla(.regular, ofSize: 16),
+                                NSAttributedString.Key.foregroundColor: UIColor(named: "Button")!
+                               ]),
             for: .normal)
         return button
     }()
@@ -81,9 +82,10 @@ class SignUpView: View {
         let button = UIButton()
         button.setAttributedTitle(
             NSAttributedString(string: "Cancel",
-                               attributes: [NSAttributedString.Key.font: UIFont.fontKarla(.ligth, ofSize: 15),
-                                            NSAttributedString.Key.foregroundColor: UIColor(named: "Link")!
-                                           ]),
+                               attributes: [
+                                NSAttributedString.Key.font: UIFont.fontKarla(.ligth, ofSize: 15),
+                                NSAttributedString.Key.foregroundColor: UIColor(named: "Link")!
+                               ]),
             for: .normal)
         return button
     }()

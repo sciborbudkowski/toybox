@@ -1,6 +1,6 @@
 import UIKit
 
-class IntroView: View {
+final class IntroView: View {
 
     private var hasSkipButton: Bool = true
 

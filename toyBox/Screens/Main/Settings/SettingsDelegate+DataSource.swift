@@ -14,10 +14,10 @@ enum SettingsCellType {
 }
 
 protocol SettingsCellContent {
-    func createContent(for cellType: SettingsCellType)
+    func makeContent(for cellType: SettingsCellType)
 }
 
-class SettingsDataSource: NSObject, UITableViewDelegate, UITableViewDataSource {
+final class SettingsDataSource: NSObject, UITableViewDelegate, UITableViewDataSource {
 
     var items: [SettingsCellType] = [
         SettingsCellType.info("toyBox\nVersion 0.1", UIImage(named: "AppIcon")),
@@ -43,7 +43,7 @@ class SettingsDataSource: NSObject, UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingsViewCell.identifier, for: indexPath) as? SettingsViewCell else {
             return UITableViewCell()
         }
-        cell.createContent(for: items[indexPath.row])
+        cell.makeContent(for: items[indexPath.row])
 
         return cell
     }
@@ -56,8 +56,6 @@ class SettingsDataSource: NSObject, UITableViewDelegate, UITableViewDataSource {
             break
 
         case .parent(_, let childItems):
-            print(childItems.count)
-            print(childItems)
             items = childItems
             tableView.reloadData()
             tableView.setNeedsUpdateConstraints()

@@ -25,26 +25,13 @@ extension Request {
     var queryParams: [String: String]? { return nil }
     var body: [String: Any]? { return nil }
     var headers: [String: String]? { return nil }
-}
-
-extension Request {
-
-    private func requestBodyForm(params: [String: Any]?) -> Data? {
-        guard let params = params else { return nil }
-        guard let httpBody = try? JSONSerialization.data(withJSONObject: params, options: []) else { return nil }
-
-        return httpBody
-    }
 
     func asURLRequest(baseURL: String) -> URLRequest? {
         guard var urlComponents = URLComponents(string: baseURL) else { return nil }
         urlComponents.path = "\(urlComponents.path)\(path)"
-
-        var queryItems: [URLQueryItem] = []
-        queryParams?.forEach({ (key: String, value: String) in
-            queryItems.append(URLQueryItem(name: key, value: value))
-        })
-        urlComponents.queryItems = queryItems
+        urlComponents.queryItems = queryParams?.compactMap { name, value in
+            URLQueryItem(name: name, value: value)
+        }
 
         guard let finalURL = urlComponents.url else { return nil }
         var request = URLRequest(url: finalURL)
@@ -53,5 +40,15 @@ extension Request {
         request.allHTTPHeaderFields = headers
 
         return request
+    }
+}
+
+private extension Request {
+
+    func requestBodyForm(params: [String: Any]?) -> Data? {
+        guard let params = params else { return nil }
+        guard let httpBody = try? JSONSerialization.data(withJSONObject: params, options: []) else { return nil }
+
+        return httpBody
     }
 }

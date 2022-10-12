@@ -5,9 +5,10 @@ enum PageIndicatorType {
     case dot
 }
 
-class PageIndicatorItem: View {
+final class PageIndicatorItem: View {
 
     var type: PageIndicatorType
+
     private var color: UIColor
 
     private let indicatorView: UIView = {
@@ -19,10 +20,9 @@ class PageIndicatorItem: View {
     init(type: PageIndicatorType, color: UIColor = UIColor(named: "Accent")!) {
         self.type = type
 
-        if type == .wide {
-            self.color = color
-        } else {
-            self.color = .systemGray5
+        switch type {
+        case .dot: self.color = .systemGray5
+        case .wide: self.color = color
         }
 
         indicatorView.backgroundColor = self.color
@@ -36,13 +36,14 @@ class PageIndicatorItem: View {
     override func setupConstraints() {
         addSubviews([indicatorView])
 
+        var widthValue: CGFloat = 0.0
+
         switch type {
-        case .dot:
-            indicatorView.widthAnchor.constraint(equalToConstant: 5).isActive = true
-        case .wide:
-            indicatorView.widthAnchor.constraint(equalToConstant: 35).isActive = true
+        case .dot: widthValue = 5.0
+        case .wide: widthValue = 35
         }
 
+        indicatorView.widthAnchor.constraint(equalToConstant: widthValue).isActive = true
         indicatorView.heightAnchor.constraint(equalToConstant: 5).isActive = true
     }
 }

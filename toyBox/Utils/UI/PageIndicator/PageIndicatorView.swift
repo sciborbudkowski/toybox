@@ -1,6 +1,6 @@
 import UIKit
 
-class PageIndicatorView: View {
+final class PageIndicatorView: View {
 
     var currentIndex: Int = 0 {
         didSet {

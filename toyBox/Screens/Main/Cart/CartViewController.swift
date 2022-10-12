@@ -1,10 +1,10 @@
 import UIKit
 
-class CartViewController: ViewController {
+final class CartViewController: ViewController {
 
-    let customView = CartView()
+    private let customView = CartView()
 
-    var cartItems: CartModel = Storage.shared.cart
+    private var cartItems: CartModel = Storage.shared.cart
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -13,8 +13,6 @@ class CartViewController: ViewController {
         title = "Cart"
 
         navigationController?.setNavigationBarHidden(true, animated: false)
-
-        print("CartVC cartItems.count = ", cartItems.count)
     }
 
     override func loadView() {

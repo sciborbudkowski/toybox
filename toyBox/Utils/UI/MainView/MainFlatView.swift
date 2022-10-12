@@ -1,6 +1,6 @@
 import UIKit
 
-class MainFlatView: View {
+final class MainFlatView: View {
 
     private let scrollView: UIScrollView = {
         let view = UIScrollView()
@@ -15,8 +15,10 @@ class MainFlatView: View {
         let control = UIRefreshControl()
         control.tintColor = UIColor(named: "Accent")
         control.attributedTitle = NSAttributedString(string: "Pull to refresh",
-                                                     attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "Accent")!,
-                                                                  NSAttributedString.Key.font: UIFont.fontKarla(.regular, ofSize: 16)])
+                                                     attributes: [
+                                                        NSAttributedString.Key.foregroundColor: UIColor(named: "Accent")!,
+                                                        NSAttributedString.Key.font: UIFont.fontKarla(.regular, ofSize: 16)
+                                                     ])
         return control
     }()
 

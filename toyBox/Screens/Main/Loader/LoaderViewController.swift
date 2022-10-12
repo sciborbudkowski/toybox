@@ -1,8 +1,8 @@
 import UIKit
 
-class LoaderViewController: ViewController {
+final class LoaderViewController: ViewController {
 
-    let customView = LoaderView()
+    private let customView = LoaderView()
 
     override func viewDidLoad() {
         super.viewDidLoad()

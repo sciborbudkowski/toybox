@@ -1,15 +1,15 @@
 import UIKit
 
-class LoaderView: View {
+final class LoaderView: View {
 
-    let loadingIndicator: UIActivityIndicatorView = {
+    private let loadingIndicator: UIActivityIndicatorView = {
         let view = UIActivityIndicatorView()
         view.style = .large
         view.color = UIColor(named: "Accent")
         return view
     }()
 
-    let loadingLabel: Label = {
+    private let loadingLabel: Label = {
         let label = Label()
         label.text = "loading..."
         label.font = UIFont.fontKarla(.ligth, ofSize: 20)

@@ -1,7 +1,6 @@
 import UIKit
-import Kingfisher
 
-class ToyView: View {
+final class ToyView: View {
 
     let nameLabel: Label = {
         let label = Label()

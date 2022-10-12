@@ -1,6 +1,6 @@
 import UIKit
 
-class CategoryCell: TableCell {
+final class CategoryCell: TableCell {
 
     var model: CategoryModel? {
         didSet {

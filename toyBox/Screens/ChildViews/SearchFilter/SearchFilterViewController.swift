@@ -1,8 +1,8 @@
 import UIKit
 
-class SearchFilterViewController: ViewController {
+final class SearchFilterViewController: ViewController {
 
-    let customView = SearchFilterView()
+    private let customView = SearchFilterView()
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -3,7 +3,7 @@ import CryptoKit
 
 extension String {
 
-    func isEmailAddressValid() -> Bool {
+    func isThisEmailAddress() -> Bool {
         let emailPattern = #"^\S+@\S+\.\S+$"#
         let result = self.range(of: emailPattern, options: .regularExpression)
         let validEmail = (result != nil)

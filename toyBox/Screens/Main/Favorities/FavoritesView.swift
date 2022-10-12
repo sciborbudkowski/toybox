@@ -1,6 +1,6 @@
 import UIKit
 
-class FavoritesView: MainFlatView {
+final class FavoritesView: MainFlatView {
 
     private let viewTitleLabel: UILabel = {
         let label = UILabel()

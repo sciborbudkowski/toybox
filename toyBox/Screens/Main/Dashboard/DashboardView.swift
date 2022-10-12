@@ -1,6 +1,6 @@
 import UIKit
 
-class DashboardView: MainStackedView {
+final class DashboardView: MainStackedView {
 
     let popularTileView: TileView = {
         let view = TileView()
@@ -26,7 +26,6 @@ class DashboardView: MainStackedView {
     }
 
     override func setupConstraints() {
-        super.setupConstraints()
         insideViews.forEach {
             mainView.addArrangedSubview($0)
             $0.widthAnchor.constraint(equalTo: mainView.widthAnchor).isActive = true

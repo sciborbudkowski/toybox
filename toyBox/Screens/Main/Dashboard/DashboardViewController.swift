@@ -2,12 +2,12 @@ import UIKit
 import Combine
 import CombineCocoa
 
-class DashboardViewController: ViewController {
+final class DashboardViewController: ViewController {
 
-    let customView = DashboardView()
+    private let customView = DashboardView()
 
-    var toysRecent: ToysModel?
-    var toysPopular: ToysModel?
+    private var toysRecent: ToysModel?
+    private var toysPopular: ToysModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,8 +58,11 @@ class DashboardViewController: ViewController {
         }
         .store(in: &cancellables)
     }
+}
 
-    private func getDataFromApi(withoutLoader: Bool = false) {
+private extension DashboardViewController {
+
+    func getDataFromApi(withoutLoader: Bool = false) {
         let loader = LoaderViewController()
 
         if !withoutLoader {
@@ -105,7 +108,7 @@ class DashboardViewController: ViewController {
             .store(in: &cancellables)
     }
 
-    private func updatePopularTiles(with model: [ToyModel]) {
+    func updatePopularTiles(with model: [ToyModel]) {
         toysPopular = ToysModel(result: true, count: model.count, data: model)
         let max = model.count < Settings.shared.numberOfPopularTileButtons ? model.count : 3
 
@@ -130,7 +133,7 @@ class DashboardViewController: ViewController {
         }
     }
 
-    private func updateRecentTiles(with model: [ToyModel]) {
+    func updateRecentTiles(with model: [ToyModel]) {
         toysRecent = ToysModel(result: true, count: model.count, data: model)
         let max = model.count < Settings.shared.numberOfRecentTileButtons ? model.count : 3
 
@@ -155,7 +158,7 @@ class DashboardViewController: ViewController {
         }
     }
 
-    private func updateFeaturedCategories(with model: [CategoryModel]) {
+    func updateFeaturedCategories(with model: [CategoryModel]) {
         let max = model.count < Settings.shared.numberOfFeaturedCategoriesTileButtons ? model.count : 3
 
         for index in 0...max {

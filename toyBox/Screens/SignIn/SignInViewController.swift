@@ -1,24 +1,17 @@
 import UIKit
-import Combine
-import CombineCocoa
-import FBSDKCoreKit
 import FBSDKLoginKit
 import FirebaseCore
-import FirebaseFirestore
 import FirebaseAuth
-import FirebaseAuthUI
-import FirebaseEmailAuthUI
 import GoogleSignIn
 import AuthenticationServices
 
-class SignInViewController: ViewController {
+final class SignInViewController: ViewController {
 
     private let customView = SignInView()
 
     private var twitterAuthProvider = OAuthProvider(providerID: "twitter.com")
     private var authState: AuthStateDidChangeListenerHandle?
-
-    fileprivate var currentNonce: String?
+    private var currentNonce: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,27 +28,29 @@ class SignInViewController: ViewController {
 
         authState = Auth.auth().addStateDidChangeListener { [weak self] _, user in
             guard let self = self else { return }
-
-            if user != nil {
-                if Settings.shared.isAppFirstRun {
-                    let introViewController = IntroViewController()
-                    self.present(introViewController, animated: true)
-                }
-
-                if let userId = user?.uid {
-                    Secrets.shared.userId = userId
-                } else {
-                    do {
-                        try Auth.auth().signOut()
-                        AccessToken.current = nil
-                    } catch let error {
-                        self.showErrorAlert(button: "OK", title: "Error", message: "Error signing out: \(error.localizedDescription)")
-                    }
-                }
-
-                let tabBarViewController = TabBarViewController()
-                self.navigationController?.pushViewController(tabBarViewController, animated: true)
+            if user == nil {
+                print("something went wrong at viewWillAppear")
+                return
             }
+
+            if Settings.shared.isAppFirstRun {
+                let introViewController = IntroViewController()
+                self.present(introViewController, animated: true)
+            }
+
+            if let userId = user?.uid {
+                Secrets.shared.userId = userId
+            } else {
+                do {
+                    try Auth.auth().signOut()
+                    AccessToken.current = nil
+                } catch let error {
+                    self.showErrorAlert(button: "OK", title: "Error", message: "Error signing out: \(error.localizedDescription)")
+                }
+            }
+
+            let tabBarViewController = TabBarViewController()
+            self.navigationController?.pushViewController(tabBarViewController, animated: true)
         }
     }
 
@@ -118,12 +113,12 @@ extension SignInViewController: ASAuthorizationControllerDelegate, ASAuthorizati
     }
 }
 
-extension SignInViewController {
+private extension SignInViewController {
 
-    private func setupLoginButton() {
+    func setupLoginButton() {
         customView.loginButton.tapPublisher.sink { [weak self] _ in
             guard let self = self else { return }
-            guard let emailFieldTextValidation = self.customView.usernameField.text?.isEmailAddressValid(),
+            guard let emailFieldTextValidation = self.customView.usernameField.text?.isThisEmailAddress(),
                   let email = self.customView.usernameField.text,
             emailFieldTextValidation else {
                 self.showErrorAlert(button: "OK", title: "Error", message: "Email address is either empty or incorrect.")
@@ -144,7 +139,7 @@ extension SignInViewController {
         }.store(in: &cancellables)
     }
 
-    private func setupFbButton() {
+    func setupFbButton() {
         customView.fbButton.gesture().sink { _ in
             let loginManager = LoginManager()
             loginManager.logIn(permissions: [], from: self) { [weak self] _, error in
@@ -166,7 +161,7 @@ extension SignInViewController {
         }.store(in: &cancellables)
     }
 
-    private func setupGoogleButton() {
+    func setupGoogleButton() {
         customView.googleButton.gesture().sink { _ in
             guard let clientID = FirebaseApp.app()?.options.clientID else { return }
             let config = GIDConfiguration(clientID: clientID)
@@ -191,7 +186,7 @@ extension SignInViewController {
         }.store(in: &cancellables)
     }
 
-    private func setupTwitterButton() {
+    func setupTwitterButton() {
         customView.twitterButton.gesture().sink { [weak self] _ in
             guard let self = self else { return }
             self.twitterAuthProvider.getCredentialWith(nil) { credential, error in
@@ -216,7 +211,7 @@ extension SignInViewController {
         }.store(in: &cancellables)
     }
 
-    private func setupAppleButton() {
+    func setupAppleButton() {
         customView.appleButton.gesture().sink { [weak self] _ in
             guard let self = self else { return }
             let nonce = String.randomNonceString()
@@ -233,7 +228,7 @@ extension SignInViewController {
         }.store(in: &cancellables)
     }
 
-    private func setupSignUpButton() {
+    func setupSignUpButton() {
         customView.signupButton.tapPublisher.sink { [weak self] _ in
             guard let self = self else { return }
             let signupPopup = SignUpViewController()
@@ -241,7 +236,7 @@ extension SignInViewController {
         }.store(in: &cancellables)
     }
 
-    private func setupForgotPasswordButton() {
+    func setupForgotPasswordButton() {
         customView.forgotPasswordButton.tapPublisher.sink { [weak self] _ in
             guard let self = self else { return }
             let forgotPasswordPopup = ForgotPasswordViewController()

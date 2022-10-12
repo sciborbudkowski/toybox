@@ -1,6 +1,5 @@
 import UIKit
 import Combine
-import CombineCocoa
 
 enum GestureType {
     case tap(UITapGestureRecognizer = .init())

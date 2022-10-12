@@ -1,0 +1,9 @@
+included:
+- toyBox
+
+excluded:
+- Pods
+- Carthage
+
+line_length: 250
+

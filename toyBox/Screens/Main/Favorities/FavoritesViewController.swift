@@ -1,12 +1,12 @@
 import UIKit
 
-class FavoritesViewController: ViewController {
-
-    let customView = FavoritesView()
+final class FavoritesViewController: ViewController {
 
     var items: [ToyModel] = []
 
-    var toysFavorites: ToysModel? {
+    private let customView = FavoritesView()
+
+    private var toysFavorites: ToysModel? {
         didSet {
             guard let data = toysFavorites?.data else { return }
             self.items = data
@@ -45,8 +45,11 @@ class FavoritesViewController: ViewController {
         }
         .store(in: &cancellables)
     }
+}
 
-    private func getDataFromApi(withoutLoader: Bool = false) {
+private extension FavoritesViewController {
+
+    func getDataFromApi(withoutLoader: Bool = false) {
         let loader = LoaderViewController()
 
         if !withoutLoader {
@@ -70,7 +73,7 @@ class FavoritesViewController: ViewController {
                     }
                 case .finished: break
                 }
-            }, receiveValue: { [weak self] received in
+            }) { [weak self] received in
                 guard let self = self else { return }
 
                 self.customView.isEmpty = received.isEmpty
@@ -82,7 +85,7 @@ class FavoritesViewController: ViewController {
                         loader.dismiss(animated: true)
                     }
                 }
-            })
+            }
             .store(in: &cancellables)
     }
 }

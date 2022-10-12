@@ -1,14 +1,13 @@
 import UIKit
-import Combine
 import CombineCocoa
 
-class IntroViewController: ViewController {
+final class IntroViewController: ViewController {
 
-    var currentPageIndex: Int = 0
+    private var currentPageIndex: Int = 0
 
-    let customView = IntroView()
+    private let customView = IntroView()
 
-    let items: [IntroModel] = [
+    private let items: [IntroModel] = [
         IntroModel(image: UIImage(named: "Intro1")!,
                    title: "Welcome to toyBox!",
                    description: "Welcome fun is a lovely toy application that will help you welcome your child into the world. It will provide you with a personalized greeting, a song, and the ability to change the wallpaper and background color."),

@@ -1,11 +1,9 @@
 import UIKit
-import Combine
-import CombineCocoa
 
-class CategoriesViewController: ViewController {
+final class CategoriesViewController: ViewController {
 
-    let customView = CategoriesView()
-    let dataSource = CategoriesDataSource()
+    private let customView = CategoriesView()
+    private let dataSource = CategoriesDataSource()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,8 +22,11 @@ class CategoriesViewController: ViewController {
     override func loadView() {
         view = customView
     }
+}
 
-    private func getDataFromApi() {
+private extension CategoriesViewController {
+
+    func getDataFromApi() {
         let loader = LoaderViewController()
         loader.prepare()
         present(loader, animated: true)

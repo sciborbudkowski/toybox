@@ -1,11 +1,10 @@
 import UIKit
-import Combine
 import CombineCocoa
 import FirebaseAuth
 
-class ForgotPasswordViewController: ViewController {
+final class ForgotPasswordViewController: ViewController {
 
-    let customView = ForgotPasswordView()
+    private let customView = ForgotPasswordView()
 
     override func viewDidLoad() {
         super.viewDidLoad()

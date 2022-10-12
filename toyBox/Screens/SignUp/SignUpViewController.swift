@@ -1,12 +1,10 @@
 import UIKit
-import Combine
 import CombineCocoa
-import FirebaseCore
 import FirebaseAuth
 
-class SignUpViewController: ViewController {
+final class SignUpViewController: ViewController {
 
-    let customView = SignUpView()
+    private let customView = SignUpView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +24,9 @@ class SignUpViewController: ViewController {
 
         customView.signupButton.tapPublisher.sink { [weak self] _ in
             guard let self = self else { return }
-            guard let email = self.customView.usernameField.text, email.isEmailAddressValid() else {
+
+            guard let email = self.customView.usernameField.text,
+                  email.isThisEmailAddress() else {
                 self.showErrorAlert(button: "OK", title: "Error", message: "Email address is either empty or incorrect.")
                 return
             }

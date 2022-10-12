@@ -5,7 +5,7 @@ struct ToyPropertyType {
     var value: String
 }
 
-class ToyViewCell: TableCell {
+final class ToyViewCell: TableCell {
 
     var model: ToyPropertyType? {
         didSet {

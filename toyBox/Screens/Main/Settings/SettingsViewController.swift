@@ -1,13 +1,11 @@
 import UIKit
-import FirebaseCore
 import FirebaseAuth
-import FBSDKCoreKit
 import FBSDKLoginKit
 
-class SettingsViewController: ViewController {
+final class SettingsViewController: ViewController {
 
-    let customView = SettingsView()
-    let dataSource = SettingsDataSource()
+    private let customView = SettingsView()
+    private let dataSource = SettingsDataSource()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,12 +23,16 @@ class SettingsViewController: ViewController {
     override func setupCombineComponents() {
         customView.signOffButton.tapPublisher.sink { [weak self] _ in
             guard let self = self else { return }
+
             self.signOut()
             self.navigationController?.popToRootViewController(animated: true)
         }.store(in: &cancellables)
     }
+}
 
-    private func signOut() {
+private extension SettingsViewController {
+
+    func signOut() {
         do {
             try Auth.auth().signOut()
             AccessToken.current = nil

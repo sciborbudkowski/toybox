@@ -14,9 +14,11 @@ Current list of keywords for this project is:
 - Firebase
 - MVVM
 - No Storyboard
+- UI from code
 - Social Service User Login
 - CocoaPods
 - Design Patterns
+- SwiftLint
 - REST API (nodejs, express)
 - MongoDB
 - JSON

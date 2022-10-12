@@ -1,10 +1,8 @@
 import UIKit
-import FirebaseAuthUI
 import FirebaseFacebookAuthUI
 import FirebaseGoogleAuthUI
 import FirebaseOAuthUI
 import FirebaseEmailAuthUI
-import FBSDKCoreKit
 import FBSDKLoginKit
 import Bagel
 

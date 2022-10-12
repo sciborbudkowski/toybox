@@ -4,12 +4,6 @@ class CollectionCell: UICollectionViewCell {
 
     static let identifier = String(describing: CollectionCell.self)
 
-    func setupProperties() {
-    }
-
-    func setupLayoutContraints() {
-    }
-
     override init(frame: CGRect) {
         super.init(frame: frame)
 
@@ -19,5 +13,11 @@ class CollectionCell: UICollectionViewCell {
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    func setupProperties() {
+    }
+
+    func setupLayoutContraints() {
     }
 }

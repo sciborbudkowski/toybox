@@ -1,8 +1,7 @@
-import UIKit
 import Combine
 import CoreLocation
 
-class LocationUpdater {
+final class LocationUpdater {
 
     static let shared = LocationUpdater()
 
@@ -25,17 +24,19 @@ class LocationUpdater {
         #if DEBUG
             .sink(receiveCompletion: { error in
                 print("Error occured: ", error)
-            }, receiveValue: { [weak self] value in
+            }) { [weak self] value in
                 Storage.shared.locationInfo = value
                 self?.locationService.disable()
-            }).store(in: &cancellables)
+            }
+            .store(in: &cancellables)
         #else
             .sink(receiveCompletion: { _ in
-            }, receiveValue: { [weak self] value in
+            }) { [weak self] value in
                 Storage.shared.locationInfo = value
                 Storage.shared.currentLocation = CLLocation(latitude: value.coordinates.latitude, longitude: value.coordinates.longitude)
                 self?.locationService.disable()
-            }).store(in: &cancellables)
+            }
+            .store(in: &cancellables)
         #endif
 
         locationService.enable()

@@ -1,13 +1,17 @@
 import UIKit
 
-class SearchBarView: View {
+final class SearchBarView: View {
 
     let searchTextField: TextField = {
         let field = TextField()
         field.font = UIFont.fontQuicksand(.regular, ofSize: 15)
-        field.attributedPlaceholder = NSAttributedString(string: "Find toy, puzzle and more...",
-                                                         attributes: [NSAttributedString.Key.font: UIFont.fontKarla(.regular, ofSize: 16),
-                                                                      NSAttributedString.Key.foregroundColor: UIColor.lightGray])
+        field.attributedPlaceholder = NSAttributedString(
+            string: "Find toy, puzzle and more...",
+            attributes: [
+                NSAttributedString.Key.font: UIFont.fontKarla(.regular, ofSize: 16),
+                NSAttributedString.Key.foregroundColor: UIColor.lightGray
+            ]
+        )
         field.autocorrectionType = .no
         field.autocapitalizationType = .none
         field.keyboardType = .default

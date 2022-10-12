@@ -1,14 +1,14 @@
 import UIKit
 
-class ForgotPasswordView: View {
+final class ForgotPasswordView: View {
 
-    let logoView: UIImageView = {
+    private let logoView: UIImageView = {
         let view = UIImageView()
         view.image = UIImage(named: "Logo")
         return view
     }()
 
-    let titleLabel: UILabel = {
+    private let titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.fontKarla(.medium, ofSize: 20)
         label.text = "Forgot Password?"
@@ -16,7 +16,7 @@ class ForgotPasswordView: View {
         return label
     }()
 
-    let descriptionLabel: UILabel = {
+    private let descriptionLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.fontKarla(.ligth, ofSize: 15)
         label.text = "Enter email address to send reset password link."
@@ -45,9 +45,10 @@ class ForgotPasswordView: View {
         button.backgroundColor = UIColor(named: "Background")
         button.setAttributedTitle(
             NSAttributedString(string: "Send Link",
-                               attributes: [NSAttributedString.Key.font: UIFont.fontKarla(.regular, ofSize: 16),
-                                            NSAttributedString.Key.foregroundColor: UIColor(named: "Button")!
-                                           ]),
+                               attributes: [
+                                NSAttributedString.Key.font: UIFont.fontKarla(.regular, ofSize: 16),
+                                NSAttributedString.Key.foregroundColor: UIColor(named: "Button")!
+                               ]),
             for: .normal)
         return button
     }()
@@ -56,9 +57,10 @@ class ForgotPasswordView: View {
         let button = UIButton()
         button.setAttributedTitle(
             NSAttributedString(string: "Cancel",
-                               attributes: [NSAttributedString.Key.font: UIFont.fontKarla(.ligth, ofSize: 15),
-                                            NSAttributedString.Key.foregroundColor: UIColor(named: "Link")!
-                                           ]),
+                               attributes: [
+                                NSAttributedString.Key.font: UIFont.fontKarla(.ligth, ofSize: 15),
+                                NSAttributedString.Key.foregroundColor: UIColor(named: "Link")!
+                               ]),
             for: .normal)
         return button
     }()

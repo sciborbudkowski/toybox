@@ -1,8 +1,6 @@
 import UIKit
-import FBSDKCoreKit
 import FBSDKLoginKit
 import FirebaseCore
-import FirebaseFirestore
 import FirebaseAuth
 import GoogleSignIn
 

@@ -1,6 +1,6 @@
 import UIKit
 
-class SearchFilterView: MainStackedView {
+final class SearchFilterView: MainStackedView {
 
     private let titleFilterView = SFTitleFilterView()
 

@@ -1,6 +1,6 @@
 import UIKit
 
-class CategoriesDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
+final class CategoriesDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
 
     lazy var items: [CategoryModel] = []
 

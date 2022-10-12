@@ -12,10 +12,12 @@ class Label: UILabel {
     override open func textRect(forBounds bounds: CGRect, limitedToNumberOfLines numberOfLines: Int) -> CGRect {
         let insetRect = bounds.inset(by: textEdgeInsets)
         let textRect = super.textRect(forBounds: insetRect, limitedToNumberOfLines: numberOfLines)
-        let invertedInsets = UIEdgeInsets(top: -textEdgeInsets.top,
-                                          left: -textEdgeInsets.left,
-                                          bottom: -textEdgeInsets.bottom,
-                                          right: -textEdgeInsets.right)
+        let invertedInsets = UIEdgeInsets(
+            top: -textEdgeInsets.top,
+            left: -textEdgeInsets.left,
+            bottom: -textEdgeInsets.bottom,
+            right: -textEdgeInsets.right
+        )
 
         return textRect.inset(by: invertedInsets)
     }
