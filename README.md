@@ -19,6 +19,7 @@ Current list of keywords for this project is:
 - CocoaPods
 - Design Patterns
 - SwiftLint
+- Clean Code
 - REST API (nodejs, express)
 - MongoDB
 - JSON

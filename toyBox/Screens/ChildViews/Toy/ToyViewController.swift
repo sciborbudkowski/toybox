@@ -77,7 +77,7 @@ final class ToyViewController: ViewController {
     }
 }
 
-private extension ToyViewController {
+extension ToyViewController {
 
     func configure(with model: ToyModel) {
         data = model
@@ -129,6 +129,9 @@ private extension ToyViewController {
         }
         .store(in: &cancellables)
     }
+}
+
+private extension ToyViewController {
 
     func switchFavoriteStatus() {
         guard let data = data else { fatalError("this shouldn't happen!") }

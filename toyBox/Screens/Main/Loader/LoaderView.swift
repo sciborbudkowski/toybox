@@ -2,7 +2,7 @@ import UIKit
 
 final class LoaderView: View {
 
-    private let loadingIndicator: UIActivityIndicatorView = {
+    let loadingIndicator: UIActivityIndicatorView = {
         let view = UIActivityIndicatorView()
         view.style = .large
         view.color = UIColor(named: "Accent")

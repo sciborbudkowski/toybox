@@ -1,6 +1,6 @@
 import UIKit
 
-final class MainFlatView: View {
+class MainFlatView: View {
 
     private let scrollView: UIScrollView = {
         let view = UIScrollView()

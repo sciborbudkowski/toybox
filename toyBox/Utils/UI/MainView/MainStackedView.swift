@@ -1,6 +1,6 @@
 import UIKit
 
-final class MainStackedView: View {
+class MainStackedView: View {
 
     private let scrollView: UIScrollView = {
         let view = UIScrollView()

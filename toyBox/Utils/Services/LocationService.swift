@@ -17,7 +17,7 @@ final class LocationService: NSObject, CLLocationManagerDelegate {
 
     override init() {
         publisher = locationPublisher.eraseToAnyPublisher()
-        
+
         super.init()
 
         manager.delegate = self

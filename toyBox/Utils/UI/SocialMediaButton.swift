@@ -15,7 +15,7 @@ final class SocialMediaButton: View {
     var type: SignInProviderType? {
         didSet {
             guard let type = type else { return }
-            
+
             switch type {
             case .facebook:
                 icon.image = UIImage(named: "SignInProviderLogos/Facebook")

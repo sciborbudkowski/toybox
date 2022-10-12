@@ -73,7 +73,7 @@ private extension FavoritesViewController {
                     }
                 case .finished: break
                 }
-            }) { [weak self] received in
+            }, receiveValue: { [weak self] received in
                 guard let self = self else { return }
 
                 self.customView.isEmpty = received.isEmpty
@@ -85,7 +85,7 @@ private extension FavoritesViewController {
                         loader.dismiss(animated: true)
                     }
                 }
-            }
+            })
             .store(in: &cancellables)
     }
 }

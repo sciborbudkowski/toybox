@@ -66,7 +66,7 @@ private extension NetworkDispatcher {
         if Settings.shared.dumpNetworkStatus {
             print("ERROR: \(error)")
         }
-        
+
         switch error {
         case is Swift.DecodingError: return .decodingError
         case let urlError as URLError: return .urlSessionFailed(urlError)
